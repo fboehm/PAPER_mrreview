@@ -6,5 +6,5 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of PAPER_mrreview is to share the materials for a review of
-mendelian randomization in GWAS.
+The goal of PAPER_mrreview is to share the materials for a review
+manuscript of mendelian randomization in GWAS.
