@@ -1,0 +1,23 @@
+---
+title: "Citations figure"
+author: "Fred Boehm & Xiang Zhou"
+date: "1/26/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Overview
+
+We need a bar plot of counts per year for a search with keywords "Mendelian randomization".
+
+```{r, eval = FALSE}
+remotes::install_github("akshaynagpal/RgScholar")
+```
+
+```{r}
+RgScholar::google_Scholar(user_query = "mendelian randomization", year_low = 2021)
+```
+
