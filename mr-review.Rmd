@@ -1,0 +1,65 @@
+---
+title: "Mendelian randomization for causal inference in Genome-wide association studies"
+author: "Frederick J. Boehm & Xiang Zhou"
+date: "1/26/2022"
+output: 
+  - bookdown::word_document2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+Great interest has developed in inferring causal relationships between complex 
+traits in observational human genetics studies. 
+
+Genome-wide association studies (GWAS) present unique opportunities for 
+discovery of causal relationships via mendelian randomization.
+
+Methods for Mendelian randomization have appeared at a rapid pace since the 
+appearance of the first published GWAS. 
+
+Now, GWAS and Mendelian randomization for Biobank-scale data offer the possibility
+of discovering even more causal relationships among complex traits. The large
+sample sizes offer the possibility of uncovering associations of modest strength 
+that might be undetectable in smaller sample sizes. 
+
+
+
+
+# Mendelian Randomization with one Instrument
+
+Mendelian randomization with one instrument uses a single genetic marker 
+as the proxy ("instrument" or "instrumental variable") for the "exposure", or 
+putative cause, in a causal inference study. When the genetic marker is a single
+nucleotide polymorphism on an autosome, the cohort is partitioned into three 
+classes, two homozygotes and a heterozygote, based on genotypes for that marker.
+
+
+
+## Assumptions of Mendelian Randomization
+
+Three assumptions are central to Mendelian Randomization.
+
+
+
+# Mendelian Randomization with multiple instruments
+
+
+
+
+# Horizontal pleiotropy
+
+Horizontal pleiotropy refers to...
+
+
+
+
+# Correlated horizontal pleiotropy
+
+# Applications and Recent Findings
+
+
+# Future Directions
