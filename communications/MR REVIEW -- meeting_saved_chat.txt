@@ -1,0 +1,28 @@
+15:16:18 From Xiang Zhou To Everyone:
+	1. Introduction on MR and IVs
+15:16:29 From Xiang Zhou To Everyone:
+	2. MR methods with one instrumental variable
+15:16:41 From Xiang Zhou To Everyone:
+	Zheng Li
+15:16:44 From Xiang Zhou To Everyone:
+	METRO
+15:16:57 From Xiang Zhou To Everyone:
+	MRAID
+15:17:08 From Xiang Zhou To Everyone:
+	simple simulatoins
+15:17:26 From Xiang Zhou To Everyone:
+	3. MR with multiples IVs, IVW, etc.
+15:17:41 From Xiang Zhou To Everyone:
+	4. Horizontal pleiotropy: Egger, median
+15:17:57 From Xiang Zhou To Everyone:
+	5. Correlated horizontal pleiotropy: CAUSE, MRMix, MRAID
+15:18:10 From Xiang Zhou To Everyone:
+	6. Applications
+15:21:06 From Xiang Zhou To Everyone:
+	Ying's paper
+15:21:17 From Xiang Zhou To Everyone:
+	Trends in Genetics
+15:21:21 From Xiang Zhou To Everyone:
+	Review on PGS
+15:21:47 From Xiang Zhou To Everyone:
+	Ying Ma, and Xiang Zhou (2021). Genetic prediction of complex traits with polygenic scores: A statistical review. Trends in Genetics. 37: 995-1011.
