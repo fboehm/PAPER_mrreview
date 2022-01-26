@@ -1,0 +1,11 @@
+---
+title: "Outlining Ma & Zhou"
+author: "Fred Boehm"
+date: "1/26/2022"
+output: html_document
+---
+
+## OVerview
+
+Goal here is to outline the recent review article from Ma & Zhou on polygenic scores.
+
