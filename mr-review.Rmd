@@ -1,8 +1,10 @@
 ---
 title: "Mendelian randomization for causal inference in Genome-wide association studies"
 author: "Frederick J. Boehm & Xiang Zhou"
-date: "1/26/2022"
+date: "`r lubridate::now()`"
+
 output: 
+  - bookdown::html_document2
   - bookdown::word_document2
 ---
 

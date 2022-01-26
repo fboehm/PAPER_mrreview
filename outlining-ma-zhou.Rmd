@@ -9,3 +9,6 @@ output: html_document
 
 Goal here is to outline the recent review article from Ma & Zhou on polygenic scores.
 
+1. PGS Analysis for genetic prediction of complex traits  
+1. A multiple linear regression framework  
+1. 
