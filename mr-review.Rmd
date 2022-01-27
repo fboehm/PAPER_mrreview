@@ -34,17 +34,32 @@ that might be undetectable in smaller sample sizes.
 # Mendelian Randomization with one Instrument
 
 Mendelian randomization with one instrument uses a single genetic marker 
-as the proxy ("instrument" or "instrumental variable") for the "exposure" in a causal inference study. When the genetic marker is a single
-nucleotide polymorphism on an autosome, the cohort is partitioned into three 
-classes, two homozygotes and a heterozygote, based on genotypes for that marker.
+as the proxy ("instrument" or "instrumental variable") for the "exposure" and asks 
+whether variation in the genotypes at the genetic marker causes variation in the 
+"outcome" variable, which is typically a second complex trait. When the genetic marker 
+is a single nucleotide polymorphism on an autosome, the cohort is partitioned into three 
+classes, two homozygote classes and a single heterozygote class, based on genotypes 
+for that marker. When the three assumptions of mendelian randomization are satisfied, 
+estimation of the causal effect of the exposure on the outcome is possible. 
 
 
 
 ## Assumptions of Mendelian Randomization
 
-Three assumptions are central to Mendelian Randomization.
+Three assumptions are central to Mendelian Randomization. Satisfying them is necessary to infer causal effects in a MR study. Careful evaluation of the assumptions is needed. Briefly, the first assumption states that the exposure is associated with the outcome. The second requires independence, conditional on the exposure and all measured and unmeasured confounders, between the genetic marker and the outcome. The last of the three assumptions states that the genetic marker is independent of all (measured and unmeasured) confounders of the relationship between exposure and outcome. We next discuss these in more detail and consider their evaluation in MR studies.
 
-The first, often termed the 
+The first assumption, about the association between the genetic marker and the exposure, holds, but this association is weak, then an amplification of biases, such as those due to violations of assumptions 2 and 3, may result [@vanderweele_methodological_2014]. 
+
+The second assumption, often termed the exclusion restriction, can also be stated as 
+the need for the genetic marker to affect the outcome only through the exposure. In a 
+causal diagram, this means that the only path from the marker to the outcome is that 
+containing the exposure.
+
+When the three MR assumptions hold, one may use instrumental variable methods, 
+with the genetic marker data, the exposure data, and the outcome data, to estimate the 
+effect of the exposure on the outcome. 
+
+
 
 # Mendelian Randomization with multiple instruments
 
