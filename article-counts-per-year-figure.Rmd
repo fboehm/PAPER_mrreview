@@ -1,6 +1,6 @@
 ---
-title: "Citations figure"
-author: "Fred Boehm & Xiang Zhou"
+title: "Article counts per year figure"
+author: "Fred Boehm"
 date: "1/26/2022"
 output: html_document
 ---
@@ -13,11 +13,20 @@ knitr::opts_chunk$set(echo = TRUE)
 
 We need a bar plot of counts per year for a search with keywords "Mendelian randomization".
 
-```{r, eval = FALSE}
-remotes::install_github("akshaynagpal/RgScholar")
-```
+I manually recorded the article counts per year for two searches: 
+1. genome-wide association study and 2. mendelian randomization.
 
 ```{r}
-RgScholar::google_Scholar(user_query = "mendelian randomization", year_low = 2021)
+library(dplyr)
+dat <- readxl::read_xlsx(path = "data/publication-counts.xlsx", sheet = "counts")
+dat %>%
+  ggplot2::ggplot(ggplot2::aes(x = year, y = mrcount)) + ggplot2::geom_bar(stat = "identity")
+```
+
+
+```{r}
+dat %>%
+  ggplot2::ggplot(ggplot2::aes(x = year, y = gwascount)) + ggplot2::geom_bar(stat = "identity")
+
 ```
 
