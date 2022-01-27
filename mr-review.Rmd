@@ -2,7 +2,7 @@
 title: "Mendelian randomization for causal inference in Genome-wide association studies"
 author: "Frederick J. Boehm & Xiang Zhou"
 date: "`r lubridate::now()`"
-
+bibliography: exported.bib
 output: 
   - bookdown::html_document2
   - bookdown::word_document2
@@ -20,12 +20,12 @@ traits in observational human genetics studies.
 Genome-wide association studies (GWAS) present unique opportunities for 
 discovery of causal relationships via mendelian randomization.
 
-Methods for Mendelian randomization have appeared at a rapid pace since the 
-appearance of the first published GWAS. 
+Methods for Mendelian randomization have appeared at a rapid and accelerating pace since the 
+appearance of the first GWAS. 
 
 Now, GWAS and Mendelian randomization for Biobank-scale data offer the possibility
 of discovering even more causal relationships among complex traits. The large
-sample sizes offer the possibility of uncovering associations of modest strength 
+sample sizes in biobank studies offer the possibility of uncovering associations of modest strength 
 that might be undetectable in smaller sample sizes. 
 
 
@@ -64,4 +64,4 @@ Horizontal pleiotropy refers to...
 # Applications and Recent Findings
 
 
-# Future Directions
+# Summary and Outlook
