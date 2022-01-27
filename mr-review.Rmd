@@ -34,8 +34,7 @@ that might be undetectable in smaller sample sizes.
 # Mendelian Randomization with one Instrument
 
 Mendelian randomization with one instrument uses a single genetic marker 
-as the proxy ("instrument" or "instrumental variable") for the "exposure", or 
-putative cause, in a causal inference study. When the genetic marker is a single
+as the proxy ("instrument" or "instrumental variable") for the "exposure" in a causal inference study. When the genetic marker is a single
 nucleotide polymorphism on an autosome, the cohort is partitioned into three 
 classes, two homozygotes and a heterozygote, based on genotypes for that marker.
 
@@ -45,7 +44,7 @@ classes, two homozygotes and a heterozygote, based on genotypes for that marker.
 
 Three assumptions are central to Mendelian Randomization.
 
-
+The first, often termed the 
 
 # Mendelian Randomization with multiple instruments
 
@@ -65,6 +64,17 @@ Horizontal pleiotropy refers to...
 
 
 # Applications and Recent Findings
+
+## Omnigenic MR
+
+Recent research on the omnigenic hypothesis, which posits 
+that every SNP's effect on a trait is nonzero, has informed
+MR methods development [@Boyle2017]. @wang_mendelian_nodate 
+recognized the limitations of previous MR methods in the 
+context of the omnigenic hypothesis. To accommodate the possibility
+that a trait is influenced by many genome-wide small effects, 
+
+
 
 
 # Summary and Outlook
