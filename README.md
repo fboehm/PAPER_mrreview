@@ -8,3 +8,9 @@
 
 The goal of PAPER_mrreview is to share the materials for a review
 manuscript of mendelian randomization in GWAS.
+
+# Resources
+
+## Timeline in R
+
+<https://benalexkeen.com/creating-a-timeline-graphic-using-r-and-ggplot2/>
