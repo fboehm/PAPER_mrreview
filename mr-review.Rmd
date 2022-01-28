@@ -70,7 +70,10 @@ Recognition of complex traits' diverse genetic architectures has fueled developm
 
 # Horizontal pleiotropy
 
-Horizontal pleiotropy refers to 
+Horizontal pleiotropy refers to the presence of multiple pathways from a genetic 
+variant to the outcome. One of these multiple pathways may contain the exposure variable.
+
+
 
 
 
