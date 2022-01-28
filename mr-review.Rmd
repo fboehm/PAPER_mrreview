@@ -63,12 +63,14 @@ effect of the exposure on the outcome.
 
 # Mendelian Randomization with multiple instruments
 
+Recognition of complex traits' diverse genetic architectures has fueled development of MR methods with multiple instruments. 
+
 
 
 
 # Horizontal pleiotropy
 
-Horizontal pleiotropy refers to...
+Horizontal pleiotropy refers to 
 
 
 
@@ -78,7 +80,7 @@ Horizontal pleiotropy refers to...
 @yuan_testing_2020 
 
 
-# Applications and Recent Findings
+# Recent Findings
 
 ## Omnigenic MR
 
@@ -87,12 +89,33 @@ that every SNP's effect on a trait is nonzero, has informed
 MR methods development [@Boyle2017]. @wang_mendelian_nodate 
 recognized the limitations of previous MR methods in the 
 context of the omnigenic hypothesis. To accommodate the possibility
-that a trait is influenced by many genome-wide small effects, 
+that a trait is influenced by many genome-wide, small effects, 
+
+## Multiple outcomes in MR
+
+Investigators have found that combining information from multiple  related traits can lead to more informative MR results. 
+
+One approach to combining information across traits is to extend the univariate MR statistical methods to their multivariate analogs.
+
+# Applications of MR in GWAS 
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 # Summary and Outlook
+
+
+
 
 
 # References
