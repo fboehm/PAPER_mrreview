@@ -72,6 +72,12 @@ Recognition of complex traits' diverse genetic architectures has fueled developm
 
 Horizontal pleiotropy refers to the presence of multiple pathways from a genetic 
 variant to the outcome. One of these multiple pathways may contain the exposure variable.
+The fact that there are multiple pathways from the genetic variant to the outcome violates
+the MR assumptions. @verbanck_detection_2018 documented widespread horizontal pleiotropy 
+in GWAS. This finding motivated the development of MR-PRESSO and inspired 
+further research into methods to accommodate horizontal pleiotropy in MR studies [@verbanck_detection_2018].
+* What does MR-PRESSO do? What are its limitations?
+
 
 
 
