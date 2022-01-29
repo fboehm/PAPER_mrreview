@@ -130,7 +130,7 @@ that a trait is influenced by many genome-wide, small effects,
 
 ## Multiple outcomes in MR
 
-Investigators have found that combining information from multiple  related traits can lead to more informative MR results. 
+Investigators have found that combining information from multiple related traits can lead to richer MR results. 
 
 One approach to combining information across traits is to extend the univariate MR statistical methods to their multivariate analogs.
 
