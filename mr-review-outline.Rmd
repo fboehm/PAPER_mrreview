@@ -5,6 +5,7 @@ date: "`r lubridate::now()`"
 bibliography: exported.bib
 csl: elsevier-with-titles.csl
 output: 
+  - bookdown::github_document2
   - bookdown::html_document2
   - bookdown::word_document2
 ---
