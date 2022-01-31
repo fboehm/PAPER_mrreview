@@ -3,6 +3,7 @@ title: "Mendelian randomization for causal inference in Genome-wide association 
 author: "Frederick J. Boehm & Xiang Zhou"
 date: "`r lubridate::now()`"
 bibliography: exported.bib
+csl: elsevier-with-titles.csl
 output: 
   - bookdown::html_document2
   - bookdown::word_document2
@@ -15,15 +16,22 @@ knitr::opts_chunk$set(echo = TRUE)
 # Introduction
 
 Great interest has developed in inferring causal relationships between complex 
-traits in observational human genetics studies. 
+traits in observational human genetics studies. Throughout the manuscript, we 
+use the term "complex trait" to refer to a trait that doesn't appear to be 
+inherited in a Mendelian fashion. Typically, traits such as gene expression levels
+are inherited in a polygenic manner, with many genes influencing the trait.
 
 Genome-wide association studies (GWAS) present unique opportunities for 
-discovery of causal relationships via mendelian randomization.
+discovery of causal relationships via mendelian randomization. A genome-wide association study 
+interrogates millions of single nucleotide polymorphisms (SNPs) to infer which affect the trait. A 
+SNP is a genetic marker defined by nucleotide base identity at a single genomic position.
+
+
 
 Methods for Mendelian randomization have appeared at a rapid and accelerating pace since the 
 appearance of the first GWAS. 
 
-Now, GWAS and Mendelian randomization for Biobank-scale data offer the possibility
+Now, GWAS and Mendelian randomization for biobank-scale data offer the possibility
 of discovering even more causal relationships among complex traits. The large
 sample sizes in biobank studies offer the possibility of uncovering associations of modest strength 
 that might be undetectable in smaller sample sizes. 
@@ -46,9 +54,17 @@ The outcome variable can be binary, a count, or a continuous variable.
 
 ## Assumptions of Mendelian Randomization
 
-Three assumptions are central to Mendelian Randomization. Satisfying them is necessary to infer causal effects in a MR study. Careful evaluation of the assumptions is needed in MR studies. Briefly, the first assumption states that the exposure is associated with the outcome. The second requires independence, conditional on the exposure and all measured and unmeasured confounders, between the genetic marker and the outcome. The last of the three assumptions states that the genetic marker is independent of all (measured and unmeasured) confounders of the relationship between exposure and outcome. We next discuss these in more detail and consider their evaluation in MR studies.
+Three assumptions are central to Mendelian Randomization. Satisfying them is necessary to infer 
+causal effects in a MR study. Careful evaluation of the assumptions is needed in MR studies. Briefly, 
+the first assumption states that the exposure is associated with the outcome. The second requires 
+independence, conditional on the exposure and all measured and unmeasured confounders, between the 
+genetic marker and the outcome. The last of the three assumptions states that the genetic marker is 
+independent of all (measured and unmeasured) confounders of the relationship between exposure and 
+outcome. We next discuss these in more detail and consider their evaluation in MR studies.
 
-If the first assumption, about the association between the genetic marker and the exposure, holds, but this association is weak, then an amplification of biases, such as those due to violations of assumptions 2 and 3, may result [@vanderweele_methodological_2014]. 
+If the first assumption, about the association between the genetic marker and the exposure, holds, 
+but this association is weak, then an amplification of biases, such as those due to violations of 
+assumptions 2 and 3, may result [@vanderweele_methodological_2014]. 
 
 The second assumption, often termed the exclusion restriction, can also be stated as 
 the need for the genetic marker to affect the outcome only through the exposure. In a 
@@ -58,7 +74,8 @@ containing the exposure.
 The third assumption, sometimes called the ____, ensures that ___. 
 
 When the three MR assumptions hold, one may use instrumental variable statistical methods, 
-with the genetic marker data, the exposure data, and the outcome data, to estimate and to test the causal effect of the exposure on the outcome. 
+with the genetic marker data, the exposure data, and the outcome data, to estimate and to test the 
+causal effect of the exposure on the outcome. 
 
 ## Assumption violations
 
