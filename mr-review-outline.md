@@ -2,7 +2,7 @@ Mendelian randomization for causal inference in Genome-wide association
 studies
 ================
 Frederick J. Boehm
-2022-01-31 12:53:20
+2022-01-31 14:05:19
 
 # 1 Introduction
 
@@ -31,5 +31,13 @@ Frederick J. Boehm
 # 7 Applications of MR in GWAS
 
 # 8 Summary and Outlook
+
+1.  greater sample sizes and richer, molecular phenotyping will continue
+    to enable causal inferences in observational human genetics studies
+
+2.  ??Experimental validation in animal models?? PerturbSeq?? CRISPR
+    manipulation of putative causal genes??
+
+3.  Robustness to assumptions violations
 
 # 9 References

@@ -69,6 +69,14 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Summary and Outlook
 
+1. greater sample sizes and richer, molecular phenotyping will continue to enable 
+causal inferences in observational human genetics studies
+
+1. ??Experimental validation in animal models?? PerturbSeq?? CRISPR manipulation of putative causal genes??
+
+
+1. Robustness to assumptions violations
+
 
 
 
