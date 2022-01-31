@@ -1,0 +1,76 @@
+---
+title: "Mendelian randomization for causal inference in Genome-wide association studies"
+author: "Frederick J. Boehm"
+date: "`r lubridate::now()`"
+bibliography: exported.bib
+csl: elsevier-with-titles.csl
+output: 
+  - bookdown::html_document2
+  - bookdown::word_document2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+
+
+# Mendelian Randomization with one Instrument
+
+
+## Assumptions of Mendelian Randomization
+
+
+## Assumption violations
+
+
+## Statistical models for MR with one instrument and one outcome
+
+
+
+## Statistical methods for MR with one instrument and one outcome
+
+
+# Mendelian Randomization with multiple instruments
+
+
+
+
+# Horizontal pleiotropy
+
+
+# Correlated horizontal pleiotropy
+
+# Recent Findings
+
+## Omnigenic MR
+
+
+## Multiple outcomes in MR
+
+
+# Applications of MR in GWAS 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Summary and Outlook
+
+
+
+
+
+# References
+

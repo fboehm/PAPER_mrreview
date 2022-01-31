@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 Great interest has developed in inferring causal relationships between complex 
 traits in observational human genetics studies. Throughout the manuscript, we 
 use the term "complex trait" to refer to a trait that doesn't appear to be 
-inherited in a Mendelian fashion. Typically, traits such as gene expression levels
+inherited in a Mendelian fashion. Typically, such complex traits such as gene expression levels
 are inherited in a polygenic manner, with many genes influencing the trait.
 
 Genome-wide association studies (GWAS) present unique opportunities for 
@@ -42,7 +42,7 @@ that might be undetectable in smaller sample sizes.
 # Mendelian Randomization with one Instrument
 
 We begin our discussion of Mendelian randomization by considering the simplest case, where there is a single genetic marker and a single outcome variable. Mendelian randomization with one instrument uses a single genetic marker 
-as the proxy ("instrument" or "instrumental variable") for the "exposure" and asks 
+as the proxy ("instrument" or "instrumental variable") for the "exposure", a complex trait, and asks 
 whether variation in the genotypes at the genetic marker causes variation in the 
 "outcome" variable, which is typically a second complex trait. When the genetic marker 
 is a single nucleotide polymorphism on an autosome, the cohort is partitioned into three 
@@ -108,7 +108,7 @@ the first regression is not considered when performing the second regression.
 
 # Mendelian Randomization with multiple instruments
 
-Recognition of complex traits' diverse genetic architectures has fueled development of MR methods with multiple instruments. 
+Recognition of complex traits' diverse genetic architectures has fueled development of MR methods with multiple instruments [@Boyle2017]. 
 
 
 
