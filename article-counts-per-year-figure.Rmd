@@ -17,7 +17,7 @@ I manually recorded the article counts per year for two searches:
 1. genome-wide association study and 2. mendelian randomization.
 
 ```{r}
-library(dplyr)
+library(magrittr)
 dat <- readxl::read_xlsx(path = "data/publication-counts.xlsx", sheet = "counts")
 dat %>%
   ggplot2::ggplot(ggplot2::aes(x = year, y = mrcount)) + ggplot2::geom_bar(stat = "identity")
