@@ -2,7 +2,7 @@ Mendelian randomization for causal inference in Genome-wide association
 studies
 ================
 Frederick J. Boehm
-2022-02-01 08:10:17
+2022-02-01 13:00:37
 
 # 1 Introduction
 
@@ -44,15 +44,24 @@ linear regressions.
 ## 2.4 Statistical methods for MR with one instrument and one outcome
 
 Estimation and testing for unknown parameters proceeds in one of several
-methods.
+approaches.
 
 ## 2.5 Sensitivity analysis for MR with one instrument and one outcome
 
+Sensitivity analysis is recommended and widely used in MR studies
+because of the inability to verify the three MR assumptions.
+
 # 3 Mendelian Randomization with multiple instruments
 
-Recognizing that many
+Recognizing that many genetic markers collectively may affect a trait,
+investigators adapted single-instrument MR methods to accommodate
+multiple genetic markers.
 
 # 4 Horizontal pleiotropy
+
+Linkage disequilibrium, which refers to genotype correlations for
+genetic markers that are near each other, manifests as horizontal
+pleiotropy in MR studies.
 
 # 5 Correlated horizontal pleiotropy
 
@@ -61,6 +70,8 @@ Recognizing that many
 ## 6.1 Omnigenic MR
 
 ## 6.2 Multiple outcomes in MR
+
+## 6.3 MR with summary statistics (Morrison et al.)
 
 # 7 Applications of MR in GWAS
 
