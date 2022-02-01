@@ -66,22 +66,36 @@ Statistical models for MR with one instrument can be formulated as two linear re
 
 ## Statistical methods for MR with one instrument and one outcome
 
-Estimation and testing for unknown parameters proceeds in one of several methods.
+Estimation and testing for unknown parameters proceeds in one of several approaches.
 
 ## Sensitivity analysis for MR with one instrument and one outcome
+
+Sensitivity analysis is recommended and widely used in MR studies because of the inability to verify the three MR assumptions.
 
 
 
 
 # Mendelian Randomization with multiple instruments
 
-Recognizing that many 
+Recognizing that many genetic markers collectively may affect a trait, investigators 
+adapted single-instrument MR methods to accommodate multiple genetic markers. 
 
 
 # Horizontal pleiotropy
 
+Linkage disequilibrium, which refers to genotype correlations for genetic markers 
+that are near each other, manifests as horizontal pleiotropy in MR studies.
+
+
+
+
+
 
 # Correlated horizontal pleiotropy
+
+
+
+
 
 # Recent Findings
 
@@ -89,6 +103,10 @@ Recognizing that many
 
 
 ## Multiple outcomes in MR
+
+
+## MR with summary statistics (Morrison et al.)
+
 
 
 # Applications of MR in GWAS 
