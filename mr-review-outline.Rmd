@@ -93,7 +93,7 @@ that are near each other, manifests as horizontal pleiotropy in MR studies.
 
 # Correlated horizontal pleiotropy
 
-
+- MRAID paper on medrxiv
 
 
 
