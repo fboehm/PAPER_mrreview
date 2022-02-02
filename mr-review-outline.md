@@ -2,7 +2,7 @@ Mendelian randomization for causal inference in Genome-wide association
 studies
 ================
 Frederick J. Boehm
-2022-02-02 13:42:02
+2022-02-02 13:43:26
 
 # 1 Introduction
 
