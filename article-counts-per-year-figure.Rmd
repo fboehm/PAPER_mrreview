@@ -21,12 +21,22 @@ library(magrittr)
 dat <- readxl::read_xlsx(path = "data/publication-counts.xlsx", sheet = "counts")
 dat %>%
   ggplot2::ggplot(ggplot2::aes(x = year, y = mrcount)) + ggplot2::geom_bar(stat = "identity")
+ggplot2::ggsave("figures/mr-counts.png")
 ```
 
 
 ```{r}
 dat %>%
   ggplot2::ggplot(ggplot2::aes(x = year, y = gwascount)) + ggplot2::geom_bar(stat = "identity")
+ggplot2::ggsave("figures/gwas-counts.png")
 
 ```
+
+```{r}
+dat %>%
+  tidyr::pivot_longer(!year) %>%
+  ggplot2::ggplot(ggplot2::aes(x = year, y = value, colour = name)) + ggplot2::geom_point()
+ggplot2::ggsave("figures/mr-gwas-counts-scatter.png")
+```
+
 
