@@ -52,10 +52,6 @@ Three assumptions are central to Mendelian Randomization.
 
 
 
-## Assumption violations
-
-Several real world settings may give rise to violations of one or more of the three assumptions.
-
 
 ## Statistical models for MR with one instrument and one outcome
 
@@ -67,6 +63,13 @@ Statistical models for MR with one instrument can be formulated as two linear re
 ## Statistical methods for MR with one instrument and one outcome
 
 Estimation and testing for unknown parameters proceeds in one of several approaches.
+
+
+## Assumption violations
+
+Several real world settings may give rise to violations of one or more of the three assumptions.
+
+
 
 ## Sensitivity analysis for MR with one instrument and one outcome
 

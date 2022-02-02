@@ -1,13 +1,8 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
 Mendelian randomization for causal inference in Genome-wide association
 studies
 ================
 Frederick J. Boehm
-2022-02-01 13:00:37
+2022-02-02 13:42:02
 
 # 1 Introduction
 
@@ -36,20 +31,20 @@ A MR study can be performed with one sample or two samples.
 
 Three assumptions are central to Mendelian Randomization.
 
-## 2.2 Assumption violations
-
-Several real world settings may give rise to violations of one or more
-of the three assumptions.
-
-## 2.3 Statistical models for MR with one instrument and one outcome
+## 2.2 Statistical models for MR with one instrument and one outcome
 
 Statistical models for MR with one instrument can be formulated as two
 linear regressions.
 
-## 2.4 Statistical methods for MR with one instrument and one outcome
+## 2.3 Statistical methods for MR with one instrument and one outcome
 
 Estimation and testing for unknown parameters proceeds in one of several
 approaches.
+
+## 2.4 Assumption violations
+
+Several real world settings may give rise to violations of one or more
+of the three assumptions.
 
 ## 2.5 Sensitivity analysis for MR with one instrument and one outcome
 
@@ -69,6 +64,8 @@ genetic markers that are near each other, manifests as horizontal
 pleiotropy in MR studies.
 
 # 5 Correlated horizontal pleiotropy
+
+-   MRAID paper on medrxiv
 
 # 6 Recent Findings
 
