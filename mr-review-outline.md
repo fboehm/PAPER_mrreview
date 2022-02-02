@@ -1,13 +1,8 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
 Mendelian randomization for causal inference in Genome-wide association
 studies
 ================
 Frederick J. Boehm
-2022-02-01 13:00:37
+2022-02-02 07:37:40
 
 # 1 Introduction
 
@@ -69,6 +64,8 @@ genetic markers that are near each other, manifests as horizontal
 pleiotropy in MR studies.
 
 # 5 Correlated horizontal pleiotropy
+
+-   MRAID paper on medrxiv
 
 # 6 Recent Findings
 
