@@ -5,6 +5,7 @@ date: "`r lubridate::now()`"
 bibliography: exported.bib
 csl: elsevier-with-titles.csl
 output: 
+  - bookdown::pdf_document2
   - bookdown::html_document2
   - bookdown::word_document2
 ---
@@ -49,10 +50,16 @@ GWAS summary statistics [@burgess2015using]. These methods are especially pertin
 
 
 
-Now, GWAS and Mendelian randomization for biobank-scale data offer the possibility
+Modern GWAS for biobank-scale data offer the possibility
 of discovering even more causal relationships among complex traits. The large
-sample sizes in biobank studies, often greater than 100,000 subjects, offer the possibility of uncovering associations of modest strength 
-that might be undetectable in smaller studies.
+sample sizes in biobank studies, often greater than 100,000 
+subjects, offer the possibility of uncovering associations of modest strength 
+that might be undetectable in smaller studies. For example, the UK 
+Biobank Study involves more than 500,000 subjects. Each UKB subject's 
+data consists of millions of SNP genotypes and measurements for 
+thousands of traits [@bycroft_uk_2018]. 
+
+
 
 
 
