@@ -19,20 +19,17 @@ knitr::opts_chunk$set(echo = TRUE)
 # Introduction
 
 Great interest has developed in inferring causal relationships between complex 
-traits in observational human genetics studies. Discovery of such relationships is crucial to 
+traits, *i.e.*, traits that seemingly are not inherited in a Mendelian fashion, in observational human genetics studies. Discovery of such relationships is crucial to 
 enhancing our understanding of the biology of health and disease. Two-sample 
 Mendelian randomization (MR) studies are a form of instrumental variable analysis in which
 genetic markers, typically single nucleotide polymorphisms (SNPs), serve as instruments for 
-inferring causal effects of an exposure variable on an outcome variable. They are termed 
+inferring causal effects of an exposure variable on an outcome variable [@wright1928tariff;@wright1921correlation;@wright1923theory;@stock2003retrospectives;@katan1986apolipoprotein;@katan2004commentary;@didelez2007mendelian]. They are termed 
 "two-sample" MR studies because the exposure variable and the outcome variable are measured on 
-two non-overlapping cohorts of subjects. Importantly, the SNPs are measured in both sets of subjects.
+two non-overlapping cohorts of subjects. Importantly, the SNP instruments are measured in both sets of subjects.
 
+Recent developments have enabled performance of two-sample MR studies with only 
+GWAS summary statistics [@burgess2015using].
 
-
-Throughout the manuscript, we 
-use the term "complex trait" to refer to a trait that doesn't appear to be 
-inherited in a Mendelian fashion. Typically, complex traits, for example, gene expression levels,
-are inherited in a polygenic manner, with many genes influencing the trait.
 
 Genome-wide association studies (GWAS) present unique opportunities for 
 discovery of causal relationships via MR. A GWAS
