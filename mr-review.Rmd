@@ -51,8 +51,10 @@ GWAS summary statistics [@burgess2015using]. These methods are especially pertin
 
 Now, GWAS and Mendelian randomization for biobank-scale data offer the possibility
 of discovering even more causal relationships among complex traits. The large
-sample sizes in biobank studies offer the possibility of uncovering associations of modest strength 
-that might be undetectable in smaller sample sizes. 
+sample sizes in biobank studies, often greater than 100,000 subjects, offer the possibility of uncovering associations of modest strength 
+that might be undetectable in smaller studies.
+
+
 
 
 
@@ -99,7 +101,18 @@ with the genetic marker data, the exposure data, and the outcome data, to estima
 causal effect of the exposure on the outcome. 
 
 
-## Statistical models for MR with one instrument and one outcome
+## Statistical models and methods for MR with one instrument and one outcome
+
+
+The approaches to MR can be classified into two categories: two-stage methods and 
+likelihood-based methods. Both two-stage strategies and likelihood-based strategies 
+make parametric assumptions for the identification of causal effects [@burgess_review_2017].
+
+
+Two-stage methods use two regressions. In the first stage, the exposure is regressed on
+the instrument to obtain fitted values. In the second stage, the outcome is regressed on the fitted values for the 
+exposure, which result from the first regression. Note that the uncertainty in the fitted values of 
+the first regression is not considered when performing the second regression.
 
 A two-stage statistical model involves two regression models [@burgess_review_2017]. For a continuous 
 outcome, one may choose to perform "two-stage least squares", which involves two linear regressions. 
@@ -116,17 +129,7 @@ coefficient obtained from the second regression analysis.
 
 
 
-## Statistical methods for MR with one instrument and one outcome
 
-The approaches to MR can be classified into two categories: two-stage methods and 
-likelihood-based methods. Both two-stage strategies and likelihood-based strategies 
-make parametric assumptions for the identification of causal effects [@burgess_review_2017].
-
-
-Two-stage methods use two regressions. In the first stage, the exposure is regressed on
-the instrument to obtain fitted values. In the second stage, the outcome is regressed on the fitted values for the 
-exposure, which result from the first regression. Note that the uncertainty in the fitted values of 
-the first regression is not considered when performing the second regression.
 
 
 ## Assumption violations
