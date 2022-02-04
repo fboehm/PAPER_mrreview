@@ -43,7 +43,7 @@ Methods for Mendelian randomization have appeared at a rapid and accelerating pa
 appearance of the first GWAS (Figure \@ref(fig:article-counts)). 
 
 Recent developments have enabled execution of two-sample MR studies with only 
-GWAS summary statistics [@burgess2015using]. These methods are especially pertinent now that there is an abundance of freely available GWAS summary data [@buniello2019nhgri]. GWAS summary statistics typically consist of an identifier and a p-value for every SNP in the data set [@buniello2019nhgri].
+GWAS summary statistics [@burgess2015using]. These methods are especially pertinent now that there is an abundance of freely available GWAS summary data [@buniello2019nhgri]. GWAS summary statistics typically consist of an identifier and a p-value for every SNP in the data set, along with the sample size [@buniello2019nhgri].
 
 
 
@@ -71,7 +71,9 @@ thousands of traits [@bycroft_uk_2018].
 
 # Mendelian Randomization with one Instrument
 
-We begin our discussion of Mendelian randomization in GWAS data by considering the simplest case, where there is a single genetic marker and a single outcome variable. Mendelian randomization with one instrument uses a single genetic marker 
+We begin our discussion of Mendelian randomization in GWAS data by considering the simplest case, where 
+there is a single genetic marker and a single outcome variable. Mendelian randomization with one 
+instrument uses a single genetic marker 
 as the proxy ("instrument" or "instrumental variable") for the "exposure", a complex trait, and asks 
 whether variation in the genotypes at the genetic marker causes variation in the 
 "outcome" variable, which is typically a second complex trait. When the genetic marker 
@@ -141,10 +143,29 @@ coefficient obtained from the second regression analysis.
 
 ## Assumption violations
 
-There are several ways that real data may violate the three MR assumptions. These include . 
+There are several ways that experimental data may violate one or more of the three MR assumptions.
+Let's first consider the exclusion restriction assumption. It states that the genetic marker 
+must affect the outcome only through the exposure. The causal diagram in Figure \@ref(fig:dag1) illustrates 
+a scenario that violates this assumption when the variable X is used as the exposure [@vanderweele_methodological_2014]. Bias in causal effect estimation would result. However, 
+if variable W is measured and treated as the exposure, then an unbiased estimate of causal effect is 
+possible, since W captures the two pathways, W -> Y and W -> X -> Y, through which the genetic marker G 
+affects the outcome Y [@vanderweele_methodological_2014;@textor2011dagitty;@textor2016robust].
 
-Recognition that the assumptions may be violated has inspired methods advances that 
-enable assumption relaxations under certain conditions. 
+```{r, dag1, fig.cap = "Scenario where the genetic variant affects an intermediate variable W on the pathway to the exposure X. This violates the exclusion restriction assumption."}
+g1 <- dagitty::dagitty( "dag {
+	G -> W -> X -> Y
+	W -> Y
+}")
+plot(dagitty::graphLayout(g1))
+```
+
+
+
+
+
+
+Recognition of the many ways that the MR assumptions may be violated has both inspired methods advances that 
+enable assumption relaxations under certain conditions and motivated use of sensitivity analysis to quantify the impact of possible assumption violations. 
 
 ## Sensitivity analysis for MR with one instrument and one outcome
 
