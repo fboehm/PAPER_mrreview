@@ -220,6 +220,9 @@ into how the results might differ were we able to verify the MR assumptions.
 Recognition of complex traits' diverse genetic architectures has fueled development of two-sample MR methods with multiple instruments [@hormozdiari_leveraging_2018;@watanabe_global_2019]. 
 
 
+## Statistical models and methods for MR with multiple instruments and one outcome
+
+
 
 
 # Horizontal pleiotropy
