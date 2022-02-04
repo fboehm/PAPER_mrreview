@@ -133,7 +133,7 @@ outcome, one may choose to perform "two-stage least squares", which involves two
 First, the exposure variable is regressed on the instrument (*i.e.*, the SNP genotypes) (Equation \@ref(eq:lm1)). The resulting 
 fitted values for the exposure variable are the independent variable in the second linear regression, 
 where the outcome variable is the dependent variable. The causal effect estimate, then, is the 
-coefficient obtained from the second regression analysis. 
+coefficient $\hat \beta_1$ obtained from the second regression analysis (Equation \@ref(eq:lm2)). 
 
 
 \begin{equation}
@@ -197,7 +197,8 @@ plot(dagitty::graphLayout(g1))
 
 
 Recognition of the many ways that the MR assumptions may be violated has inspired methods advances that 
-enable assumption relaxations under certain conditions and has motivated use of sensitivity analysis to quantify the impact of possible assumption violations. 
+enable assumption relaxations and has motivated use of sensitivity analysis to quantify the impact of 
+possible assumption violations. 
 
 ## Sensitivity analysis for MR with one instrument and one outcome
 
@@ -216,7 +217,7 @@ into how the results might differ were we able to verify the MR assumptions.
 
 # Mendelian Randomization with multiple instruments
 
-Recognition of complex traits' diverse genetic architectures has fueled development of two-sample MR methods with multiple instruments [@Boyle2017]. 
+Recognition of complex traits' diverse genetic architectures has fueled development of two-sample MR methods with multiple instruments [@hormozdiari_leveraging_2018;@watanabe_global_2019]. 
 
 
 
