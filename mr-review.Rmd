@@ -84,7 +84,7 @@ The outcome variable can be binary, a count, or a continuous variable.
 
 ## Assumptions of Mendelian Randomization
 
-Three assumptions are central to Mendelian Randomization. Satisfying them is necessary to infer 
+Three assumptions are central to MR. Satisfying them is necessary to infer 
 causal effects in an observational MR study. Careful evaluation of the assumptions is needed. Briefly, 
 the first assumption states that the exposure is associated with the outcome. The second requires 
 independence, conditional on the exposure and all measured and unmeasured confounders, between the 
@@ -163,7 +163,7 @@ into how the results might differ were we able to verify the MR assumptions.
 
 # Mendelian Randomization with multiple instruments
 
-Recognition of complex traits' diverse genetic architectures has fueled development of MR methods with multiple instruments [@Boyle2017]. 
+Recognition of complex traits' diverse genetic architectures has fueled development of two-sample MR methods with multiple instruments [@Boyle2017]. 
 
 
 
@@ -202,9 +202,11 @@ that a trait is influenced by many genome-wide, small effects,
 
 ## Multiple outcomes in MR
 
-Investigators have found that combining information from multiple related traits can lead to richer MR results. 
+Investigators have found that combining information from multiple related 
+traits can lead to richer MR results. 
 
-One approach to combining information across traits is to extend the univariate MR statistical methods to their multivariate analogs.
+One approach to combining information across traits is to extend the 
+univariate MR statistical methods to their multivariate analogs.
 
 # Applications of MR in GWAS 
 
