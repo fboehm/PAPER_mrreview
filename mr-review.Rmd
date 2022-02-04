@@ -87,12 +87,12 @@ The outcome variable can be binary, a count, or a continuous variable.
 ## Assumptions of Mendelian Randomization
 
 Three assumptions are central to MR. Satisfying them is necessary to infer 
-causal effects in an observational MR study. Careful evaluation of the assumptions is needed. Briefly, 
-the first assumption states that the exposure is associated with the outcome. The second requires 
+causal effects in an observational MR study. In practice, careful evaluation of the assumptions is needed. 
+The first assumption states that the exposure is associated with the outcome. The second requires 
 independence, conditional on the exposure and all measured and unmeasured confounders, between the 
 genetic marker and the outcome. The last of the three assumptions states that the genetic marker is 
 independent of all (measured and unmeasured) confounders of the relationship between exposure and 
-outcome. We next discuss these in more detail and consider their evaluation in MR studies.
+outcome. We next discuss these in more detail and consider their evaluation in MR studies [@vanderweele_methodological_2014].
 
 If the first assumption, about the association between the genetic marker and the exposure, holds, 
 but this association is weak, then an amplification of biases, such as those due to violations of 
@@ -103,11 +103,20 @@ the need for the genetic marker to affect the outcome only through the exposure.
 causal diagram, this means that the only path from the marker to the outcome is that 
 containing the exposure.
 
-The third assumption, sometimes called the , ensures that . 
+The third assumption ensures that the genetic marker is
+independent of all confounders of the exposure-outcome relationship. 
 
 When the three MR assumptions hold, one may use instrumental variable statistical methods, 
 with the genetic marker data, the exposure data, and the outcome data, to estimate and to test the 
-causal effect of the exposure on the outcome. 
+causal effect of the exposure on the outcome [@didelez_mendelian_2007;@lawlor_mendelian_2008;@palmer_adjusting_2008]. 
+
+To understand the origin of the term "Mendelian randomization", it is helpful to 
+recall Mendel's inheritance laws. Under the assumption that alleles segregate 
+randomly from parent to offspring, the offspring genotypes are unlikely to be 
+associated with confounders of the exposure-outcome relationship. Additionally,
+reverse causation is ruled out by the observation that germ-line genotypes are 
+fixed at conception and, thus, precede other observed variables.
+
 
 
 ## Statistical models and methods for MR with one instrument and one outcome
@@ -118,17 +127,40 @@ likelihood-based methods. Both two-stage strategies and likelihood-based strateg
 make parametric assumptions for the identification of causal effects [@burgess_review_2017].
 
 
-Two-stage methods use two regressions. In the first stage, the exposure is regressed on
-the instrument to obtain fitted values. In the second stage, the outcome is regressed on the fitted values for the 
-exposure, which result from the first regression. Note that the uncertainty in the fitted values of 
-the first regression is not considered when performing the second regression.
 
 A two-stage statistical model involves two regression models [@burgess_review_2017]. For a continuous 
 outcome, one may choose to perform "two-stage least squares", which involves two linear regressions. 
-First, the exposure variable is regressed on the instrument (*i.e.*, the SNP genotypes). The resulting 
-fitted values for the exposure variables are the independent variable in the second linear regression, 
+First, the exposure variable is regressed on the instrument (*i.e.*, the SNP genotypes) (Equation \@ref(eq:lm1)). The resulting 
+fitted values for the exposure variable are the independent variable in the second linear regression, 
 where the outcome variable is the dependent variable. The causal effect estimate, then, is the 
 coefficient obtained from the second regression analysis. 
+
+
+\begin{equation}
+  x_i = \alpha_0 + \alpha_1 z_i + \epsilon_i
+  (\#eq:lm1)
+\end{equation}
+
+where the $\epsilon_i$ are assumed to be iid normal random variables with mean zero. 
+
+
+
+
+
+\begin{equation}
+  y_i = \beta_0 + \beta_1 \hat x_i + \tau_i
+  (\#eq:lm2)
+\end{equation}
+
+
+where the $\tau_i$ are assumed to be iid normal random variables with mean zero and $\hat x_i$ denotes the fitted value for $x_i$ obtained from Equation \@ref(eq:lm1).
+
+
+
+
+Note that the uncertainty in the fitted values from 
+the first regression is not considered when performing the second regression.
+For this reason, the variance of the coefficient estimator, $Var(\hat \beta_1)$ is incorrect in two-stage calculations. This observation led researchers to develop likelihood-based MR methods.
 
 
 
@@ -151,7 +183,7 @@ if variable W is measured and treated as the exposure, then an unbiased estimate
 possible, since W captures the two pathways, W -> Y and W -> X -> Y, through which the genetic marker G 
 affects the outcome Y [@vanderweele_methodological_2014;@textor2011dagitty;@textor2016robust].
 
-```{r, dag1, fig.cap = "Scenario where the genetic variant affects an intermediate variable W on the pathway to the exposure X. This violates the exclusion restriction assumption."}
+```{r, dag1, fig.cap = "Scenario where the genetic variant G affects an intermediate variable W on the pathway to the exposure X. This violates the exclusion restriction assumption."}
 g1 <- dagitty::dagitty( "dag {
 	G -> W -> X -> Y
 	W -> Y
@@ -164,8 +196,8 @@ plot(dagitty::graphLayout(g1))
 
 
 
-Recognition of the many ways that the MR assumptions may be violated has both inspired methods advances that 
-enable assumption relaxations under certain conditions and motivated use of sensitivity analysis to quantify the impact of possible assumption violations. 
+Recognition of the many ways that the MR assumptions may be violated has inspired methods advances that 
+enable assumption relaxations under certain conditions and has motivated use of sensitivity analysis to quantify the impact of possible assumption violations. 
 
 ## Sensitivity analysis for MR with one instrument and one outcome
 
