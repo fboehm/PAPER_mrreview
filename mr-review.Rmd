@@ -206,6 +206,17 @@ Sensitivity analysis is recommended and widely used in MR studies because of the
 the three MR assumptions with observational data. The goal of a sensitivity analysis is to gain insight 
 into how the results might differ were we able to verify the MR assumptions.
 
+@burgess_sensitivity_2017 divided the suite of methods for sensitivity analysis 
+into two categories: 1) those that support the validity of causal inferences in a MR 
+study and 2) those that question that validity. Because not all confounding variables are known or measured, assumptions 2 and 3 are not fully verifiable 
+in MR studies. Recognition of this fact has inspired the development of 
+sensitivity analysis tools. While we can't assess whether a SNP instrument is 
+associated with every confounder of the exposure-outcome association, it is 
+possible to examine the associations of the SNP instrument with the measured 
+covariates. While absence of such associations doesn't guarantee satisfaction 
+of the assumption, presence of SNP-covariate associations must be investigated
+carefully, as they may constitute assumption violations [@burgess_sensitivity_2017]. 
+
 
 
 
