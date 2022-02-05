@@ -39,11 +39,36 @@ knitr::include_graphics("figures/mr-gwas-counts-scatter.png")
 ```
 
 
-Methods for Mendelian randomization have appeared at a rapid and accelerating pace since the 
-appearance of the first GWAS (Figure \@ref(fig:article-counts)). 
+Methods for and uses of MR have appeared at a rapid and accelerating pace since the 
+appearance of the early GWAS (Figure \@ref(fig:article-counts)). Inverse variance weighted MR [@burgess_mendelian_2013], MR-Egger [@bowden_mendelian_2015], weighted median estimation [@bowden_consistent_2016], Bayesian weighted MR [@zhao_bayesian_2019], robust adjusted profile score [@zhao_statistical_2020], MRMix [@qi_mendelian_2019], CAUSE [@morrison_mendelian_2020], and MRAID [@yuan_likelihood_2021] are all recent methods developments. These methods differ in their approaches to two challenges: 
+
+1. instrument selection (from among the available SNPs)  
+1. modeling and controlling for horizontal pleiotropy  
+
+Many MR methods use a set of pre-selected SNPs as instruments. Typically, these SNPs are selected to 
+be statistically independent. This restriction to 
+independent SNPs is needed for valid inference in methods like inverse variance weighting MR [@burgess_mendelian_2013]. The independent SNPs may be 
+selected through linkage disequilibrium (LD) clumping. In this procedure, SNPs 
+are ranked by the strength of their marginal association with the exposure 
+variable. The LD clumping procedure then selects SNPs that are not in high LD 
+with the top-ranking SNPs. 
+
+LD clumping for choosing instrument SNPs can be problematic for several 
+reasons. First, the chosen SNPs may not be causal for the outcome. This can 
+happen, for instance, by choosing a noncausal SNP that is in high LD with a 
+causal SNP. 
+
+@verbanck_detection_2018
+
+
+
+
 
 Recent developments have enabled execution of two-sample MR studies with only 
-GWAS summary statistics [@burgess2015using]. These methods are especially pertinent now that there is an abundance of freely available GWAS summary data [@buniello2019nhgri]. GWAS summary statistics typically consist of an identifier and a p-value for every SNP in the data set, along with the sample size [@buniello2019nhgri].
+GWAS summary statistics [@burgess2015using]. These methods are especially pertinent now that there is 
+an abundance of freely available GWAS summary data [@buniello2019nhgri]. GWAS summary statistics 
+typically consist of an identifier and a p-value for every SNP in the data set, along with the sample 
+size [@buniello2019nhgri].
 
 
 
