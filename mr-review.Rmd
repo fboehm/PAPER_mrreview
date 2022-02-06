@@ -185,7 +185,9 @@ where the $\tau_i$ are assumed to be iid normal random variables with mean zero 
 
 Note that the uncertainty in the fitted values from 
 the first regression is not considered when performing the second regression.
-For this reason, the variance of the coefficient estimator, $Var(\hat \beta_1)$ is incorrect in two-stage calculations. This observation led researchers to develop likelihood-based MR methods.
+For this reason, the variance of the coefficient estimator, $Var(\hat \beta_1)$ is 
+incorrect in two-stage calculations. This observation led researchers to develop 
+likelihood-based MR methods.
 
 
 
@@ -201,7 +203,7 @@ For this reason, the variance of the coefficient estimator, $Var(\hat \beta_1)$ 
 ## Assumption violations
 
 There are several ways that experimental data may violate one or more of the three MR assumptions.
-Let's first consider the exclusion restriction assumption. It states that the genetic marker 
+Let's first consider the exclusion restriction assumption (assumption 2 above). It states that the genetic marker 
 must affect the outcome only through the exposure. The causal diagram in Figure \@ref(fig:dag1) illustrates 
 a scenario that violates this assumption when the variable X is used as the exposure [@vanderweele_methodological_2014]. Bias in causal effect estimation would result. However, 
 if variable W is measured and treated as the exposure, then an unbiased estimate of causal effect is 
@@ -229,7 +231,7 @@ possible assumption violations.
 
 Sensitivity analysis is recommended and widely used in MR studies because of the inability to verify 
 the three MR assumptions with observational data. The goal of a sensitivity analysis is to gain insight 
-into how the results might differ were we able to verify the MR assumptions.
+into how the results might differ if the assumptions are violated.
 
 @burgess_sensitivity_2017 divided the suite of methods for sensitivity analysis 
 into two categories: 1) those that support the validity of causal inferences in a MR 
@@ -254,10 +256,39 @@ carefully, as they may constitute assumption violations [@burgess_sensitivity_20
 
 # Mendelian Randomization with multiple instruments
 
-Recognition of complex traits' diverse genetic architectures has fueled development of two-sample MR methods with multiple instruments [@hormozdiari_leveraging_2018;@watanabe_global_2019]. 
+Recognition of complex traits' diverse genetic architectures has fueled development of two-sample MR 
+methods with multiple SNP instruments [@hormozdiari_leveraging_2018;@watanabe_global_2019]. 
+
 
 
 ## Statistical models and methods for MR with multiple instruments and one outcome
+
+In the case of continuous exposures and outcomes, we extend the methods and models for 
+single-SNP MR to accommodate multiple SNPs. For two stage analyses, we perform 
+a sequence of two linear regressions, as in the single-SNP MR models (Equations \@ref(eq:lm3) and \@ref(eq:lm4)). 
+For an analysis
+with $S$ SNP instruments, one performs two stage analysis by first regressing the 
+exposure $n$ vector $X$ on the $n$ by $S$ matrix of SNP instruments. Taking the fitted exposure values 
+from this regression, the second regression involves regressing the outcome variable $Y$ on 
+the fitted values. 
+
+
+
+\begin{equation}
+  X  = \alpha Z + \epsilon
+  (\#eq:lm3)
+\end{equation}
+
+where $\epsilon$ is assumed to be a vector of iid normal random variables with mean zero. 
+
+
+
+
+
+\begin{equation}
+  Y = \beta \hat X + \tau
+  (\#eq:lm4)
+\end{equation}
 
 
 
@@ -269,8 +300,8 @@ variant to the outcome. One of these multiple pathways may contain the exposure 
 The fact that there are multiple pathways from the genetic variant to the outcome violates
 the MR assumptions. @verbanck_detection_2018 documented widespread horizontal pleiotropy 
 in GWAS. This finding motivated the development of MR-PRESSO and inspired 
-further research into methods to accommodate horizontal pleiotropy in MR studies [@verbanck_detection_2018].
-* What does MR-PRESSO do? What are its limitations?
+further research into methods to model and to account for horizontal pleiotropy [@verbanck_detection_2018].
+
 
 
 
