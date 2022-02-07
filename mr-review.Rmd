@@ -107,11 +107,12 @@ classes, two homozygote classes and a single heterozygote class, based on genoty
 for that marker. When the three assumptions of mendelian randomization are satisfied, 
 estimation of the causal effect of the exposure on the outcome is possible. 
 
-The outcome variable can be binary, a count, or a continuous variable. 
+The outcome variable can be binary, a count, or a continuous variable. For brevity and simplicity, 
+we focus on continuous outcomes below.
 
 ## Assumptions of Mendelian Randomization
 
-Three assumptions are central to MR. Satisfying them is necessary to infer 
+Three assumptions are central to MR. Satisfying them enables inference of 
 causal effects in an observational MR study. In practice, careful evaluation of the assumptions is needed. 
 The first assumption states that the exposure is associated with the outcome. The second requires 
 independence, conditional on the exposure and all measured and unmeasured confounders, between the 
@@ -121,7 +122,11 @@ outcome. We next discuss these in more detail and consider their evaluation in M
 
 If the first assumption, about the association between the genetic marker and the exposure, holds, 
 but this association is weak, then an amplification of biases, such as those due to violations of 
-assumptions 2 and 3, may result [@vanderweele_methodological_2014]. 
+assumptions 2 and 3, may result [@vanderweele_methodological_2014]. @burgess_avoiding_2011, in analyses 
+of simulated and real data, demonstrated that bias in causal estimates increases with decreases in 
+the strength of association between the SNP and exposure. 
+
+
 
 The second assumption, often termed the exclusion restriction assumption, can also be stated as 
 the need for the genetic marker to affect the outcome only through the exposure. In a 
@@ -188,6 +193,33 @@ the first regression is not considered when performing the second regression.
 For this reason, the variance of the coefficient estimator, $Var(\hat \beta_1)$ is 
 incorrect in two-stage calculations. This observation led researchers to develop 
 likelihood-based MR methods.
+
+Likelihood-based MR methods, unlike two-stage methods, provide maximum likelihood 
+estimates with their many desirable properties. Limited information maximum likelihood from econometrics 
+is the earliest approach for likelihood-based inference in MR [@davidson1993estimation]. CoMM and PMR-Egger are two recent likelihood-based methods [@yang_comm_2019;@yuan_testing_2020]. 
+
+Limited information maximum likelihood model equations are shown below (Equations \@ref(eq:lm5) and \@ref(eq:lm6)).
+
+\begin{equation}
+  x_i = \alpha_0 + \alpha_1 z_i + \epsilon_i
+  (\#eq:lm5)
+\end{equation}
+
+\begin{equation}
+  y_i = \beta_0 + \beta_1 \hat x_i + \tau_i
+  (\#eq:lm6)
+\end{equation}
+
+They differ from the two-stage model because the two error terms, $\epsilon_i$ and $\tau_i$, have a bivariate normal
+distribution. 
+
+
+CoMM, along with its extension for summary statistics, CoMM-S2, uses a collaborative mixed model to 
+relate exposure and outcome variables to the SNP genotypes [@yang_comm-s2_2020]. Model fitting then 
+proceeds via a parameter-expanded EM algorithm [@yang_comm_2019;@liu_parameter_1998]. 
+
+We discuss PMR-Egger below in the context of methods that deal with horizontal pleiotropy. 
+
 
 
 
@@ -302,6 +334,7 @@ the MR assumptions. @verbanck_detection_2018 documented widespread horizontal pl
 in GWAS. This finding motivated the development of MR-PRESSO and inspired 
 further research into methods to model and to account for horizontal pleiotropy [@verbanck_detection_2018].
 
+probabilistic Mendelian randomization (PMR-Egger) for two-sample MR with correlated SNPs models [@yuan_testing_2020] 
 
 
 
