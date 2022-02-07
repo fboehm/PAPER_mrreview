@@ -218,7 +218,7 @@ CoMM, along with its extension for summary statistics, CoMM-S2, uses a collabora
 relate exposure and outcome variables to the SNP genotypes [@yang_comm-s2_2020]. Model fitting then 
 proceeds via a parameter-expanded EM algorithm [@yang_comm_2019;@liu_parameter_1998]. 
 
-We discuss PMR-Egger below in the context of methods that deal with horizontal pleiotropy. 
+We discuss PMR-Egger below in the context of methods that model horizontal pleiotropy. 
 
 
 
@@ -291,12 +291,22 @@ carefully, as they may constitute assumption violations [@burgess_sensitivity_20
 Recognition of complex traits' diverse genetic architectures has fueled development of two-sample MR 
 methods with multiple SNP instruments [@hormozdiari_leveraging_2018;@watanabe_global_2019]. 
 
+Choosing a subset of the available SNPs to serve as instruments is one consideration that arises 
+in MR studies. The solution to this task differs among published methods. Early methods chose a 
+set of independent SNPs. However, this approach can be problematic when there are multiple causal 
+SNPs in LD with each other. In this setting, discarding some of the causal SNPs may only capture a small
+proportion of trait variance explained by the exposure and lead to a power loss in MR [@burgess_review_2017;@burgess_mendelian_2013;@burgess_combining_2016;@burgess_bias_2011]. In support of
+this is the finding that including multiple correlated SNPs in transcriptome-wide association
+studies improves power compared to using independent SNPs only [@liu2021multi;@gusev_integrative_2016;@yuan_testing_2020;@zeng_non-parametric_2017]. 
+
+
+
 
 
 ## Statistical models and methods for MR with multiple instruments and one outcome
 
-In the case of continuous exposures and outcomes, we extend the methods and models for 
-single-SNP MR to accommodate multiple SNPs. For two stage analyses, we perform 
+In the case of continuous exposures and outcomes, researchers have taken several approaches to extend the methods and models for 
+single-SNP MR to accommodate multiple SNPs. For two stage analyses, one may perform 
 a sequence of two linear regressions, as in the single-SNP MR models (Equations \@ref(eq:lm3) and \@ref(eq:lm4)). 
 For an analysis
 with $S$ SNP instruments, one performs two stage analysis by first regressing the 
@@ -330,9 +340,15 @@ where $\epsilon$ is assumed to be a vector of iid normal random variables with m
 Horizontal pleiotropy refers to the presence of multiple pathways from a genetic 
 variant to the outcome. One of these multiple pathways may contain the exposure variable.
 The fact that there are multiple pathways from the genetic variant to the outcome violates
-the MR assumptions. @verbanck_detection_2018 documented widespread horizontal pleiotropy 
+standard MR assumptions. @verbanck_detection_2018 documented widespread horizontal pleiotropy 
 in GWAS. This finding motivated the development of MR-PRESSO and inspired 
 further research into methods to model and to account for horizontal pleiotropy [@verbanck_detection_2018].
+
+Early MR analyses avoided confounding from horizontal pleiotropy by discarding 
+instrumental SNPs that might be associated with the outcome [@verbanck_detection_2018;@zhu_causal_2018;@zeng_causal_2019-1;@zeng_causal_2019-2].
+More recent methods have attempted to model horizontal pleiotropy [@morrison_mendelian_2020;@yuan_testing_2020;@yuan_likelihood_2021]. CAUSE [@morrison_mendelian_2020] mdoels two varieties of horizontal pleiotropy: 
+
+
 
 probabilistic Mendelian randomization (PMR-Egger) for two-sample MR with correlated SNPs models [@yuan_testing_2020] 
 
