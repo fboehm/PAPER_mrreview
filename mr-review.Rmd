@@ -397,7 +397,7 @@ univariate MR statistical methods to their multivariate analogs.
 
 # Non-continuous outcomes
 
-Binary, survival, count
+Binary, survival, count - see discussion section of MRAID paper.
 
 
 
