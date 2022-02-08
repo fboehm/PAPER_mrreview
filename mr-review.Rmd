@@ -257,7 +257,7 @@ carefully, as they may constitute assumption violations [@burgess_sensitivity_20
 # Mendelian Randomization with multiple instruments
 
 Recognition of complex traits' diverse genetic architectures has fueled development of two-sample MR 
-methods with multiple SNP instruments [@hormozdiari_leveraging_2018;@watanabe_global_2019]. 
+methods with multiple SNP instruments [@hormozdiari_leveraging_2018;@watanabe_global_2019;@pierce_power_2011;@bowden_mendelian_2015]. 
 
 
 
@@ -269,8 +269,8 @@ a sequence of two linear regressions, as in the single-SNP MR models (Equations 
 For an analysis
 with $S$ SNP instruments, one performs two stage analysis by first regressing the 
 exposure $n$ vector $X$ on the $n$ by $S$ matrix of SNP instruments. Taking the fitted exposure values 
-from this regression, the second regression involves regressing the outcome variable $Y$ on 
-the fitted values. 
+from this regression, the second stage involves regressing the outcome variable $Y$ on 
+the fitted values, $\hat X$. 
 
 
 
@@ -302,16 +302,24 @@ the MR assumptions. @verbanck_detection_2018 documented widespread horizontal pl
 in GWAS. This finding motivated the development of MR-PRESSO and inspired 
 further research into methods to model and to account for horizontal pleiotropy [@verbanck_detection_2018].
 
+Researchers have recognized two types of horizontal pleiotropy [@yuan_likelihood_2021]. The first occurs via 
+exposure-independent paths. The resulting horizontal pleiotropic effects are independent of the
+SNP-exposure relationships. The second type of horizontal pleiotropy manifests when 
+in the presence of unobserved exposure-outcome confounding. It induces correlation between 
+horizontal pleiotropic effects and SNP-exposure effects. Both types of horizontal pleiotropy 
+violate standard MR modeling assumptions and can bias causal effect estimates and can increase false 
+discoveries [@yuan_likelihood_2021].
 
-
-
+Early MR methods account manage horizontal pleiotropy by removing instrumental SNPs 
+that may be associated with the outcome variable [@verbanck_detection_2018;@zhu_causal_2018;@zeng_causal_2019-1;@zeng_causal_2019-2]. 
 
 
 
 
 # Correlated horizontal pleiotropy
 
-@yuan_testing_2020 
+The second type of horizontal pleiotropy, from above, is sometimes called "correlated horizontal pleiotropy". Correlated horizontal pleiotropy occurs when 
+CAUSE and MRAID are two methods that aim to model and to account for correlated horizontal pleiotropy. 
 
 
 # Recent Findings
