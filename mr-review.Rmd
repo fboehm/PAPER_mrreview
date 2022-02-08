@@ -393,6 +393,12 @@ univariate MR statistical methods to their multivariate analogs.
 # Applications of MR in GWAS 
 
 
+# Software 
+
+# Non-continuous outcomes
+
+Binary, survival, count
+
 
 
 
