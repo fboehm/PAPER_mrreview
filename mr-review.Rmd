@@ -50,13 +50,16 @@ be statistically independent. This restriction to
 independent SNPs is needed for valid inference in methods like inverse variance weighting MR [@burgess_mendelian_2013]. The independent SNPs may be 
 selected through linkage disequilibrium (LD) clumping. In this procedure, SNPs 
 are ranked by the strength of their marginal association with the exposure 
-variable. The LD clumping procedure then selects SNPs that are not in high LD 
-with the top-ranking SNPs. 
+variable. The LD clumping procedure then selects high ranking SNPs that are not in high LD with each other.
 
 LD clumping for choosing instrument SNPs can be problematic for several 
 reasons. First, the chosen SNPs may not be causal for the outcome. This can 
-happen, for instance, by choosing a noncausal SNP that is in high LD with a 
-causal SNP. 
+happen, for instance, by using a noncausal SNP that is in high LD with a 
+causal SNP. Second, because many traits are polygenic or omnigenic, multiple 
+causal SNPs may be in high LD together. LD clumping is likely to omit one or more
+of the causal SNPs.
+
+
 
 @verbanck_detection_2018
 
@@ -291,9 +294,9 @@ carefully, as they may constitute assumption violations [@burgess_sensitivity_20
 Recognition of complex traits' diverse genetic architectures has fueled development of two-sample MR 
 methods with multiple SNP instruments [@hormozdiari_leveraging_2018;@watanabe_global_2019;@pierce_power_2011;@bowden_mendelian_2015]. 
 
-Choosing a subset of the available SNPs to serve as instruments is one consideration that arises 
+Choosing a subset of the available SNPs to serve as instruments is one issue that arises 
 in MR studies. The solution to this task differs among published methods. Early methods chose a 
-set of independent SNPs. However, this approach can be problematic when there are multiple causal 
+set of independent SNPs [@verbanck_detection_2018;@zhu_causal_2018;@zeng_causal_2019-2;@zeng_causal_2019-1]. However, this approach can be problematic when there are multiple causal 
 SNPs in LD with each other. In this setting, discarding some of the causal SNPs may only capture a small
 proportion of trait variance explained by the exposure and lead to a power loss in MR [@burgess_review_2017;@burgess_mendelian_2013;@burgess_combining_2016;@burgess_bias_2011]. In support of
 this is the finding that including multiple correlated SNPs in transcriptome-wide association
@@ -352,8 +355,24 @@ horizontal pleiotropic effects and SNP-exposure effects. Both types of horizonta
 violate standard MR modeling assumptions and can bias causal effect estimates and can increase false 
 discoveries [@yuan_likelihood_2021].
 Early MR analyses avoided confounding from horizontal pleiotropy by discarding 
-instrumental SNPs that might be associated with the outcome [@verbanck_detection_2018;@zhu_causal_2018;@zeng_causal_2019-1;@zeng_causal_2019-2].
-More recent methods have attempted to model horizontal pleiotropy [@morrison_mendelian_2020;@yuan_testing_2020;@yuan_likelihood_2021]. CAUSE [@morrison_mendelian_2020] mdoels two varieties of horizontal pleiotropy: 
+instrumental SNPs that might be associated with the outcome 
+[@verbanck_detection_2018;@zhu_causal_2018;@zeng_causal_2019-1;@zeng_causal_2019-2].
+More recent methods have attempted to model horizontal pleiotropy 
+[@morrison_mendelian_2020;@yuan_testing_2020;@yuan_likelihood_2021]. CAUSE [@morrison_mendelian_2020] and 
+MRMix [@qi_mendelian_2019] both use a mixture of normal distributions to control for both 
+types of horizontal pleiotropy. Modeling both types of horizontal pleiotropy is particularly 
+challenging because the MR model likelihood often involves an integral that can't be solved analytically. 
+Because of this issue with the model likelihood, both MRMix and CAUSE use other, non-likelihood-based methods for inference.
+MRMix uses ...
+CAUSE compares the out-of-sample prediction accuracies for two competing models that differ in inclusion of 
+the causal effect parameter. Specifically, CAUSE calculates the expected log pointwise posterior density 
+between the two models. 
+MRAID models horizontal pleiotropy by ...
+@yuan_likelihood_2021 found that MRMix is not robust to misspecification of SNP effect sizes and often is 
+biased. CAUSE, they found, yields overly conservative p-values.
+
+
+
 
 
 
