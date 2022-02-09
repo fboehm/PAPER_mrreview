@@ -41,7 +41,7 @@ knitr::include_graphics("figures/mr-gwas-counts-scatter.png")
 
 
 Methods for and uses of MR have appeared at a rapid and accelerating pace since the 
-appearance of the early GWAS (Figure \@ref(fig:article-counts)). Inverse variance 
+publication of the early GWAS (Figure \@ref(fig:article-counts)). Inverse variance 
 weighted MR [@burgess_mendelian_2013], MR-Egger [@bowden_mendelian_2015], weighted 
 median estimation [@bowden_consistent_2016], Bayesian weighted MR 
 [@zhao_bayesian_2019], robust adjusted profile score [@zhao_statistical_2020], MRMix 
@@ -66,11 +66,19 @@ causal SNP. Second, because many traits are polygenic or omnigenic, multiple
 causal SNPs may be in high LD together. LD clumping is likely to omit one or more
 of the causal SNPs, which can diminish statistical power in MR analysis.
 
+Horizontal pleiotropy occurs when a SNP instrument affects the outcome through at least one pathway that bypasses the exposure variable [@verbanck_detection_2018]. It constitutes a violation of 
+the standard MR assumptions and can lead to biased 
+causal effect estimates and diminished statistical power. We discuss approaches to 
+modeling horizontal pleiotropy below.
 
-Recent developments have enabled execution of two-sample MR studies with only 
-GWAS summary statistics [@burgess2015using]. These methods are especially pertinent now that there is 
+
+
+
+
+Recent methods developments have enabled execution of two-sample MR studies with only 
+GWAS summary statistics [@burgess2015using]. These strategies are especially pertinent now that there is 
 an abundance of freely available GWAS summary data [@buniello2019nhgri]. The 
-ability to use published has led to a rapid increase in the number of available
+ability to use published data has contributed to a rapid increase in the number of
 two-sample MR methods for GWAS summary statistics. 
 
 
@@ -102,8 +110,8 @@ classes, two homozygote classes and a single heterozygote class, based on genoty
 for that marker. When the three assumptions of mendelian randomization are satisfied, 
 estimation of the causal effect of the exposure on the outcome is possible. 
 
-The outcome variable can be binary, a count, or a continuous variable. For brevity and simplicity, 
-we focus on continuous outcomes below.
+The outcome variable can be binary, a count, a time to event, or a continuous variable. For brevity and simplicity, 
+we focus on continuous outcomes before considering other classes of outcome variables in a later section.
 
 ## Assumptions of Mendelian Randomization
 
@@ -119,11 +127,13 @@ If the first assumption, about the association between the genetic marker and th
 but this association is weak, then an amplification of biases, such as those due to violations of 
 assumptions 2 and 3, may result [@vanderweele_methodological_2014]. @burgess_avoiding_2011, in analyses 
 of simulated and real data, demonstrated that bias in causal estimates increases with decreases in 
-the strength of association between the SNP and exposure. 
+the strength of association between the SNP and exposure. We later discuss, in the context of 
+methods for multiple SNP instruments, how this finding, coupled with the recognition of 
+the polygenicity of many complex traits, has motivated methods to work with large numbers of weak SNP instruments [@ye_debiased_2021;@chao_consistent_2005].
 
 
 
-The second assumption, often termed the exclusion restriction assumption, can also be stated as 
+The second MR assumption, often termed the exclusion restriction assumption, can also be stated as 
 the need for the genetic marker to affect the outcome only through the exposure. In a 
 causal diagram, this means that the only path from the marker to the outcome is that 
 containing the exposure.
@@ -133,7 +143,11 @@ independent of all confounders of the exposure-outcome relationship.
 
 When the three MR assumptions hold, one may use instrumental variable statistical methods, 
 with the genetic marker data, the exposure data, and the outcome data, to estimate and to test the 
-causal effect of the exposure on the outcome [@didelez_mendelian_2007;@lawlor_mendelian_2008;@palmer_adjusting_2008]. 
+causal effect of the exposure on the outcome [@didelez_mendelian_2007;@lawlor_mendelian_2008;@palmer_adjusting_2008]. It's important 
+to recognize that assumptions 2 and 3, which require absence of two types of confounding, 
+can't be verified in observational studies. For this reason, researchers have developed 
+sensitivity analysis to consider the robustness of their inferences to possible violations 
+of assumptions 2 and 3.
 
 To understand the origin of the term "Mendelian randomization", it is helpful to 
 recall Mendel's inheritance laws. Under the assumption that alleles segregate 
@@ -153,7 +167,7 @@ make parametric assumptions for the identification of causal effects [@burgess_r
 
 
 
-A two-stage statistical model involves two regression models [@burgess_review_2017]. For a continuous 
+A two-stage statistical model involves two regression models [@burgess_review_2017;@sawa_exact_1969]. For a continuous 
 outcome, one may choose to perform "two-stage least squares", which involves two linear regressions. 
 First, the exposure variable is regressed on the instrument (*i.e.*, the SNP genotypes) (Equation \@ref(eq:lm1)). The resulting 
 fitted values for the exposure variable are the independent variable in the second linear regression, 
@@ -281,11 +295,10 @@ carefully, as they may constitute assumption violations [@burgess_sensitivity_20
 
 
 
-# Mendelian Randomization with multiple instruments
+# Mendelian Randomization with multiple SNP instruments
 
 Recognition of complex traits' diverse genetic architectures has fueled development of two-sample MR 
 methods with multiple SNP instruments [@hormozdiari_leveraging_2018;@watanabe_global_2019;@pierce_power_2011;@bowden_mendelian_2015]. 
-
 Choosing a subset of the available SNPs to serve as instruments is one issue that arises 
 in MR studies. The solution to this task differs among published methods. Early methods chose a 
 set of independent SNPs [@verbanck_detection_2018;@zhu_causal_2018;@zeng_causal_2019-2;@zeng_causal_2019-1]. However, this approach can be problematic when there are multiple causal 
@@ -305,14 +318,14 @@ single-SNP MR to accommodate multiple SNPs. For two stage analyses, one may perf
 a sequence of two linear regressions, as in the single-SNP MR models (Equations \@ref(eq:lm3) and \@ref(eq:lm4)). 
 For an analysis
 with $S$ SNP instruments, one performs two stage analysis by first regressing the 
-exposure $n$ vector $X$ on the $n$ by $S$ matrix of SNP instruments. Taking the fitted exposure values 
+exposure $n$ vector $X$ on the $n$ by $S + 1$ matrix of SNP instruments (and an intercept). Taking the fitted exposure values 
 from this regression, the second stage involves regressing the outcome variable $Y$ on 
 the fitted values, $\hat X$. 
 
 
 
 \begin{equation}
-  X  = \alpha Z + \epsilon
+  X  = Z\alpha + \epsilon
   (\#eq:lm3)
 \end{equation}
 
@@ -323,7 +336,7 @@ where $\epsilon$ is assumed to be a vector of independent and identically distri
 
 
 \begin{equation}
-  Y = \beta \hat X + \tau
+  Y = \hat X\beta + \tau
   (\#eq:lm4)
 \end{equation}
 
@@ -332,9 +345,9 @@ where $\epsilon$ is assumed to be a vector of independent and identically distri
 
 # Horizontal pleiotropy
 
-Horizontal pleiotropy refers to the presence of multiple pathways from a genetic 
-variant to the outcome. One of these multiple pathways may contain the exposure variable.
-The fact that there are multiple pathways from the genetic variant to the outcome violates
+Pleiotropy, where a single genetic variant affects multiple traits, has a long history of study in genetics and complex traits [@solovieff_pleiotropy_2013;@visscher_plethora_2016;@stearns_one_2010]. Horizontal pleiotropy refers to the presence of multiple causal pathways from a genetic 
+variant to the outcome. 
+The fact that there are pathways that exclude the exposure and connect the SNP to the outcome violates
 standard MR assumptions. @verbanck_detection_2018 documented widespread horizontal pleiotropy 
 in GWAS. This finding motivated the development of MR-PRESSO and inspired 
 further research into methods to model horizontal pleiotropy [@verbanck_detection_2018].
@@ -357,11 +370,11 @@ challenging because the MR model likelihood often involves an integral that can'
 Because of this issue with the model likelihood, both MRMix and CAUSE use other, non-likelihood-based methods for inference.
 MRMix uses ...
 CAUSE compares the out-of-sample prediction accuracies for two competing models that differ in inclusion of 
-the causal effect parameter. Specifically, CAUSE calculates the expected log pointwise posterior density 
+the causal effect parameter [@morrison_mendelian_2020]. Specifically, CAUSE calculates the expected log pointwise posterior density 
 between the two models. 
 MRAID models horizontal pleiotropy by ...
 @yuan_likelihood_2021 found that MRMix is not robust to misspecification of SNP effect sizes and often is 
-biased. CAUSE, they found, yields overly conservative p-values.
+biased. CAUSE, they found, yields overly conservative p-values [@yuan_likelihood_2021].
 
 
 
