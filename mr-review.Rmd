@@ -152,7 +152,7 @@ fixed at conception and, thus, precede other observed variables.
 ## Statistical models and methods for MR with one instrument and one outcome
 
 
-The approaches to MR can be classified into two categories: two-stage methods and 
+Many approaches to MR can be classified into two categories: two-stage methods and 
 likelihood-based methods. Both two-stage strategies and likelihood-based strategies 
 make parametric assumptions for the identification of causal effects [@burgess_review_2017].
 
@@ -171,7 +171,7 @@ coefficient $\hat \beta_1$ obtained from the second regression analysis (Equatio
   (\#eq:lm1)
 \end{equation}
 
-where the $\epsilon_i$ are assumed to be iid normal random variables with mean zero. 
+where the $\epsilon_i$ are assumed to be independent and identically distributed normal random variables with mean zero. 
 
 
 
@@ -183,7 +183,7 @@ where the $\epsilon_i$ are assumed to be iid normal random variables with mean z
 \end{equation}
 
 
-where the $\tau_i$ are assumed to be iid normal random variables with mean zero and $\hat x_i$ denotes the fitted value for $x_i$ obtained from Equation \@ref(eq:lm1).
+where the $\tau_i$ are assumed to be independent and identically distributed  normal random variables with mean zero and $\hat x_i$ denotes the fitted value for $x_i$ obtained from Equation \@ref(eq:lm1).
 
 
 
@@ -321,7 +321,7 @@ the fitted values, $\hat X$.
   (\#eq:lm3)
 \end{equation}
 
-where $\epsilon$ is assumed to be a vector of iid normal random variables with mean zero. 
+where $\epsilon$ is assumed to be a vector of independent and identically distributed normal random variables with mean zero. 
 
 
 
@@ -342,7 +342,7 @@ variant to the outcome. One of these multiple pathways may contain the exposure 
 The fact that there are multiple pathways from the genetic variant to the outcome violates
 standard MR assumptions. @verbanck_detection_2018 documented widespread horizontal pleiotropy 
 in GWAS. This finding motivated the development of MR-PRESSO and inspired 
-further research into methods to model and to account for horizontal pleiotropy [@verbanck_detection_2018].
+further research into methods to model horizontal pleiotropy [@verbanck_detection_2018].
 
 Researchers have recognized two types of horizontal pleiotropy [@yuan_likelihood_2021]. The first occurs via 
 exposure-independent paths. The resulting horizontal pleiotropic effects are independent of the
