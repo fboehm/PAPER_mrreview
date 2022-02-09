@@ -31,8 +31,9 @@ two non-overlapping cohorts of subjects. Importantly, the SNP instruments are me
 
 Genome-wide association studies (GWAS) present unique opportunities for 
 discovery of causal relationships via MR. A GWAS
-interrogates millions of single nucleotide polymorphisms (SNPs) to infer which affect the trait. A 
-SNP is a genetic marker defined by nucleotide base identity at a single genomic position.
+interrogates millions of single nucleotide polymorphisms (SNPs) to infer which affect the trait [@the_wellcome_trust_case_control_consortium_genome-wide_2007;@klein_complement_2005].
+In the nearly 17 years since publication of early studies, researchers have reported 
+tens of thousands of novel SNP-trait associations from GWAS [@klein_complement_2005;@welter_nhgri_2014;@visscher_10_2017;@visscher_five_2012].  
 
 ```{r, article-counts, fig.cap= "Upward trend in article counts by year for keyword searches: 1. mendelian randomization and 2. genome-wide association study."}
 knitr::include_graphics("figures/mr-gwas-counts-scatter.png")
@@ -40,7 +41,13 @@ knitr::include_graphics("figures/mr-gwas-counts-scatter.png")
 
 
 Methods for and uses of MR have appeared at a rapid and accelerating pace since the 
-appearance of the early GWAS (Figure \@ref(fig:article-counts)). Inverse variance weighted MR [@burgess_mendelian_2013], MR-Egger [@bowden_mendelian_2015], weighted median estimation [@bowden_consistent_2016], Bayesian weighted MR [@zhao_bayesian_2019], robust adjusted profile score [@zhao_statistical_2020], MRMix [@qi_mendelian_2019], CAUSE [@morrison_mendelian_2020], and MRAID [@yuan_likelihood_2021] are all recent methods developments. These methods differ in their approaches to two challenges: 
+appearance of the early GWAS (Figure \@ref(fig:article-counts)). Inverse variance 
+weighted MR [@burgess_mendelian_2013], MR-Egger [@bowden_mendelian_2015], weighted 
+median estimation [@bowden_consistent_2016], Bayesian weighted MR 
+[@zhao_bayesian_2019], robust adjusted profile score [@zhao_statistical_2020], MRMix 
+[@qi_mendelian_2019], CAUSE [@morrison_mendelian_2020], and MRAID 
+[@yuan_likelihood_2021] are all recent methods developments. These methods differ in 
+their approaches to two challenges: 
 
 1. instrument selection (from among the available SNPs)  
 1. modeling and controlling for horizontal pleiotropy  
@@ -50,42 +57,27 @@ be statistically independent. This restriction to
 independent SNPs is needed for valid inference in methods like inverse variance weighting MR [@burgess_mendelian_2013]. The independent SNPs may be 
 selected through linkage disequilibrium (LD) clumping. In this procedure, SNPs 
 are ranked by the strength of their marginal association with the exposure 
-variable. The LD clumping procedure then selects high ranking SNPs that are not in high LD with each other.
+variable. The LD clumping procedure then outputs high ranking SNPs that are not in high LD with each other.
 
 LD clumping for choosing instrument SNPs can be problematic for several 
 reasons. First, the chosen SNPs may not be causal for the outcome. This can 
 happen, for instance, by using a noncausal SNP that is in high LD with a 
 causal SNP. Second, because many traits are polygenic or omnigenic, multiple 
 causal SNPs may be in high LD together. LD clumping is likely to omit one or more
-of the causal SNPs.
-
-
-
-@verbanck_detection_2018
-
-
-
+of the causal SNPs, which can diminish statistical power in MR analysis.
 
 
 Recent developments have enabled execution of two-sample MR studies with only 
 GWAS summary statistics [@burgess2015using]. These methods are especially pertinent now that there is 
-an abundance of freely available GWAS summary data [@buniello2019nhgri]. GWAS summary statistics 
-typically consist of an identifier and a p-value for every SNP in the data set, along with the sample 
-size [@buniello2019nhgri].
+an abundance of freely available GWAS summary data [@buniello2019nhgri]. The 
+ability to use published has led to a rapid increase in the number of available
+two-sample MR methods for GWAS summary statistics. 
 
 
 
 
 
 
-Modern GWAS for biobank-scale data offer the possibility
-of discovering even more causal relationships among complex traits. The large
-sample sizes in biobank studies, often greater than 100,000 
-subjects, offer the possibility of uncovering associations of modest strength 
-that might be undetectable in smaller studies. For example, the UK 
-Biobank Study involves more than 500,000 subjects. Each UKB subject's 
-data consists of millions of SNP genotypes and measurements for 
-thousands of traits [@bycroft_uk_2018]. 
 
 
 
@@ -404,7 +396,7 @@ that a trait is influenced by many genome-wide, small effects,
 ## Multiple outcomes in MR
 
 Investigators have found that combining information from multiple related 
-traits can lead to richer MR results. 
+traits can lead to richer MR results [@liu_multi-trait_2021]. 
 
 One approach to combining information across traits is to extend the 
 univariate MR statistical methods to their multivariate analogs.
@@ -412,12 +404,13 @@ univariate MR statistical methods to their multivariate analogs.
 # Applications of MR in GWAS 
 
 
+
 # Software 
 
 # Non-continuous outcomes
 
 Binary, survival, count - see discussion section of MRAID paper.
-
+@allman_novel_2021 @burgess_improving_2012
 
 
 
@@ -432,6 +425,14 @@ Binary, survival, count - see discussion section of MRAID paper.
 
 # Summary and Outlook
 
+Modern GWAS for biobank-scale data offer the possibility
+of discovering even more causal relationships among complex traits. The large
+sample sizes in biobank studies, often greater than 100,000 
+subjects, offer the possibility of uncovering associations of modest strength 
+that might be undetectable in smaller studies. For example, the UK 
+Biobank Study involves more than 500,000 subjects. Each UKB subject's 
+data consists of millions of SNP genotypes and measurements for 
+thousands of traits [@bycroft_uk_2018]. 
 
 
 
