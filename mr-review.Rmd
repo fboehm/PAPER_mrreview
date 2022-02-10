@@ -274,9 +274,7 @@ Sensitivity analysis is recommended and widely used in MR studies because of the
 the three MR assumptions with observational data. The goal of a sensitivity analysis is to gain insight 
 into how the results might differ if the assumptions are violated.
 
-@burgess_sensitivity_2017 divided the suite of methods for sensitivity analysis 
-into two categories: 1) those that support the validity of causal inferences in a MR 
-study and 2) those that question that validity. Because not all confounding 
+Because not all confounding 
 variables are known or measured, assumptions 2 and 3 are not fully verifiable 
 in MR studies. Recognition of this fact has inspired the development of 
 sensitivity analysis tools. While we can't assess whether a SNP instrument is 
@@ -286,9 +284,22 @@ covariates. While absence of such associations doesn't guarantee satisfaction
 of the assumption, presence of SNP-covariate associations must be investigated
 carefully, as they may constitute assumption violations [@burgess_sensitivity_2017]. 
 
+@burgess_sensitivity_2017 considered a collection of sensitivity analysis methods when 
+working with GWAS summary statistics. @burgess_sensitivity_2017 presented methods for both assessing the
+MR assumptions, to the extent possible, and performing robust analyses. For example, 
+they used measured covariates to assess for possible associations with the SNP 
+instruments. While they can't rule out the possibility of unmeasured confounding, they can study the possibility of measured covariates serving as confounders. 
 
-
-
+To illustrate their approach, @burgess_sensitivity_2017 shared a case study in which they examined the causal effect of 
+C-reactive protein (CRP) levels on coronary artery disease risk with four genetic 
+variants in the CRP gene region and 17 other genetic variants that affect coronary 
+artery disease risk. They use measured covariates to probe for SNP-covariate 
+associations, and followed it up with scatter plots and Cochran's Q test on the causal 
+estimates to inquire about whether the 
+SNP instruments all identify the same causal parameter [@greco_m_detecting_2015;@small_sensitivity_2007;@higgins_measuring_2003]. 
+Additionally, @burgess_sensitivity_2017 suggests using a funnel plot, like those in the 
+meta-analysis literature, to visualize possible evidence of directional pleiotropy, where the average pleiotropic effects of the SNP instruments is nonzero [@sterne_recommendations_2011]. Additionally, Egger regression can be useful in this 
+setting [@egger_bias_1997;@bowden_mendelian_2015].
 
 
 
