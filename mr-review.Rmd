@@ -361,7 +361,7 @@ standard MR assumptions. @verbanck_detection_2018 documented widespread horizont
 in GWAS. This finding motivated the development of MR-PRESSO and inspired 
 further research into methods to model horizontal pleiotropy [@verbanck_detection_2018].
 
-Researchers have recognized two types of horizontal pleiotropy [@yuan_likelihood_2021]. The first occurs via 
+In the short time since publication of @verbanck_detection_2018, researchers have recognized two types of horizontal pleiotropy [@yuan_likelihood_2021]. The first occurs via 
 exposure-independent paths. The resulting horizontal pleiotropic effects are independent of the
 SNP-exposure relationships. The second type of horizontal pleiotropy manifests when 
 in the presence of unobserved exposure-outcome confounding. It induces correlation between 
@@ -379,7 +379,7 @@ challenging because the MR model likelihood often involves an integral that can'
 Because of this issue with the model likelihood, both MRMix and CAUSE use other, non-likelihood-based methods for inference.
 MRMix uses ...
 CAUSE compares the out-of-sample prediction accuracies for two competing models that differ in inclusion of 
-the causal effect parameter [@morrison_mendelian_2020]. Specifically, CAUSE calculates the expected log pointwise posterior density 
+the causal effect parameter [@morrison_mendelian_2020]. Specifically, CAUSE calculates the expected pointwise log posterior density 
 between the two models. 
 MRAID models horizontal pleiotropy by ...
 @yuan_likelihood_2021 found that MRMix is not robust to misspecification of SNP effect sizes and often is 
