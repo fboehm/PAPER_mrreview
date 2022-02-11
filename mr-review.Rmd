@@ -10,8 +10,9 @@ output:
   - bookdown::word_document2
 ---
 
-```{r setup, include=FALSE}
+```{r setup}
 knitr::opts_chunk$set(echo = TRUE)
+library(magrittr)
 ```
 
 
@@ -36,7 +37,7 @@ In the nearly 17 years since publication of early studies, researchers have repo
 tens of thousands of novel SNP-trait associations from GWAS [@klein_complement_2005;@welter_nhgri_2014;@visscher_10_2017;@visscher_five_2012].  
 
 ```{r, article-counts, fig.cap= "Upward trend in article counts by year for keyword searches: 1. mendelian randomization and 2. genome-wide association study."}
-knitr::include_graphics("figures/mr-gwas-counts-scatter.png")
+knitr::include_graphics("figures/mr-gwas-counts.png")
 ```
 
 
@@ -252,13 +253,10 @@ possible, since W captures the two pathways, W -> Y and W -> X -> Y, through whi
 affects the outcome Y [@vanderweele_methodological_2014;@textor2011dagitty;@textor2016robust].
 
 ```{r, dag1, fig.cap = "Scenario where the genetic variant G affects an intermediate variable W on the pathway to the exposure X. This violates the exclusion restriction assumption."}
-g1 <- dagitty::dagitty( "dag {
-	G -> W -> X -> Y
-	W -> Y
-}")
-plot(dagitty::graphLayout(g1))
-```
 
+
+
+```
 
 
 
@@ -322,7 +320,7 @@ studies improves power compared to using independent SNPs only [@liu2021multi;@g
 
 
 
-## Statistical models and methods for MR with multiple instruments and one outcome
+## Statistical models and methods for MR with multiple instruments and one continuous outcome
 
 In the case of continuous exposures and outcomes, researchers have taken several approaches to extend the methods and models for 
 single-SNP MR to accommodate multiple SNPs. For two stage analyses, one may perform 
@@ -405,6 +403,15 @@ that may be associated with the outcome variable [@verbanck_detection_2018;@zhu_
 The second type of horizontal pleiotropy, from above, is sometimes called "correlated horizontal pleiotropy". Correlated horizontal pleiotropy occurs when 
 CAUSE and MRAID are two methods that aim to model and to account for correlated horizontal pleiotropy. 
 
+# Binary, Count, and Time-to-event outcomes
+
+Binary, survival, count - see discussion section of MRAID paper.
+@allman_novel_2021 @burgess_improving_2012
+
+
+
+
+
 
 # Recent Findings
 
@@ -430,11 +437,6 @@ univariate MR statistical methods to their multivariate analogs.
 
 
 # Software 
-
-# Non-continuous outcomes
-
-Binary, survival, count - see discussion section of MRAID paper.
-@allman_novel_2021 @burgess_improving_2012
 
 
 
