@@ -349,7 +349,7 @@ where $\epsilon$ is assumed to be a vector of independent and identically distri
   (\#eq:lm4)
 \end{equation}
 
-
+and $\tau$ is a vector of independent and identically distributed normal random errors with mean zero.
 
 
 # Horizontal pleiotropy
@@ -361,7 +361,8 @@ standard MR assumptions. @verbanck_detection_2018 documented widespread horizont
 in GWAS. This finding motivated the development of MR-PRESSO and inspired 
 further research into methods to model horizontal pleiotropy [@verbanck_detection_2018].
 
-In the short time since publication of @verbanck_detection_2018, researchers have recognized two types of horizontal pleiotropy [@yuan_likelihood_2021]. The first occurs via 
+In the short time since publication of @verbanck_detection_2018, researchers have recognized two 
+types of horizontal pleiotropy [@yuan_likelihood_2021]. The first occurs via 
 exposure-independent paths. The resulting horizontal pleiotropic effects are independent of the
 SNP-exposure relationships. The second type of horizontal pleiotropy manifests when 
 in the presence of unobserved exposure-outcome confounding. It induces correlation between 
@@ -377,11 +378,9 @@ MRMix [@qi_mendelian_2019] both use a mixture of normal distributions to control
 types of horizontal pleiotropy. Modeling both types of horizontal pleiotropy is particularly 
 challenging because the MR model likelihood often involves an integral that can't be solved analytically. 
 Because of this issue with the model likelihood, both MRMix and CAUSE use other, non-likelihood-based methods for inference.
-MRMix uses ...
 CAUSE compares the out-of-sample prediction accuracies for two competing models that differ in inclusion of 
 the causal effect parameter [@morrison_mendelian_2020]. Specifically, CAUSE calculates the expected pointwise log posterior density 
 between the two models. 
-MRAID models horizontal pleiotropy by ...
 @yuan_likelihood_2021 found that MRMix is not robust to misspecification of SNP effect sizes and often is 
 biased. CAUSE, they found, yields overly conservative p-values [@yuan_likelihood_2021].
 
@@ -402,6 +401,24 @@ that may be associated with the outcome variable [@verbanck_detection_2018;@zhu_
 
 The second type of horizontal pleiotropy, from above, is sometimes called "correlated horizontal pleiotropy". Correlated horizontal pleiotropy occurs when 
 CAUSE and MRAID are two methods that aim to model and to account for correlated horizontal pleiotropy. 
+Their approaches to modeling correlated horizontal pleiotropy differ in important ways that, ultimately, 
+affect performance. 
+CAUSE allows for a proportion of variants to exhibit correlated pleiotropy, which @morrison_mendelian_2020 
+models as an effect on a shared, unobserved factor. The remaining variants are independent of this 
+unobserved factor. Every variant can have a nonzero pleiotropic effect on the outcome, and these 
+pleiotropic effects are uncorrelated with the variant effects on the exposure. The model, then, 
+is written as a mixture of biavariate normal distributions, and inference proceeds by borrowing ideas on 
+adaptive shrinkage from @stephens_false_2016. Finally, @morrison_mendelian_2020 compares two models 
+to determine whether the GWAS summary statistics are consistent with a causal effect of the
+exposure on the outcome. Specifically, they estimate the difference in the expected log pointwise 
+posterior density for the model with causal effect fixed at zero and the model that permits a nonzero 
+causal effect [@vehtari_practical_2017]. 
+
+
+
+
+
+
 
 # Binary, Count, and Time-to-event outcomes
 
