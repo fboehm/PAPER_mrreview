@@ -10,8 +10,8 @@ output:
   - bookdown::word_document2
 ---
 
-```{r setup}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, echo = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
 library(magrittr)
 ```
 
