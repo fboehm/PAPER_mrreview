@@ -151,11 +151,16 @@ sensitivity analysis to consider the robustness of their inferences to possible 
 of assumptions 2 and 3.
 
 To understand the origin of the term "Mendelian randomization", it is helpful to 
-recall Mendel's inheritance laws. Under the assumption that alleles segregate 
+recall Mendel's inheritance laws [@mendel1865versuche]. Under the assumption that alleles segregate 
 randomly from parent to offspring, the offspring genotypes are unlikely to be 
 associated with confounders of the exposure-outcome relationship. Additionally,
-reverse causation is ruled out by the observation that germ-line genotypes are 
-fixed at conception and, thus, precede other observed variables.
+reverse causation is unanticipated since germ-line genotypes are 
+fixed at conception and, thus, precede realization of other observed variables. Reverse causation 
+occurs when the outcome at an early time point has a causal effect on the exposure variable. While 
+reverse causation is often assumed to not occur in MR study designs, @burgess_are_2021 points out 
+several scenarios where this assumption may not hold [@davey_smith_mendelian_2003]. 
+
+
 
 
 
@@ -420,10 +425,21 @@ causal effect [@vehtari_practical_2017].
 
 
 
-# Binary, Count, and Time-to-event outcomes
+# Binary, Count, and Time-to-event outcomes and exposures
 
 Binary, survival, count - see discussion section of MRAID paper.
 @allman_novel_2021 @burgess_improving_2012
+
+While we've focused on continuous outcomes and continuous exposures, some
+data are more naturally treated as binary, count, or time-to-event variables. MR methods 
+for non-continuous outcomes and exposures is an active area of research. @burgess_improving_2012 and @allman_novel_2021 
+developed MR strategies for binary exposures and binary outcomes. @burgess_improving_2012 extended 
+methods from @wald_fitting_1940 by fitting two logistic regressions, one for the outcome and one for 
+the exposure. They then calculated the causal effect estimator as the ratio of the two logistic 
+regression coefficient estimators. @allman_novel_2021 devised a new MR method for binary outcome and 
+binary exposure by drawing on @gauvreau_analysis_1997 and treating the exposure and outcome as correlated binary variables. Writing the likelihood for this model, they implemented an iterative optimization algorithm to simultaneously infer the causal effect parameter and other parameters.
+
+
 
 
 
