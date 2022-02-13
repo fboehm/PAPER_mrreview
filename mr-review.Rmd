@@ -405,6 +405,8 @@ that may be associated with the outcome variable [@verbanck_detection_2018;@zhu_
 # Correlated horizontal pleiotropy
 
 The second type of horizontal pleiotropy, from above, is sometimes called "correlated horizontal pleiotropy". Correlated horizontal pleiotropy occurs when 
+
+
 CAUSE and MRAID are two methods that aim to model and to account for correlated horizontal pleiotropy. 
 Their approaches to modeling correlated horizontal pleiotropy differ in important ways that, ultimately, 
 affect performance. 
@@ -427,17 +429,38 @@ causal effect [@vehtari_practical_2017].
 
 # Binary, Count, and Time-to-event outcomes and exposures
 
-Binary, survival, count - see discussion section of MRAID paper.
-@allman_novel_2021 @burgess_improving_2012
 
-While we've focused on continuous outcomes and continuous exposures, some
+
+While we've focused above on continuous outcomes and continuous exposures, some
 data are more naturally treated as binary, count, or time-to-event variables. MR methods 
 for non-continuous outcomes and exposures is an active area of research. @burgess_improving_2012 and @allman_novel_2021 
 developed MR strategies for binary exposures and binary outcomes. @burgess_improving_2012 extended 
 methods from @wald_fitting_1940 by fitting two logistic regressions, one for the outcome and one for 
 the exposure. They then calculated the causal effect estimator as the ratio of the two logistic 
 regression coefficient estimators. @allman_novel_2021 devised a new MR method for binary outcome and 
-binary exposure by drawing on @gauvreau_analysis_1997 and treating the exposure and outcome as correlated binary variables. Writing the likelihood for this model, they implemented an iterative optimization algorithm to simultaneously infer the causal effect parameter and other parameters.
+binary exposure by drawing on @gauvreau_analysis_1997 and treating the exposure and outcome as correlated binary 
+random variables. They implemented an iterative optimization algorithm to 
+simultaneously infer the causal effect parameter and other parameters.
+
+Recently, multiple teams of investigators have analyzed time-to-event traits in MR studies [@burgess_commentary_2015;@arvanitis_linear_2021;@tikkanen_body_2019;@he_causal_2018;@guo_body_2017]. 
+@guo_body_2017, for example, studied post-diagnosis survival time in women with breast cancer. They 
+treated survival as a time-to-event outcome, which enabled them to model it with a proportional 
+hazards model [@cox_regression_1972] in two-stage MR with individual-level data. Similarly, 
+@he_causal_2018, in a study of cardiovascular disease, applied proportional hazards regression when 
+examining time to stroke as an outcome variable. We are unaware of MR studies that treat 
+the exposure variable as a time-to-event, but it's conceivable that future research will consider 
+time-to-event traits as exposures in MR analyses.
+
+Researchers have also drawn on other generalized linear models for analysis in MR 
+studies. However, this area is relatively unexplored. @hazewinkel_mendelian_2022 treated hospitalizations as a count variable and 
+modeled it with quasi-Poisson methods. @allman_mendelian_2022 characterized statistical properties, including bias and 
+power, with simulations of count random variables and binary random variables. With growing interest
+in modeling counts in biomedical data, where molecular phenotyping technologies now acquire RNA molecule counts and protein abundances, 
+there may be opportunities for methods innovations in a generalized linear models framework for MR studies.
+
+See also @tchetgen_tchetgen_genius_2021
+
+
 
 
 
@@ -469,7 +492,6 @@ univariate MR statistical methods to their multivariate analogs.
 
 
 
-# Software 
 
 
 
