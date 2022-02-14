@@ -34,7 +34,7 @@ Genome-wide association studies (GWAS) present unique opportunities for
 discovery of causal relationships via MR. A GWAS
 interrogates millions of single nucleotide polymorphisms (SNPs) to infer which affect the trait [@the_wellcome_trust_case_control_consortium_genome-wide_2007;@klein_complement_2005].
 In the nearly 17 years since publication of early studies, researchers have reported 
-tens of thousands of novel SNP-trait associations from GWAS [@klein_complement_2005;@welter_nhgri_2014;@visscher_10_2017;@visscher_five_2012].  
+thousands of novel SNP-trait associations from GWAS [@klein_complement_2005;@welter_nhgri_2014;@visscher_10_2017;@visscher_five_2012].  
 
 ```{r, article-counts, fig.cap= "Upward trend in article counts by year for keyword searches: 1. mendelian randomization and 2. genome-wide association study."}
 knitr::include_graphics("figures/mr-gwas-counts.png")
@@ -447,7 +447,10 @@ Recently, multiple teams of investigators have analyzed time-to-event traits in 
 treated survival as a time-to-event outcome, which enabled them to model it with a proportional 
 hazards model [@cox_regression_1972] in two-stage MR with individual-level data. Similarly, 
 @he_causal_2018, in a study of cardiovascular disease, applied proportional hazards regression when 
-examining time to stroke as an outcome variable. We are unaware of MR studies that treat 
+examining time to stroke as an outcome variable. In very recent work, @tchetgen_tchetgen_genius_2021
+reported methods, MR GENIUS, that are robust to violations of the exclusion restriction assumption (under 
+many assumed MR data generating processes). They considered binary, continuous, and time-to-event 
+outcomes within their framework. We are unaware of MR studies that treat 
 the exposure variable as a time-to-event, but it's conceivable that future research will consider 
 time-to-event traits as exposures in MR analyses.
 
@@ -456,9 +459,8 @@ studies. However, this area is relatively unexplored. @hazewinkel_mendelian_2022
 modeled it with quasi-Poisson methods. @allman_mendelian_2022 characterized statistical properties, including bias and 
 power, with simulations of count random variables and binary random variables. With growing interest
 in modeling counts in biomedical data, where molecular phenotyping technologies now acquire RNA molecule counts and protein abundances, 
-there may be opportunities for methods innovations in a generalized linear models framework for MR studies.
+there may be opportunities for methods innovations in a generalized linear models framework for MR studies [@hwang_single-cell_2018;@ozsolak_rna_2011;@domon_mass_2006;@bantscheff_quantitative_2007].
 
-See also @tchetgen_tchetgen_genius_2021
 
 
 
