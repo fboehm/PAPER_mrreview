@@ -257,7 +257,6 @@ affects the outcome Y [@vanderweele_methodological_2014;@textor2011dagitty;@text
 
 ```{r, dag1, fig.cap = "Scenario where the genetic variant G affects an intermediate variable W on the pathway to the exposure X. Because W affecs Y through pathways that don't involve exposure X, this scenario violates the exclusion restriction assumption."}
 
-knitr::include_graphics()
 
 ```
 
