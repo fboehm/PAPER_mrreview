@@ -217,7 +217,7 @@ incorrect in two-stage calculations. This and other observations led researchers
 likelihood-based MR methods.
 
 Likelihood-based MR methods, unlike two-stage methods, provide maximum likelihood 
-estimates with their many desirable properties [@fisher1925likelihood]. Limited information maximum likelihood from econometrics 
+estimates with their many desirable properties [@fisher1925theory]. Limited information maximum likelihood from econometrics 
 is the earliest approach for likelihood-based inference in MR [@davidson1993estimation]. CoMM and 
 PMR-Egger are two recent likelihood-based methods [@yang_comm_2019;@yuan_testing_2020]. We discuss 
 PMR-Egger below in the context of methods that account for horizontal pleiotropy. Immediately below, we 
