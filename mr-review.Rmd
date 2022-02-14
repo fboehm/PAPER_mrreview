@@ -452,7 +452,7 @@ the exposure variable as a time-to-event, but it's conceivable that future resea
 time-to-event traits as exposures in MR analyses.
 
 Researchers have also drawn on other generalized linear models for analysis in MR 
-studies. However, this area is relatively unexplored. @hazewinkel_mendelian_2022 treated hospitalizations as a count variable and 
+studies [@nelder1972generalized]. However, this area is relatively unexplored. @hazewinkel_mendelian_2022 treated hospitalizations as a count variable and 
 modeled it with quasi-Poisson methods. @allman_mendelian_2022 characterized statistical properties, including bias and 
 power, with simulations of count random variables and binary random variables. With growing interest
 in modeling counts in biomedical data, where molecular phenotyping technologies now acquire RNA molecule counts and protein abundances, 
