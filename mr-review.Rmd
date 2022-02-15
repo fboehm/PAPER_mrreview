@@ -297,10 +297,10 @@ plot(d1)
 ```{r, dag2, fig.cap = "Scenario where the genetic variant G affects exposure X, which in turn affects Y. Unobserved confounder U affects both X and Y."}
 d1 <- dagitty('dag {
 bb="0,0,1,1"
-G [pos="0,0"]
-U [pos="0.75,10"]
-X [exposure, pos="0.5,0"]
-Y [outcome, pos="1.0,0"]
+G [pos="0.0,0.0"]
+U [pos="0.75,0.5"]
+X [exposure, pos="0.5,0.0"]
+Y [outcome, pos="1.0,0.0"]
 G -> X
 U -> X
 U -> Y
@@ -342,13 +342,13 @@ instruments. While they can't rule out the possibility of unmeasured confounding
 To illustrate their approach, @burgess_sensitivity_2017 shared a case study in which they examined the causal effect of 
 C-reactive protein (CRP) levels on coronary artery disease risk with four genetic 
 variants in the CRP gene region and 17 other genetic variants that affect coronary 
-artery disease risk. They use measured covariates to probe for SNP-covariate 
+artery disease risk. They used measured covariates to probe for SNP-covariate 
 associations, and followed it up with scatter plots and Cochran's Q test on the causal 
 estimates to inquire about whether the 
 SNP instruments all identify the same causal parameter [@greco_m_detecting_2015;@small_sensitivity_2007;@higgins_measuring_2003]. 
-Additionally, @burgess_sensitivity_2017 suggests using a funnel plot, like those in the 
+Additionally, @burgess_sensitivity_2017 suggested using a funnel plot, like those in the 
 meta-analysis literature, to visualize possible evidence of directional pleiotropy, where the average pleiotropic effects of the SNP instruments is nonzero [@sterne_recommendations_2011]. Additionally, Egger regression can be useful in this 
-setting [@egger_bias_1997;@bowden_mendelian_2015].
+setting [@egger_bias_1997;@bowden_mendelian_2015;@burgess_interpreting_2017;@bowden_framework_2017].
 
 
 
@@ -400,7 +400,7 @@ where $\epsilon$ is assumed to be a vector of independent and identically distri
   (\#eq:lm4)
 \end{equation}
 
-and $\tau$ is a vector of independent and identically distributed normal random errors with mean zero.
+and $\tau$ is a vector of independent and identically distributed normal random errors with mean zero. Note also that $\tau$ in Equation \@ref(eq:lm4) is independent of $\epsilon$ in Equation \@ref(eq:lm3). 
 
 
 # Horizontal pleiotropy
@@ -537,6 +537,30 @@ One approach to combining information across traits is to extend the
 univariate MR statistical methods to their multivariate analogs.
 
 # Applications of MR in GWAS 
+
+
+
+Birthweight is thought to impact long-term susceptibility to adulthood diseases. This scientific 
+hypothesis, sometimes called the "fetal origins of adult diseases" motivated work by @zeng_causal_2019 in 
+which the authors used MR to identify causal relationships between lower birthweight and greater risks of 
+coronary artery disease, myocardial infarction, and type 2 diabetes mellitus [@barker_fetal_1990;@lucas_fetal_1999;@barker_fetal_2002]. Specifically, 
+@zeng_causal_2019 used 
+inverse variance-weighted MR to examine a total of 21 adult diseases and 38 other complex traits. Three causal associations met the Bonferroni multiple hypothesis testing threshold 
+[@bonferroni1936teoria]. The authors analyzed data from 37 GWAS with up to 340,000 subjects with European 
+ancestry [@zeng_causal_2019]. They estimated odds ratios of 1.34, 1.30, and 1.41 for coronary artery 
+disease, myocardial infarction, and type 2 diabetes mellitus, respectively. Sensitivity analyses revealed 
+the robustness of these findings to possible MR assumptions violations, including pleiotropy, maternal 
+effects, and reverse causation [@zeng_causal_2019]. Curiously, none of the 38 other complex traits 
+appeared to mediate the causal associations, perhaps due to limited sample sizes for these traits [@zeng_causal_2019]. @zeng_causal_2019 argue that further 
+studies, including consideration of socioeconomic status and incorporation of larger sample sizes, may 
+reveal mediating factors for these causal relationships and, thus, provide biological and public health insights. 
+
+@zeng_causal_2019-1
+
+
+@zeng_birth_2019
+
+
 
 
 
