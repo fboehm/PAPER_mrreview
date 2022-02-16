@@ -526,7 +526,8 @@ that every SNP's effect on a trait is nonzero, has informed
 MR methods development [@Boyle2017]. @wang_mendelian_nodate 
 recognized the limitations of previous MR methods in the 
 context of the omnigenic hypothesis. To accommodate the possibility
-that a trait is influenced by many genome-wide, small effects, 
+that a trait is influenced by many SNPs, @wang_mendelian_nodate 
+
 
 ## Multiple outcomes in MR
 
@@ -538,7 +539,8 @@ univariate MR statistical methods to their multivariate analogs.
 
 # Applications of MR in GWAS 
 
-
+MR analysis has revealed causal relationships and led to mechanistic insights for many 
+common diseases [@mancuso2017integrating;@parisinos2020genome;@zeng_causal_2019-2;@larsson2019smoking;@zheng2020phenome;@robinson2016insight;@luo2019association;@au2018impact;@zhao2019effect;@zeng_causal_2019;@zeng_causal_2019-1].
 
 Birthweight is thought to impact long-term susceptibility to adulthood diseases. This scientific 
 hypothesis, sometimes called the "fetal origins of adult diseases" motivated work by @zeng_causal_2019 in 
