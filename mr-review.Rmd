@@ -555,7 +555,21 @@ appeared to mediate the causal associations, perhaps due to limited sample sizes
 studies, including consideration of socioeconomic status and incorporation of larger sample sizes, may 
 reveal mediating factors for these causal relationships and, thus, provide biological and public health insights. 
 
-@zeng_causal_2019-1
+Amyotrophic lateral sclerosis is an incurable and largely untreatable neurological condition [@rowland_amyotrophic_2001;@kiernan_amyotrophic_2011]. Working with GWAS summary statistics, @zeng_causal_2019-1 found evidence of a causal relationship between 
+type 2 diabetes mellitus and amyotrophic lateral sclerosis in both European and East Asian populations. 
+Interestingly, these effects differ in direction; in the European population, type 2 diabetes mellitus 
+exerted a neuroprotective effect and diminished the risk of amyotrophic lateral sclerosis, while in the 
+East Asian population type 2 diabetes mellitus increased the risk of amyotrophic lateral sclerosis. 
+@zeng_causal_2019-1 used inverse variance-weighted methods to estimate the causal effect from summary 
+statistics derived from approximately 660,000 type 2 diabetes mellitus European subjects and 81,000 
+amyotrophic lateral sclerosis European subjects. Smaller sample sizes (approximately 191,000 type 2 
+diabetes mellitus subjects and 4100 amyotrophic lateral sclerosis subjects) were available in the East 
+Asian cohorts. The authors used multiple SNP instruments with strong associations with type 2 diabetes 
+mellitus [@zeng_causal_2019-1]. The odds ratios of 0.93 and 1.28 in the Europeans and East Asians, 
+respectively, were robust against instrument selection, various model misspecifications, and estimation 
+biases [@zeng_causal_2019-1]. Egger regression and MR-PRESSO analyses were consistent with the absence of horizonal pleiotropy 
+[@zeng_causal_2019-1;@hemani_evaluating_2018;@verbanck_detection_2018;@ong2019implementing]. Future studies may reveal deeper biological insights into these observations and, ultimately, 
+contribute to treatments for amyotrophic lateral sclerosis.
 
 
 @zeng_birth_2019
