@@ -489,9 +489,16 @@ $\hat\beta_Y$ represents the estimated effects of the same SNPs on the outcome. 
 the SNP instruments are written as $\Sigma_1$ and $\Sigma_2$, respectively. $\Sigma_1$ and $\Sigma_2$ can be estimated with 1000 Genomes 
 Project data, for example, by choosing a subset of 1000 Genomes Project subjects that have similar ancestry 
 [@the_1000_genomes_project_consortium_1000_2012]. The $p$-vector error terms, $e_x$ and $e_y$, follow multivariate normal 
-distributions with mean zero and variances $\Sigma_1\frac{\sigma_X^2}{n_1 - 1}$ and $\Sigma_2\frac{\sigma_Y^2}{n_2 - 1}$, 
-respectively.
+distributions with mean zero and variances $\Sigma_1\frac{\sigma_X^2}{n_1 - 1}$ 
+and $\Sigma_2\frac{\sigma_Y^2}{n_2 - 1}$, 
+respectively. @yuan_likelihood_2021 then constructs a Gibbs sampler to make likelihood-based inferences [@geman1984stochastic]. To facilitate computations, the investigators make several assumptions about the collection of SNPs:
 
+1. Relatively small proportion of SNPs have nonzero effects on the exposure  
+1. A relatively small proportion of SNPs demonstrate horizontal pleiotropy  
+1. The chosen instrumental SNPs are more likely to display horizontal pleiotropy than are non-instrumental SNPs  
+1. Those SNPs that display horizontal pleiotropy are more likely to demonstrate uncorrelated horizontal pleiotropy than correlated horizontal pleiotropy. 
+
+By encoding these assumptions in prior distributions, @yuan_likelihood_2021 enables the inferential procedures to accommodate the observed data in the context of the assumptions on SNPs. 
 
 
 # Binary, Count, and Time-to-event outcomes and exposures
