@@ -27,7 +27,7 @@ Mendelian randomization (MR) studies are a form of instrumental variable analysi
 genetic markers, typically single nucleotide polymorphisms (SNPs), serve as instruments for 
 inferring causal effects of an exposure variable on an outcome variable [@wright1928tariff;@wright1921correlation;@wright1923theory;@stock2003retrospectives;@katan1986apolipoprotein;@katan2004commentary;@didelez2007mendelian]. They are termed 
 "two-sample" MR studies because the exposure variable and the outcome variable are measured on 
-two non-overlapping cohorts of subjects. Importantly, the SNP instruments are measured in both sets of subjects.
+two non-overlapping cohorts of subjects [@pierce_efficient_2013]. Importantly, the SNP instruments are measured in both sets of subjects.
 
 
 Genome-wide association studies (GWAS) present unique opportunities for 
@@ -74,7 +74,7 @@ be statistically independent. This restriction to
 independent SNPs is needed for valid inference in methods like inverse variance weighting MR [@burgess_mendelian_2013]. The independent SNPs may be 
 selected through linkage disequilibrium (LD) clumping. In this procedure, SNPs 
 are ranked by the strength of their marginal association with the exposure 
-variable. The LD clumping procedure then outputs high ranking SNPs that are not in high LD with each other.
+variable. 
 
 LD clumping for choosing instrument SNPs can be problematic for several 
 reasons. First, the chosen SNPs may not be causal for the outcome. This can 
@@ -88,9 +88,9 @@ the standard MR assumptions and can lead to biased
 causal effect estimates and diminished statistical power. We discuss approaches to 
 modeling horizontal pleiotropy below.
 
-
-
-
+```{r timeline, fig.cap="Timeline of two-sample GWAS summary statistics MR methods"}
+readxl::read_xlsx("data/method-year.xlsx", sheet = "inputs")
+```
 
 Recent methods developments have enabled execution of two-sample MR studies with only 
 GWAS summary statistics [@burgess2015using]. These strategies are especially pertinent now that there is 
@@ -485,8 +485,8 @@ the approach that uses GWAS summary statistics. Two equations are central to MRA
 \end{equation}
 
 The estimated marginal effects for the $p$ SNP instruments on the exposure are denoted by $\hat \beta_X$, while 
-$\hat\beta_Y$ represents the estimated effects of the same SNPs on the outcome. The $p$ by $p$ correlation matrices for 
-the SNP instruments are written as $\Sigma_1$ and $\Sigma_2$, respectively. $\Sigma_1$ and $\Sigma_2$ can be estimated with 1000 Genomes 
+$\hat\beta_Y$ represents the estimated effects of the same SNPs on the outcome. The $p$ by $p$ SNP instrument correlation matrices for the exposure and outcome 
+are written as $\Sigma_1$ and $\Sigma_2$, respectively. $\Sigma_1$ and $\Sigma_2$ can be estimated with 1000 Genomes 
 Project data, for example, by choosing a subset of 1000 Genomes Project subjects that have similar ancestry 
 [@the_1000_genomes_project_consortium_1000_2012]. The $p$-vector error terms, $e_x$ and $e_y$, follow multivariate normal 
 distributions with mean zero and variances $\Sigma_1\frac{\sigma_X^2}{n_1 - 1}$ 
