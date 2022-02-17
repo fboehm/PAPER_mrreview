@@ -456,20 +456,41 @@ The second type of horizontal pleiotropy, from above, is sometimes called "corre
 CAUSE and MRAID are two methods that aim to model and to account for correlated horizontal pleiotropy. 
 Their approaches to modeling correlated horizontal pleiotropy differ in important ways that, ultimately, 
 affect performance. 
-CAUSE allows for a proportion of variants to exhibit correlated pleiotropy, which @morrison_mendelian_2020 
-models as an effect on a shared, unobserved factor. The remaining variants are independent of this 
-unobserved factor. Every variant can have a nonzero pleiotropic effect on the outcome, and these 
+CAUSE allows for a proportion of SNPs to exhibit correlated pleiotropy, which @morrison_mendelian_2020 
+models as an effect on a shared, unobserved factor. The remaining SNPs are independent of this 
+unobserved factor. Every SNP can have a nonzero pleiotropic effect on the outcome, and these 
 pleiotropic effects are uncorrelated with the variant effects on the exposure. The model, then, 
 is written as a mixture of biavariate normal distributions, and inference proceeds by borrowing ideas on 
 adaptive shrinkage from @stephens_false_2016. Finally, @morrison_mendelian_2020 compares two models 
-to determine whether the GWAS summary statistics are consistent with a causal effect of the
+to determine whether the GWAS summary statistics are consistent with a causal effect of the        
 exposure on the outcome. Specifically, they estimate the difference in the expected log pointwise 
 posterior density for the model with causal effect fixed at zero and the model that permits a nonzero 
 causal effect [@vehtari_practical_2017]. 
 
+MRAID accommodates both individual-level data and GWAS summary statistics [@yuan_likelihood_2021]. We focus on 
+the approach that uses GWAS summary statistics. Two equations are central to MRAID modeling (Equations \@ref() and \@ref()).
+
+\begin{equation}
+  \hat{\beta_X} = \Sigma_1\beta + e_x
+  (\#eq:mraid1)
+\end{equation}
 
 
 
+
+
+\begin{equation}
+  \hat{\beta_Y} = \alpha \Sigma_2 \beta + \Sigma_2\eta_0 + \Sigma_2 \eta_1 + e_y
+  (\#eq:mraid2)
+\end{equation}
+
+The estimated marginal effects for the $p$ SNP instruments on the exposure are denoted by $\hat \beta_X$, while 
+$\hat\beta_Y$ represents the estimated effects of the same SNPs on the outcome. The $p$ by $p$ correlation matrices for 
+the SNP instruments are written as $\Sigma_1$ and $\Sigma_2$, respectively. $\Sigma_1$ and $\Sigma_2$ can be estimated with 1000 Genomes 
+Project data, for example, by choosing a subset of 1000 Genomes Project subjects that have similar ancestry 
+[@the_1000_genomes_project_consortium_1000_2012]. The $p$-vector error terms, $e_x$ and $e_y$, follow multivariate normal 
+distributions with mean zero and variances $\Sigma_1\frac{\sigma_X^2}{n_1 - 1}$ and $\Sigma_2\frac{\sigma_Y^2}{n_2 - 1}$, 
+respectively.
 
 
 
@@ -539,7 +560,7 @@ univariate MR statistical methods to their multivariate analogs.
 
 # Applications of MR in GWAS 
 
-MR analysis has revealed causal relationships and led to mechanistic insights for many 
+MR analysis has revealed mechanistic insights for many 
 common diseases [@mancuso2017integrating;@parisinos2020genome;@zeng_causal_2019-2;@larsson2019smoking;@zheng2020phenome;@robinson2016insight;@luo2019association;@au2018impact;@zhao2019effect;@zeng_causal_2019;@zeng_causal_2019-1].
 
 Birthweight is thought to impact long-term susceptibility to adulthood diseases. This scientific 
