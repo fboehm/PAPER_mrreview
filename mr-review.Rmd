@@ -15,7 +15,16 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 library(magrittr)
 ```
 
+# Abstract
 
+Complex trait genetics studies in humans have yielded thousands of new associations for  
+diverse traits. The next step in understanding biology of health and disease is to
+identify causal relationships among complex traits. Two-sample Mendelian randomization studies 
+in genome-wide association studies can uncover causal relationships 
+between complex traits. By leveraging shared SNP genotypes as instrumental variables, or proxies, for 
+the exposure complex trait, investigators can tease out causal effects from observational data, provided
+that three assumptions are satisfied. We discuss below the growth of genome-wide association studies 
+in parallel with development of Mendelian randomization methods. We argue that the recent availability of GWAS summary statistics for diverse complex traits has led to new Mendelian randomization methods and that this area continues to offer opportunities for additional methods developments. 
 
 
 # Introduction
@@ -24,7 +33,7 @@ Great interest has developed in inferring causal relationships between complex
 traits, *i.e.*, traits that seemingly are not inherited in a Mendelian fashion, in observational human genetics studies. Discovery of such relationships is crucial to 
 enhancing our understanding of the biology of health and disease. Two-sample 
 Mendelian randomization (MR) studies are a form of instrumental variable analysis in which
-genetic markers, typically single nucleotide polymorphisms (SNPs), serve as instruments for 
+genetic markers, typically single nucleotide polymorphisms (SNPs), serve as instruments, or proxies, for 
 inferring causal effects of an exposure variable on an outcome variable [@wright1928tariff;@wright1921correlation;@wright1923theory;@stock2003retrospectives;@katan1986apolipoprotein;@katan2004commentary;@didelez2007mendelian]. They are termed 
 "two-sample" MR studies because the exposure variable and the outcome variable are measured on 
 two non-overlapping cohorts of subjects [@pierce_efficient_2013]. Importantly, the SNP instruments are measured in both sets of subjects.
@@ -34,7 +43,8 @@ Genome-wide association studies (GWAS) present unique opportunities for
 discovery of causal relationships via MR. A GWAS
 interrogates millions of single nucleotide polymorphisms (SNPs) to infer which affect the trait [@the_wellcome_trust_case_control_consortium_genome-wide_2007;@klein_complement_2005].
 In the nearly 17 years since publication of early studies, researchers have reported 
-thousands of novel SNP-trait associations from GWAS [@klein_complement_2005;@welter_nhgri_2014;@visscher_10_2017;@visscher_five_2012].  
+thousands of novel SNP-trait associations from GWAS [@klein_complement_2005;@welter_nhgri_2014;@visscher_10_2017;@visscher_five_2012]. Ever larger sample sizes in GWAS have enhanced statistical power to detect associations and refined our understanding of 
+human health and disease.
 
 ```{r, article-counts, message = FALSE, fig.cap= "Upward trend in article counts by year for keyword searches: 1. mendelian randomization and 2. genome-wide association study."}
 library(magrittr)
@@ -72,11 +82,9 @@ their approaches to two challenges:
 Many MR methods use a set of pre-selected SNPs as instruments. Typically, these SNPs are selected to 
 be statistically independent. This restriction to 
 independent SNPs is needed for valid inference in methods like inverse variance weighting MR [@burgess_mendelian_2013]. The independent SNPs may be 
-selected through linkage disequilibrium (LD) clumping. In this procedure, SNPs 
-are ranked by the strength of their marginal association with the exposure 
-variable. 
+selected through linkage disequilibrium (LD) clumping. 
 
-LD clumping for choosing instrument SNPs can be problematic for several 
+However, LD clumping for choosing instrument SNPs can be problematic for several 
 reasons. First, the chosen SNPs may not be causal for the outcome. This can 
 happen, for instance, by using a noncausal SNP that is in high LD with a 
 causal SNP. Second, because many traits are polygenic or omnigenic, multiple 
@@ -86,11 +94,8 @@ of the causal SNPs, which can diminish statistical power in MR analysis.
 Horizontal pleiotropy occurs when a SNP instrument affects the outcome through at least one pathway that bypasses the exposure variable [@verbanck_detection_2018]. It constitutes a violation of 
 the standard MR assumptions and can lead to biased 
 causal effect estimates and diminished statistical power. We discuss approaches to 
-modeling horizontal pleiotropy below.
+modeling and accounting for horizontal pleiotropy below.
 
-```{r timeline, fig.cap="Timeline of two-sample GWAS summary statistics MR methods"}
-readxl::read_xlsx("data/method-year.xlsx", sheet = "inputs")
-```
 
 Recent methods developments have enabled execution of two-sample MR studies with only 
 GWAS summary statistics [@burgess2015using]. These strategies are especially pertinent now that there is 
@@ -163,15 +168,13 @@ causal diagram, this means that the only path from the marker to the outcome is 
 containing the exposure.
 
 The third assumption ensures that the genetic marker is
-independent of all confounders of the exposure-outcome relationship. 
+independent of all confounders of the exposure-outcome relationship. Like the exclusion restriction
+assumption, we can't verify this assumption with observational data, so analysts need to 
+use tools like sensitivity analysis to ensure validity of findings.
 
 When the three MR assumptions hold, one may use instrumental variable statistical methods, 
 with the genetic marker data, the exposure data, and the outcome data, to estimate and to test the 
-causal effect of the exposure on the outcome [@didelez_mendelian_2007;@lawlor_mendelian_2008;@palmer_adjusting_2008]. It's important 
-to recognize that assumptions 2 and 3, which require absence of two types of confounding, 
-can't be verified in observational studies. For this reason, researchers have developed 
-sensitivity analysis to consider the robustness of their inferences to possible violations 
-of assumptions 2 and 3.
+causal effect of the exposure on the outcome [@didelez_mendelian_2007;@lawlor_mendelian_2008;@palmer_adjusting_2008]. 
 
 To understand the origin of the term "Mendelian randomization", it is helpful to 
 recall Mendel's inheritance laws [@mendel1865versuche]. Under the assumption that alleles segregate 
