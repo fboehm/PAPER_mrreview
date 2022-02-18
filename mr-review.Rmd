@@ -24,7 +24,7 @@ in genome-wide association studies can uncover causal relationships
 between complex traits. By leveraging shared SNP genotypes as instrumental variables, or proxies, for 
 the exposure complex trait, investigators can tease out causal effects from observational data, provided
 that three assumptions are satisfied. We discuss below the growth of genome-wide association studies 
-in parallel with development of Mendelian randomization methods. We argue that the recent availability of GWAS summary statistics for diverse complex traits has led to new Mendelian randomization methods and that this area continues to offer opportunities for additional methods developments. 
+in parallel with development of Mendelian randomization methods. We argue that the recent availability of GWAS summary statistics for diverse complex traits has motivated new Mendelian randomization methods and that this area continues to offer opportunities for additional methods developments. 
 
 
 # Introduction
