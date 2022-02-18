@@ -553,7 +553,8 @@ univariate MR statistical methods to their multivariate analogs.
 # Applications of MR in GWAS 
 
 MR analysis has revealed mechanistic insights for many 
-common diseases [@mancuso2017integrating;@parisinos2020genome;@zeng_causal_2019-2;@larsson2019smoking;@zheng2020phenome;@robinson2016insight;@luo2019association;@au2018impact;@zhao2019effect;@zeng_causal_2019;@zeng_causal_2019-1].
+common diseases [@mancuso2017integrating;@parisinos2020genome;@zeng_causal_2019-2;@larsson2019smoking;@zheng2020phenome;@robinson2016insight;@luo2019association;@au2018impact;@zhao2019effect;@zeng_causal_2019;@zeng_causal_2019-1]. In some cases, a randomized clinical trial is not possible for ethical or other reasons. 
+Below, we discuss recent applications of two-sample MR to GWAS summary statistics. 
 
 Birthweight is thought to impact long-term susceptibility to adulthood diseases. This scientific 
 hypothesis, sometimes called the "fetal origins of adult diseases" motivated work by @zeng_causal_2019 in 
@@ -570,7 +571,7 @@ appeared to mediate the causal associations, perhaps due to limited sample sizes
 studies, including consideration of socioeconomic status and incorporation of larger sample sizes, may 
 reveal mediating factors for these causal relationships and, thus, provide biological and public health insights. 
 
-Amyotrophic lateral sclerosis is an incurable and largely untreatable neurological condition [@rowland_amyotrophic_2001;@kiernan_amyotrophic_2011]. Working with GWAS summary statistics, @zeng_causal_2019-1 found evidence of a causal relationship between 
+Amyotrophic lateral sclerosis is an incurable and largely untreatable neurological condition [@rowland_amyotrophic_2001;@kiernan_amyotrophic_2011]. Working with GWAS summary statistics, @zeng_causal_2019-1 found evidence of causal relationships between 
 type 2 diabetes mellitus and amyotrophic lateral sclerosis in both European and East Asian populations. 
 Interestingly, these effects differ in direction; in the European population, type 2 diabetes mellitus 
 exerted a neuroprotective effect and diminished the risk of amyotrophic lateral sclerosis, while in the 
