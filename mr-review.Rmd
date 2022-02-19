@@ -637,6 +637,11 @@ Biobank Study involves more than 500,000 subjects. Each UKB subject's
 data consists of millions of SNP genotypes and measurements for 
 thousands of traits [@bycroft_uk_2018]. 
 
+Other biobanks?
+
+EMR & GWAS? 
+
+
 
 
 
