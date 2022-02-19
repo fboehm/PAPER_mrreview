@@ -538,8 +538,15 @@ Recent research on the omnigenic hypothesis, which posits
 that every SNP's effect on a trait is nonzero, has informed
 MR methods development [@Boyle2017]. @wang_mendelian_nodate 
 recognized the limitations of previous MR methods in the 
-context of the omnigenic hypothesis. To accommodate the possibility
-that a trait is influenced by many SNPs, @wang_mendelian_nodate 
+context of the omnigenic hypothesis. In response, @wang_mendelian_nodate 
+developed a MR method that explicitly uses all genome-wide SNPs as instruments. 
+Using GWAS summary statistics as inputs, their method relies on a composite likelihood framework for scalable computation and allows for horizontal pleiotropy. @wang_mendelian_nodate used extensive 
+simulations, including those with model misspecifications, to characterize their method's statistical power and robustness. Finally, they applied the new method to 
+identify multiple complex traits that affect coronary artery disease and asthma. These causal relationships highlight the important roles of plasma lipids, blood pressure, and the immune system in CAD susceptibility and those of obesity and the immune system in asthma development. 
+
+
+
+
 
 
 ## Multiple outcomes in MR
