@@ -190,7 +190,7 @@ several scenarios where this assumption may not hold [@davey_smith_mendelian_200
 
 
 
-## Statistical models and methods for MR with one instrument and one outcome
+## Statistical models and methods for MR with one instrument
 
 
 Many approaches to MR can be classified into two categories: two-stage methods and 
@@ -291,7 +291,7 @@ plot(d1)
 
 ```
 
-```{r, dag2, fig.cap = "Scenario where the genetic variant G affects exposure X, which in turn affects Y. Unobserved confounder U affects both X and Y."}
+```{r, dag2, fig.cap = "Scenario where the genetic variant G affects exposure X, which affects Y. Unobserved confounder U affects both X and Y."}
 d1 <- dagitty('dag {
 bb="0,0,1,1"
 G [pos="0.0,0.0"]
@@ -401,7 +401,8 @@ and $\tau$ is a vector of independent and identically distributed normal random 
 
 # Horizontal pleiotropy
 
-Pleiotropy, where a single genetic variant affects multiple traits, has a long history of study in genetics and complex traits [@solovieff_pleiotropy_2013;@visscher_plethora_2016;@stearns_one_2010]. Horizontal pleiotropy refers to the presence of multiple causal pathways from a genetic 
+Pleiotropy, where a single genetic variant affects multiple traits, has a long history of study in genetics and complex traits [@solovieff_pleiotropy_2013;@visscher_plethora_2016;@stearns_one_2010]. 
+Horizontal pleiotropy refers to the presence of multiple causal pathways from a genetic 
 variant to the outcome. 
 The fact that there are pathways that exclude the exposure and connect the SNP to the outcome violates
 standard MR assumptions. @verbanck_detection_2018 documented widespread horizontal pleiotropy 
@@ -439,7 +440,29 @@ biased. CAUSE, they found, yields overly conservative p-values [@yuan_likelihood
 
 # Correlated horizontal pleiotropy
 
-The second type of horizontal pleiotropy, from above, is sometimes called "correlated horizontal pleiotropy". Correlated horizontal pleiotropy occurs when 
+The second type of horizontal pleiotropy, from above, is sometimes called 
+"correlated horizontal pleiotropy". Correlated horizontal pleiotropy occurs 
+when a SNP affects both the exposure and a variable that confounds the 
+relationship between exposure and outcome (Figure \@ref(fig:dag3)). 
+
+```{r, dag3, fig.cap = "Correlated horizontal pleiotropy occurs when the genetic variant G affects exposure X, which in turn affects Y, and G affects U, which in turn affects X and Y independently."}
+d1 <- dagitty('dag {
+bb="0,0,1,1"
+G [pos="0.0,0.0"]
+U [pos="0.75,0.5"]
+X [exposure, pos="0.5,0.0"]
+Y [outcome, pos="1.0,0.0"]
+G -> X
+G -> U
+U -> X
+U -> Y
+X -> Y
+}'
+)
+plot(d1)
+
+```
+
 
 
 CAUSE and MRAID are two methods that aim to model correlated horizontal pleiotropy [@morrison_mendelian_2020;@yuan_likelihood_2021]. 
