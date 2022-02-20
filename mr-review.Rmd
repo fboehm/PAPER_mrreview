@@ -426,11 +426,6 @@ MRMix [@qi_mendelian_2019] both use a mixture of normal distributions to control
 types of horizontal pleiotropy. Modeling both types of horizontal pleiotropy is particularly 
 challenging because the MR model likelihood often involves an integral that can't be solved analytically. 
 Because of this issue with the model likelihood, both MRMix and CAUSE use other, non-likelihood-based methods for inference.
-CAUSE compares the out-of-sample prediction accuracies for two competing models that differ in inclusion of 
-the causal effect parameter [@morrison_mendelian_2020]. Specifically, CAUSE calculates the expected pointwise log posterior density 
-between the two models. 
-@yuan_likelihood_2021 found that MRMix is not robust to misspecification of SNP effect sizes and often is 
-biased. CAUSE, they found, yields overly conservative p-values [@yuan_likelihood_2021].
 
 
 
@@ -479,6 +474,11 @@ exposure on the outcome. Specifically, they estimate the difference in the expec
 posterior density for the model with causal effect fixed at zero and the model that permits a nonzero 
 causal effect [@vehtari_practical_2017]. 
 
+@yuan_likelihood_2021 found that MRMix is not robust to misspecification of SNP effect sizes and often is 
+biased. CAUSE, they found, yields overly conservative p-values [@yuan_likelihood_2021].
+
+
+
 MRAID accommodates both individual-level data and GWAS summary statistics [@yuan_likelihood_2021]. We focus on 
 the approach that uses GWAS summary statistics. Two equations are central to MRAID modeling (Equations \@ref(mraid1) and \@ref(mraid2)).
 
@@ -505,7 +505,8 @@ distributions with mean zero and variances $\Sigma_1\frac{\sigma_X^2}{n_1 - 1}$
 and $\Sigma_2\frac{\sigma_Y^2}{n_2 - 1}$, 
 respectively. @yuan_likelihood_2021 then constructs a Gibbs sampler to make likelihood-based inferences [@geman1984stochastic]. To facilitate computations, the investigators make several assumptions about the collection of SNPs:
 
-1. Relatively small proportion of SNPs have nonzero effects on the exposure  
+1. Relatively small proportion of SNPs have nonz
+ero effects on the exposure  
 1. A relatively small proportion of SNPs demonstrate horizontal pleiotropy  
 1. The chosen instrumental SNPs are more likely to display horizontal pleiotropy than are non-instrumental SNPs  
 1. Those SNPs that display horizontal pleiotropy are more likely to demonstrate uncorrelated horizontal pleiotropy than correlated horizontal pleiotropy. 
@@ -608,7 +609,19 @@ biases [@zeng_causal_2019-1]. Egger regression and MR-PRESSO analyses were consi
 contribute to treatments for amyotrophic lateral sclerosis.
 
 
-@zeng_birth_2019
+Birth weight is associated with childhood asthma, but whether there is a causal relationship 
+between the two remains unclear [@brooks_impact_2001]. To investigate this possibility, 
+@zeng_birth_2019 performed a MR analysis to assess the causal effect of birth weight on adult 
+asthma. They used data from two GWAS, with 140,000 subjects in the birth weight study and 62,000 
+subjects in the adult asthma study. With both the genetic risk score method and the 
+inverse variance-weighted method, @zeng_birth_2019 found no evidence of a causal effect of birth
+weight on adult asthma. Sensitivity analysis results offered reassurance that the 
+finding of no causal effect is robust. MR-PRESSO and MR-Egger found no evidence for bias from 
+SNP instrument outliers or horizontal pleiotropy. @zeng_birth_2019 concludes that confounding
+in other studies may explain the discrepancy between their findings and others' conclusions.
+
+
+
 
 
 
