@@ -367,7 +367,7 @@ studies improves power compared to using independent SNPs only [@liu2021multi;@g
 
 
 
-## Statistical models and methods for MR with multiple instruments and one continuous outcome
+## Statistical models and methods for MR with multiple instruments 
 
 In the case of continuous exposures and outcomes, researchers have taken several approaches to extend the methods and models for 
 single-SNP MR to accommodate multiple SNPs. For two stage analyses, one may perform 
@@ -403,7 +403,7 @@ and $\tau$ is a vector of independent and identically distributed normal random 
 
 Pleiotropy, where a single genetic variant affects multiple traits, has a long history of study in genetics and complex traits [@solovieff_pleiotropy_2013;@visscher_plethora_2016;@stearns_one_2010]. 
 Horizontal pleiotropy refers to the presence of multiple causal pathways from a genetic 
-variant to the outcome. 
+variant to the outcome.
 The fact that there are pathways that exclude the exposure and connect the SNP to the outcome violates
 standard MR assumptions. @verbanck_detection_2018 documented widespread horizontal pleiotropy 
 in GWAS. This finding motivated the development of MR-PRESSO and inspired 
@@ -412,7 +412,7 @@ further research into methods to model horizontal pleiotropy [@verbanck_detectio
 In the short time since publication of @verbanck_detection_2018, researchers have recognized two 
 types of horizontal pleiotropy [@yuan_likelihood_2021]. The first occurs via 
 exposure-independent paths. The resulting horizontal pleiotropic effects are independent of the
-SNP-exposure relationships. The second type of horizontal pleiotropy manifests when 
+SNP-exposure relationships. The second type of horizontal pleiotropy manifests
 in the presence of unobserved exposure-outcome confounding. It induces correlation between 
 horizontal pleiotropic effects and SNP-exposure effects. Both types of horizontal pleiotropy 
 violate standard MR modeling assumptions and can bias causal effect estimates and can increase false 
@@ -476,10 +476,7 @@ causal effect [@vehtari_practical_2017].
 
 @yuan_likelihood_2021 found that MRMix is not robust to misspecification of SNP effect sizes and often is 
 biased. CAUSE, they found, yields overly conservative p-values [@yuan_likelihood_2021].
-
-
-
-MRAID accommodates both individual-level data and GWAS summary statistics [@yuan_likelihood_2021]. We focus on 
+These observations motivated @yuan_likelihood_2021 to develop a new method, MRAID. MRAID accommodates both individual-level data and GWAS summary statistics [@yuan_likelihood_2021]. We focus on 
 the approach that uses GWAS summary statistics. Two equations are central to MRAID modeling (Equations \@ref(mraid1) and \@ref(mraid2)).
 
 \begin{equation}
@@ -505,8 +502,7 @@ distributions with mean zero and variances $\Sigma_1\frac{\sigma_X^2}{n_1 - 1}$
 and $\Sigma_2\frac{\sigma_Y^2}{n_2 - 1}$, 
 respectively. @yuan_likelihood_2021 then constructs a Gibbs sampler to make likelihood-based inferences [@geman1984stochastic]. To facilitate computations, the investigators make several assumptions about the collection of SNPs:
 
-1. Relatively small proportion of SNPs have nonz
-ero effects on the exposure  
+1. Relatively small proportion of SNPs have nonzero effects on the exposure  
 1. A relatively small proportion of SNPs demonstrate horizontal pleiotropy  
 1. The chosen instrumental SNPs are more likely to display horizontal pleiotropy than are non-instrumental SNPs  
 1. Those SNPs that display horizontal pleiotropy are more likely to demonstrate uncorrelated horizontal pleiotropy than correlated horizontal pleiotropy. 
@@ -529,7 +525,7 @@ binary exposure by drawing on @gauvreau_analysis_1997 and treating the exposure 
 random variables. They implemented an iterative optimization algorithm to 
 simultaneously infer the causal effect parameter and other parameters.
 
-Researchers have also drawn on other generalized linear models for analysis in MR 
+Researchers have also leveraged other generalized linear models for analysis in MR 
 studies [@nelder1972generalized]. However, this area is relatively unexplored. @hazewinkel_mendelian_2022 treated hospitalizations as a count variable and 
 modeled it with quasi-Poisson methods. @allman_mendelian_2022 characterized statistical properties, including bias and 
 power, with simulations of count random variables and binary random variables. With growing interest
@@ -646,13 +642,12 @@ of discovering even more causal relationships among complex traits. The large
 sample sizes in biobank studies, often greater than 100,000 
 subjects, offer the possibility of uncovering associations of modest strength 
 that might be undetectable in smaller studies. For example, the UK 
-Biobank Study involves more than 500,000 subjects. Each UKB subject's 
+Biobank Study involves more than 500,000 subjects. Each UK Biobank subject's 
 data consists of millions of SNP genotypes and measurements for 
 thousands of traits [@bycroft_uk_2018]. 
 
-Other biobanks?
 
-EMR & GWAS? 
+
 
 
 
