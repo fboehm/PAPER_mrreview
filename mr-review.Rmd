@@ -387,7 +387,16 @@ a strategy for determining a single causal effect from summary statistics for a
 collection of SNPs. @burgess_mendelian_2013 termed their method "inverse variance 
 weighting" because each causal SNP's effect is weighted by the inverse of the variance 
 of its marginal (univariate) causal effect, and the overall causal effect is the sum of the weighted SNP
-causal effects. 
+causal effects.
+
+Specifically, @burgess_mendelian_2013 combined causal effect (ratio) estimates from multiple independent SNPs by using Equation \@ref(eq:ivw). 
+
+
+\begin{equation}
+  \hat \beta_{IVW} = 
+  (\#eq:ivw)
+\end{equation}
+
 
 
 
