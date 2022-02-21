@@ -358,7 +358,7 @@ methods with multiple SNP instruments [@hormozdiari_leveraging_2018;@watanabe_gl
 Choosing a subset of the available SNPs to serve as instruments is one issue that arises 
 in MR studies. The solution to this task differs among published methods. Early methods chose a 
 set of independent SNPs [@verbanck_detection_2018;@zhu_causal_2018;@zeng_causal_2019-2;@zeng_causal_2019-1]. However, this approach can be problematic when there are multiple causal 
-SNPs in LD with each other. In this setting, discarding some of the causal SNPs may only capture a small
+SNPs in linkage disequilibrium with each other. In this setting, discarding some of the causal SNPs may only capture a small
 proportion of trait variance explained by the exposure and lead to a power loss in MR [@burgess_review_2017;@burgess_mendelian_2013;@burgess_combining_2016;@burgess_bias_2011]. In support of
 this is the finding that including multiple correlated SNPs in transcriptome-wide association
 studies improves power compared to using independent SNPs only [@liu2021multi;@gusev_integrative_2016;@yuan_testing_2020;@zeng_non-parametric_2017]. 
@@ -367,36 +367,32 @@ studies improves power compared to using independent SNPs only [@liu2021multi;@g
 
 
 
+
+
+
 ## Statistical models and methods for MR with multiple instruments 
 
-In the case of continuous exposures and outcomes, researchers have taken several approaches to extend the methods and models for 
-single-SNP MR to accommodate multiple SNPs. For two stage analyses, one may perform 
-a sequence of two linear regressions, as in the single-SNP MR models (Equations \@ref(eq:lm3) and \@ref(eq:lm4)). 
-For an analysis
-with $S$ SNP instruments, one performs two stage analysis by first regressing the 
-exposure $n$ vector $X$ on the $n$ by $S + 1$ matrix of SNP instruments (and an intercept). Taking the fitted exposure values 
-from this regression, the second stage involves regressing the outcome variable $Y$ on 
-the fitted values, $\hat X$. 
+@smith_mendelian_2004 recognized that many genetic variants individually explain a 
+small proportion of the variation in a trait, and, thus, sufficient statistical 
+power would require sample sizes in the tens of thousands 
+[@schatzkin2009mendelian;@burgess_mendelian_2013]. @palmer_using_2012 partially 
+resolved this issue by proposing use of multiple SNP instruments in a single MR 
+analysis. @pierce_power_2011 reasoned that a single causal estimate derived from 
+a collection of causal SNPs would have greater precision than an estimate derived 
+from only one SNP [@burgess_mendelian_2013]. At the same time, sharing of GWAS 
+summary statistics was encouraged as a best practice [@nature2012asking]. 
+@harbord_severity_2013 recognized that one could calculate the ratio estimate of 
+the causal effect from GWAS summary statistics, and @burgess_mendelian_2013 devised 
+a strategy for determining a single causal effect from summary statistics for a 
+collection of SNPs. @burgess_mendelian_2013 termed their method "inverse variance 
+weighting" because each causal SNP's effect is weighted by the inverse of the variance 
+of its marginal (univariate) causal effect, and the overall causal effect is the sum of the weighted SNP
+causal effects. 
 
 
 
-\begin{equation}
-  X  = Z\alpha + \epsilon
-  (\#eq:lm3)
-\end{equation}
-
-where $\epsilon$ is assumed to be a vector of independent and identically distributed normal random variables with mean zero. 
 
 
-
-
-
-\begin{equation}
-  Y = \hat X\beta + \tau
-  (\#eq:lm4)
-\end{equation}
-
-and $\tau$ is a vector of independent and identically distributed normal random errors with mean zero. Note also that $\tau$ in Equation \@ref(eq:lm4) is independent of $\epsilon$ in Equation \@ref(eq:lm3). 
 
 
 # Horizontal pleiotropy
