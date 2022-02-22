@@ -386,20 +386,24 @@ the causal effect from GWAS summary statistics, and @burgess_mendelian_2013 devi
 a strategy for determining a single causal effect from summary statistics for a 
 collection of SNPs. @burgess_mendelian_2013 termed their method "inverse variance 
 weighting" because each causal SNP's effect is weighted by the inverse of the variance 
-of its marginal (univariate) causal effect, and the overall causal effect is the sum of the weighted SNP
+of the ratio estimator, and the overall causal effect is the sum of the weighted SNP
 causal effects.
 
-Specifically, @burgess_mendelian_2013 combined causal effect (ratio) estimates from multiple independent SNPs by using Equation \@ref(eq:ivw). 
+Specifically, @burgess_mendelian_2013 combined causal effect (ratio) estimates from $M$ independent SNPs by using Equation \@ref(eq:ivw). 
 
 
 \begin{equation}
-  \hat \beta_{IVW} = 
+  \hat \beta_{IVW} = \frac{\sum_{j = 1}^M \hat\theta_j [Var(\hat\theta_j)]^{-1}}{\sum_{j = 1}^M [Var(\hat\theta_j)]^{-1}}
   (\#eq:ivw)
 \end{equation}
 
 
 
 
+@burgess_robust_2020 introduced the contamination mixture method for robust and efficient MR
+analysis with hundreds of SNPs, some of which may be invalid instruments by violating one or more of the three core assumptions.
+
+@zhao_statistical_2020 presented MR-RAPS, a method that leverages a robust adjusted profile score to accomplish statistical inference in two-sample MR analyses with GWAS data. 
 
 
 
