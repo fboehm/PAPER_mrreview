@@ -379,7 +379,7 @@ summary statistics was encouraged as a best practice [@nature2012asking].
 the causal effect from GWAS summary statistics, and @burgess_mendelian_2013 devised 
 a strategy for determining a single causal effect from summary statistics for a 
 collection of SNPs. @burgess_mendelian_2013 termed their method "inverse variance 
-weighting" because each causal SNP's effect is weighted by the inverse of the variance 
+weighting" (IVW) because each causal SNP's effect is weighted by the inverse of the variance 
 of the ratio estimator, and the overall causal effect is the sum of the weighted SNP
 causal effects.
 
@@ -391,11 +391,17 @@ Specifically, @burgess_mendelian_2013 combined causal effect ratio estimates fro
   (\#eq:ivw)
 \end{equation}
 
+@greco_m_detecting_2015
+
+@bowden_mendelian_2015
+
+
+
 
 @bowden_consistent_2016, noting that consistency with IVW MR is not robust to 
 invalid instrument use, developed a method for consistent MR analysis with  
-weighted median-based estimators. Building on research from @han2008detecting, 
-@bowden_consistent_2016 devised a weighted median-based estimator. Its breakdown point is 50\%, 
+weighted median-based estimators, building on research from @han2008detecting. 
+Its breakdown point is 50\%, 
 meaning that up to 50\% of SNP instruments can be invalid while maintaining consistency in estimation 
 [@hampel1971general]. Specifically, let $\tilde \beta_j$ denote the $j^{th}$ ordered ratio estimate 
 statistic, from least to greatest. If an odd number, say $2K +1$, of SNP instruments is used, then 
@@ -417,7 +423,18 @@ a $\chi^2_1$ distribution [@bowden_consistent_2016;@cochran1950comparison]. The 
 weighted median estimator 
 
 
-@hartwig_robust_2017 developed a weighted mode-based MR causal effect estimation method. 
+@kang_instrumental_2016
+
+
+@hartwig_robust_2017 developed a weighted mode-based MR causal effect estimation method for MR analysis with GWAS summary data. 
+They first calculate Wald ratio estimates for every instrumental SNP. They then apply 
+smoothing to the empirical distribution of ratio estimates. The mode of this smoothed 
+distribution is the simple mode-based estimate of the causal effect 
+[@hartwig_robust_2017]. The inverse variance-weighted mode-based estimate is obtained by 
+weighting the empirical distribution of ratio estimates by the inverse variance of each 
+estimate. @hartwig_robust_2017 compared their weighted and unweighted mode-based 
+estimators with weighted and unweighted median-based estimators, MR Egger regression, and 
+IVW. They found that their mode-based estimators demonstrated less bias and lower type I error rates than other estimators in some simulation settings. The mode-based estimators possessed lower statistical power to detect a causal effect compared to the IVW and weighted median-based methods, but their power exceeded that of MR Egger regression [@hartwig_robust_2017]. The mode-based estimators consistently estimated the causal effect when the mode across SNP instruments of the horizontal pleiotropy effects was zero [@hartwig_robust_2017]. In this manner, the mode-based estimators demonstrated a greater robustness to horizontal pleiotropy than did the other estimators. @hartwig_robust_2017 
 
 
 
