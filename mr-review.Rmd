@@ -417,7 +417,8 @@ a $\chi^2_1$ distribution [@bowden_consistent_2016;@cochran1950comparison]. The 
 weighted median estimator 
 
 
-weighted mode estimator
+@hartwig_robust_2017 developed a weighted mode-based MR causal effect estimation method. 
+
 
 
 
