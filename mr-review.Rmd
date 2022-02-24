@@ -186,6 +186,8 @@ occurs when the outcome at an early time point has a causal effect on the exposu
 reverse causation is often assumed to not occur in MR study designs, @burgess_are_2021 points out 
 several scenarios where this assumption may not hold [@davey_smith_mendelian_2003]. 
 
+InSIDE assumption
+
 
 
 
@@ -329,14 +331,17 @@ We follow @burgess_review_2017 by defining the potential outcome $Y(x)$ as the o
   (\#eq:smm)
 \end{equation}
 
-The causal effect parameter is $\beta_1$. @burgess_review_2017 derives the estimating equations for $\beta_1$, after noting that the conditional expectation, $\mathbb{E}(Y(0)| X = x, Z = z)$ is independent of $Z$ and reasoning that the causal effect is that value of $\beta_1$ that yields zero covariance between $Z$ and $\mathbb{E}(Y(0)| X = x, Z = z)$ (Equations \@ref(eq:smm1)).
+The causal effect parameter is $\beta_1$. @burgess_review_2017 derives the estimating equations for 
+$\beta_1$, after noting that the conditional expectation, $\mathbb{E}(Y(0)| X = x, Z = z)$ is 
+independent of $Z$ and reasoning that the causal effect is that value of $\beta_1$ that yields zero 
+covariance between $Z$ and $\mathbb{E}(Y(0)| X = x, Z = z)$ (Equations \@ref(eq:smm1)).
 
 \begin{equation}
 \sum_i (z_{ik} - \bar z_{\cdot k})(y_i - \beta_1 x_i) = 0
   (\#eq:smm1)
 \end{equation}
 
-Note that $k$ indexes SNP instruments and ranges from 1 to $K$. 
+Note that $k$ indexes SNP instruments and ranges from 1 to $K$ in Equation \@ref(eq:smm1). 
 
 
 
@@ -387,6 +392,34 @@ Specifically, @burgess_mendelian_2013 combined causal effect ratio estimates fro
 \end{equation}
 
 
+@bowden_consistent_2016, noting that consistency with IVW MR is not robust to 
+invalid instrument use, developed a method for consistent MR analysis with  
+weighted median-based estimators. Building on research from @han2008detecting, 
+@bowden_consistent_2016 devised a weighted median-based estimator. Its breakdown point is 50\%, 
+meaning that up to 50\% of SNP instruments can be invalid while maintaining consistency in estimation 
+[@hampel1971general]. Specifically, let $\tilde \beta_j$ denote the $j^{th}$ ordered ratio estimate 
+statistic, from least to greatest. If an odd number, say $2K +1$, of SNP instruments is used, then 
+the simple median estimator is defined as the $K + 1$ ordered ratio estimate. For an even number, say 
+$2K$, number of SNP instruments, choose the midpoint between the two middle-ranking ordered ratio 
+estimates, $\frac{\tilde \beta_K + \tilde \beta_{K + 1}}{2}$. 
+
+Due to the inefficiency of the simple median estimator, @bowden_consistent_2016 define the weighted 
+median estimator. To construct this estimator, order the ratio estimates from least to greatest, as 
+with the simple median estimator. The weighted median estimator, then is the median of a distribution
+defined by having $\tilde \beta_j$ as the $p_j = 100(\sum_{k = 1}^j - \frac{w_j}{2})$ percentile, 
+where $w_j$ is the weight assigned to the $j^{th}$ ordered ratio estimate. In this setting, the 
+simple median estimator is seen to be the weighted median estimator when all weights are equal. 
+
+@bowden_consistent_2016 also studied the penalized weighted median estimator. They defined the 
+penalized weights, $w_j^* = w_j' \times \min(1, 20q_j)$, where $q_j$ is the p-value resulting from 
+the comparison of $Q_j = w_j'(\tilde\beta_j - \hat\beta_{IVW})^2$ to 
+a $\chi^2_1$ distribution [@bowden_consistent_2016;@cochran1950comparison]. The penalized 
+weighted median estimator 
+
+
+weighted mode estimator
+
+
 
 
 @burgess_robust_2020 introduced the contamination mixture method for robust and efficient MR
@@ -396,6 +429,23 @@ analysis with hundreds of SNPs, some of which may be invalid instruments by viol
 
 
 
+
+
+### MR with allele scores
+
+Another approach to integrating multiple SNP instruments into a MR framework is
+through calculation of allele scores [@burgess_use_2013]. @burgess_use_2013 
+calculate an unweighted score as the number of exposure-increasing alleles in 
+the subject's genotypes. They also calculate a weighted allele score by using 
+the exposure effects as weights. For example, a subject with $g_k$ copies of 
+exposure-increasing alleles for SNP $k$ has an unweighted allele score $z = \sum_{k = 1}^K g_{ik}$ 
+and a weighted allele score $z = \sum_{k = 1}^K w_kg_k$. 
+
+@burgess_use_2013 found that when weights are obtained from external data or from 
+cross-validation or jackknife approaches applied to the analysis data, the allele score 
+functions as a single instrumental variable and greatly diminishes the bias compared to that of the 
+two-stage least squares estimator [@burgess_review_2017;@angrist1999jackknife]. 
+ 
  
 
 # Assumption violations
