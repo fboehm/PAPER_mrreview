@@ -439,11 +439,20 @@ IVW. They found that their mode-based estimators demonstrated less bias and lowe
 
 
 
-
 @burgess_robust_2020 introduced the contamination mixture method for robust and efficient MR
-analysis with hundreds of SNPs, some of which may be invalid instruments by violating one or more of the three core assumptions.
+analysis with hundreds of SNPs, some of which may be invalid instruments by violating one or more of the three core MR assumptions.
 
-@zhao_statistical_2020 presented MR-RAPS, a method that leverages a robust adjusted profile score to accomplish statistical inference in two-sample MR analyses with GWAS data. 
+@zhao_statistical_2020 presented MR-RAPS, a method that leverages a robust adjusted 
+profile score to accomplish statistical inference in two-sample MR analyses with GWAS 
+summary data. Dividing pleiotropic effects into systematic and idiosyncratic, they model the 
+systematic pleiotropy with random effects. In so doing, no SNP satisfies the exclusion 
+restriction assumption. Adjusting their profile likelihood estimator from the setting 
+without pleiotropy, @zhao_statistical_2020 obtain an estimator with consistency and 
+asymptotic normality [@mccullagh_simple_1990]. Idiosyncratic pleiotropy is addressed through robustification of 
+the adjusted profile score [@huber_robust_1964]. They then demonstrate the properties of their estimator by 
+analyzing simulated and real data [@zhao_statistical_2020].
+
+
 
 
 
@@ -588,9 +597,9 @@ types of horizontal pleiotropy. Modeling both types of horizontal pleiotropy is 
 challenging because the MR model likelihood often involves an integral that can't be solved analytically. 
 Because of this issue with the model likelihood, both MRMix and CAUSE use other, non-likelihood-based methods for inference.
 
+@hemani_orienting_2017
 
-
-
+@windmeijer_use_2019
 
 
 
@@ -638,7 +647,7 @@ causal effect [@vehtari_practical_2017].
 @yuan_likelihood_2021 found that MRMix is not robust to misspecification of SNP effect sizes and often is 
 biased. CAUSE, they found, yields overly conservative p-values [@yuan_likelihood_2021].
 These observations motivated @yuan_likelihood_2021 to develop a new method, MRAID. MRAID accommodates both individual-level data and GWAS summary statistics [@yuan_likelihood_2021]. We focus on 
-the approach that uses GWAS summary statistics. Two equations are central to MRAID modeling (Equations \@ref(mraid1) and \@ref(mraid2)).
+the approach that uses GWAS summary statistics. Two equations are central to MRAID modeling (Equations \@ref(eq:mraid1) and \@ref(eq:mraid2)).
 
 \begin{equation}
   \hat{\beta_X} = \Sigma_1\beta + e_x
@@ -669,6 +678,10 @@ respectively. @yuan_likelihood_2021 then constructs a Gibbs sampler to make like
 1. Those SNPs that display horizontal pleiotropy are more likely to demonstrate uncorrelated horizontal pleiotropy than correlated horizontal pleiotropy. 
 
 By encoding these assumptions in prior distributions, @yuan_likelihood_2021 enables the inferential procedures to accommodate the observed data in the context of the assumptions on SNPs. 
+
+@brown_welch-weighted_2021 
+
+
 
 
 # Binary, Count, and Time-to-event outcomes and exposures
@@ -723,7 +736,9 @@ Using GWAS summary statistics as inputs, their method relies on a composite like
 simulations, including those with model misspecifications, to characterize their method's statistical power and robustness. Finally, they applied the new method to 
 identify multiple complex traits that affect coronary artery disease and asthma. These causal relationships highlight the important roles of plasma lipids, blood pressure, and the immune system in CAD susceptibility and those of obesity and the immune system in asthma development. 
 
+## Multivariate exposures in MR analysis
 
+@grant_pleiotropy_2021: we introduce three methods which build on common approaches in the univariable setting: {MVMR}-Robust; {MVMR}-Median; and {MVMR}-Lasso
 
 
 
