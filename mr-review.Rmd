@@ -4,6 +4,8 @@ author: "Frederick J. Boehm & Xiang Zhou"
 date: "`r lubridate::now()`"
 bibliography: exported.bib
 csl: elsevier-with-titles.csl
+link-citations: yes
+linkcolor: blue
 output: 
   - bookdown::pdf_document2
   - bookdown::html_document2
@@ -465,7 +467,7 @@ through calculation of allele scores [@burgess_use_2013]. @burgess_use_2013
 calculate an unweighted score as the number of exposure-increasing alleles in 
 the subject's genotypes. They also calculate a weighted allele score by using 
 the exposure effects as weights. For example, a subject with $g_k$ copies of 
-exposure-increasing alleles for SNP $k$ has an unweighted allele score $z = \sum_{k = 1}^K g_{ik}$ 
+exposure-increasing alleles for SNP $k$ has an unweighted allele score $z = \sum_{k = 1}^K g_{k}$ 
 and a weighted allele score $z = \sum_{k = 1}^K w_kg_k$. 
 
 @burgess_use_2013 found that when weights are obtained from external data or from 
@@ -488,7 +490,6 @@ affects the outcome Y [@vanderweele_methodological_2014;@textor2011dagitty;@text
 ```{r, dag1, fig.cap = "Scenario where the genetic variant G affects an intermediate variable W on the pathway to the exposure X. Because W affects Y through a pathway that doesn't involve exposure X, this scenario violates the exclusion restriction assumption."}
 
 library(dagitty)
-library(ggdag)
 library(ggplot2)
 
 
@@ -679,7 +680,56 @@ respectively. @yuan_likelihood_2021 then constructs a Gibbs sampler to make like
 
 By encoding these assumptions in prior distributions, @yuan_likelihood_2021 enables the inferential procedures to accommodate the observed data in the context of the assumptions on SNPs. 
 
-@brown_welch-weighted_2021 
+\begin{eqnarray}
+U = X\beta_U \odot Z_U + \epsilon_U\nonumber \\
+A = U\nu + B\delta + X\beta_A \odot Z_A + \epsilon_A \nonumber \\
+B = U\eta + A\gamma + X\beta_B \odot Z_B + \epsilon_B 
+  (\#eq:wwer)
+\end{eqnarray}
+
+@oconnor_distinguishing_2018
+
+
+In efforts to develop MR methods that are robust to correlated horizontal pleiotropy, 
+@brown_welch-weighted_2021 present Welch-weighted Egger regression. Their flexible model 
+accommodates both uni-directional and bi-directional effects between exposure and outcome. 
+@brown_welch-weighted_2021 specifies their model via Equations \@ref(eq:wwer). They denote 
+the two traits by $A$ and $B$, the SNP genotypes matrix by $X$, and the unobserved confounder by $U$. $Z_U$, $Z_A$ and $Z_B$ denote the indicator vectors of zeros and ones to indicate which . Note that the model is agnostic with regards to which is the 
+outcome and which the exposure, so we follow the authors' notation here.
+
+In Equations \@ref(eq:wwer), 
+
+
+
+
+we use A and B to denote the observed traits in
+the study, and U to denote the unobserved genetic confounder.
+SNPs X affect each of A, B, and U with probabilities q, r, and s
+and effect sizes bA ; bB ; and bU sampled from a normal distribution
+with variances s2A ; s2B ; and s2U , respectively. The probability of ef-
+fect and variance of the sampling distribution combine to deter-
+mine the genetic architecture of each trait independently of the
+others. Finally, h and n specify the effect of the hidden confounder
+U on A and B, while g and d model the causal effect of A on B and B
+on A, respectively. Under this model, the phenotype values are
+given by
+U ¼ XbU +ZU þ εU ;(Equation 1)
+A ¼ Un þ Bd þ XbA +ZA þ εA ;(Equation 2)
+B ¼ Uh þ Ag þ XbB +ZB þ εB ;(Equation 3)
+where Z’s represent indicator variables that the SNP affects that
+trait, sampled as indicated above, + indicates vector element-
+wise (Hadamard) multiplication, and bolding represents matrices.
+The recursive nature of this model makes sampling from it non-
+trivial. In the supplemental methods, we describe how to simulate
+from this model and how to parameterize the model in terms of
+the heritability of each phenotype rather than the variance of
+the effect size distribution. We also explicitly describe how to set
+the parameters to mimic the models considered in O’Connor et
+al.5 and Morrison et al.3
+
+
+
+
 
 
 
