@@ -393,9 +393,27 @@ Specifically, @burgess_mendelian_2013 combined causal effect ratio estimates fro
   (\#eq:ivw)
 \end{equation}
 
-@greco_m_detecting_2015
+In efforts to detect the presence of horizontal pleiotropy in two-sample MR studies with GWAS summary data, @greco_m_detecting_2015 developed the between-instrument heterogeneity Q test. In a meta-analysis of MR Wald estimates, one per SNP instrument, they calculate Q in Equation \@ref(eq:q).
 
-@bowden_mendelian_2015
+\begin{equation}
+Q = \sum_{k = 1}^K w_k(\hat\beta^{(k)}_{XY} - \mu_F)^2
+(\#eq:q)
+\end{equation}
+
+In Equation \@ref(eq:q), $w_k$ is the inverse variance of the Wald estimator, and $\mu_F = \frac{\sum_{k = 1}^K w_k \hat\beta^{(k)}_{XY}}{\sum_{k = 1}^K w_k}$.
+
+While the Q test tends to be conservative in small sample sizes, its power increases with increasing sample size and increasing degree of pleiotropy [@greco_m_detecting_2015]. 
+
+@bowden_mendelian_2015 adapted Egger regression, originally developed 
+to detect bias in meta-analyses, to detect bias from horizontal 
+pleiotropy in two-sample MR studies with GWAS summary data 
+[@egger1997bias]. The slope coefficient estimates the causal effect. 
+Under the assumption that the SNP-exposure relationship is independent 
+of the SNP's pleiotropic effects, Egger's test offers a valid test of 
+the null causal hypothesis and consistently estimates the causal 
+effect, even if all SNPs are invalid instruments [@bowden_mendelian_2015]. 
+
+
 
 
 
