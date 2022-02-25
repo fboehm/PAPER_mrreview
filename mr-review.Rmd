@@ -402,7 +402,8 @@ Q = \sum_{k = 1}^K w_k(\hat\beta^{(k)}_{XY} - \mu_F)^2
 
 In Equation \@ref(eq:q), $w_k$ is the inverse variance of the Wald estimator, and $\mu_F = \frac{\sum_{k = 1}^K w_k \hat\beta^{(k)}_{XY}}{\sum_{k = 1}^K w_k}$.
 
-While the Q test tends to be conservative in small sample sizes, its power increases with increasing sample size and increasing degree of pleiotropy [@greco_m_detecting_2015]. 
+While the Q test tends to be conservative in small sample sizes, its power increases with increasing 
+sample size and increasing degree of pleiotropy [@greco_m_detecting_2015]. 
 
 @bowden_mendelian_2015 adapted Egger regression, originally developed 
 to detect bias in meta-analyses, to detect bias from horizontal 
@@ -443,7 +444,28 @@ a $\chi^2_1$ distribution [@bowden_consistent_2016;@cochran1950comparison]. The 
 weighted median estimator 
 
 
-@kang_instrumental_2016
+@kang_instrumental_2016 developed a LASSO-based method, sisVIVE, to 
+identify invalid SNP instruments [@tibshirani1996regression]. sisVIVE's 
+advantage over earlier methods is that it doesn't require the analyst 
+to know which SNP instruments are valid. Instead, it requires that at 
+least 50\% of the instruments be valid. sisVIVE outperforms two-stage 
+least squares in many ways and performs similar to oracle two-stage 
+least squares. Simulations and data analysis results reveal that 
+sisVIVE is robust to possibly invalid instruments.
+
+@windmeijer_use_2019, building on the research from 
+@kang_instrumental_2016, implemented an adaptive LASSO-based estimator 
+after recognizing that sisVIVE misclassifies valid SNP instruments as 
+invalid when the invalid SNP instruments have strong effects on the 
+exposure. Consistent selection of invalid SNP instruments, they found, 
+depends on SNP instrument correlations. To address this issue, @windmeijer_use_2019 
+proposed a median estimator with consistency that doesn't 
+depend on SNP instrument-exposure association strength or the SNP instrument 
+correlation structure. They then applied methods from @zou2006adaptive to 
+achieve a consistent estimator with the same distribution as the oracle 
+two-stages least squares.
+
+
 
 
 @hartwig_robust_2017 developed a weighted mode-based MR causal effect estimation method for MR analysis with GWAS summary data. 
@@ -619,8 +641,7 @@ Because of this issue with the model likelihood, both MRMix and CAUSE use other,
 @hemani_orienting_2017
 
 @windmeijer_use_2019
-
-
+@kang_instrumental_2016
 
 # Correlated horizontal pleiotropy
 
@@ -708,7 +729,7 @@ B = U\eta + A\gamma + X\beta_B \odot Z_B + \epsilon_B
 @oconnor_distinguishing_2018
 
 
-In efforts to develop MR methods that are robust to correlated horizontal pleiotropy, 
+To develop MR methods that are robust to correlated horizontal pleiotropy, 
 @brown_welch-weighted_2021 present Welch-weighted Egger regression. Their flexible model 
 accommodates both uni-directional and bi-directional effects between exposure and outcome. 
 @brown_welch-weighted_2021 specifies their model via Equations \@ref(eq:wwer). They denote 
