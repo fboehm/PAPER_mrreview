@@ -462,13 +462,13 @@ depends on SNP instrument correlations. To address this issue, @windmeijer_use_2
 proposed a median estimator with consistency that doesn't 
 depend on SNP instrument-exposure association strength or the SNP instrument 
 correlation structure. They then applied methods from @zou2006adaptive to 
-achieve a consistent estimator with the same distribution as the oracle 
+achieve a consistent estimator with the same asymptotic distribution as the oracle 
 two-stages least squares.
 
 
 
 
-@hartwig_robust_2017 developed a weighted mode-based MR causal effect estimation method for MR analysis with GWAS summary data. 
+@hartwig_robust_2017 developed a weighted mode-based MR causal effect estimation method for two-sample MR analysis with GWAS summary data. 
 They first calculate Wald ratio estimates for every instrumental SNP. They then apply 
 smoothing to the empirical distribution of ratio estimates. The mode of this smoothed 
 distribution is the simple mode-based estimate of the causal effect 
@@ -476,13 +476,41 @@ distribution is the simple mode-based estimate of the causal effect
 weighting the empirical distribution of ratio estimates by the inverse variance of each 
 estimate. @hartwig_robust_2017 compared their weighted and unweighted mode-based 
 estimators with weighted and unweighted median-based estimators, MR Egger regression, and 
-IVW. They found that their mode-based estimators demonstrated less bias and lower type I error rates than other estimators in some simulation settings. The mode-based estimators possessed lower statistical power to detect a causal effect compared to the IVW and weighted median-based methods, but their power exceeded that of MR Egger regression [@hartwig_robust_2017]. The mode-based estimators consistently estimated the causal effect when the mode across SNP instruments of the horizontal pleiotropy effects was zero [@hartwig_robust_2017]. In this manner, the mode-based estimators demonstrated a greater robustness to horizontal pleiotropy than did the other estimators. @hartwig_robust_2017 
+IVW. They found that their mode-based estimators demonstrated less bias and lower type I error rates than other estimators in some simulation settings. The mode-based estimators possessed lower statistical power to detect a causal effect compared to the IVW and weighted median-based methods, but their power exceeded that of MR Egger regression [@hartwig_robust_2017]. The mode-based estimators consistently estimated the causal effect when the mode across SNP instruments of the horizontal pleiotropy effects was zero [@hartwig_robust_2017]. In this manner, the mode-based estimators demonstrated a greater robustness to horizontal pleiotropy than did the other estimators.
+
+@rees_robust_2019 approached the challenge of horizontal pleiotropy by 
+developing three new methods for two-sample MR analysis with GWAS summary data: robust 
+regression, penalized weights, and LASSO penalization. The first two can be viewed as 
+modifications of MR-Egger and IVW methods. Together, they offer three strategies for 
+downweighting or excluding variants with hetero-
+geneous causal estimates.
+Recall that MR-Egger offers consistent causal effect estimates when there is no 
+horizontal pleiotropy or when the horizontal pleiotropy effects adhere to the 
+"Instrument Strength Independent of Direct Effect" (InSIDE) assumption [@bowden_mendelian_2015]. The 
+InSIDE assumption is satisfied when there is no correlation between the pleiotropic SNP 
+instrument-outcome effects and the SNP instrument-exposure effects. @rees_robust_2019 uses 
+MM estimation, which is one technique for robust linear regression [@koller2011sharpening], to 
+formulate an estimator with high breakdown point and high efficiency. The second estimation 
+method, with penalized weights, is much like the penalized median estimator, from above, 
+except that the second argument in the minimum function is $100q_j$, instead of the $20q_j$ 
+above. Finally the LASSO-based method fashions an estimator by applying a penalty to the 
+objective function from MR-Egger to get Equation \@ref(eq:lasso) as the needed objective function.
+
+\begin{equation}
+\sum_j [Var(\hat\beta_j)]^{-1}(\hat\beta_{Yj} - \theta_{0j} - \theta_1 \hat\beta_{1j})^2 + \lambda \sum_j |\theta_{0j}|
+(\#eq:lasso)
+\end{equation}
+
+@rees_robust_2019 studied two procedures for choosing $\lambda$: a heterogeneity stopping rule 
+and a cross-validation rule. Taken together, these three methods offer additional contributions to 
+a suite of sensitivity analysis tools that practitioners should consider.
 
 
 
 
 @burgess_robust_2020 introduced the contamination mixture method for robust and efficient MR
-analysis with hundreds of SNPs, some of which may be invalid instruments by violating one or more of the three core MR assumptions.
+analysis with hundreds of SNPs, some of which may be invalid instruments by violating one or 
+more of the three core MR assumptions.
 
 @zhao_statistical_2020 presented MR-RAPS, a method that leverages a robust adjusted 
 profile score to accomplish statistical inference in two-sample MR analyses with GWAS 
@@ -726,7 +754,6 @@ B = U\eta + A\gamma + X\beta_B \odot Z_B + \epsilon_B
   (\#eq:wwer)
 \end{eqnarray}
 
-@oconnor_distinguishing_2018
 
 
 To develop MR methods that are robust to correlated horizontal pleiotropy, 
