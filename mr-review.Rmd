@@ -903,7 +903,7 @@ identify multiple complex traits that affect coronary artery disease and asthma.
 @grant_pleiotropy_2021: we introduce three methods which build on common approaches in the univariable setting: {MVMR}-Robust; {MVMR}-Median; and {MVMR}-Lasso
 
 
-## Sample overlap
+## Sample overlap in biobanks
 
 The issue of overlapping samples in the two-sample MR with GWAS summary data has recently 
 received attention in the published literature. 
