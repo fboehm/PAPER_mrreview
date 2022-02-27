@@ -595,10 +595,6 @@ of the exclusion restriction and to additive unmeasured confounding [@robins1994
 
 
 
-@fang2021evaluating 
-
-@sadreev2021navigating
-
 
 
 
@@ -905,6 +901,21 @@ identify multiple complex traits that affect coronary artery disease and asthma.
 ## Multivariate exposures in MR analysis
 
 @grant_pleiotropy_2021: we introduce three methods which build on common approaches in the univariable setting: {MVMR}-Robust; {MVMR}-Median; and {MVMR}-Lasso
+
+
+## Sample overlap
+
+The issue of overlapping samples in the two-sample MR with GWAS summary data has recently 
+received attention in the published literature. 
+
+@fang2021evaluating, working with data from the UK Biobank, found that SNP instruments 
+derived from overlapping samples explained a higher proportion of the variance compared to 
+those derived from non-overlapping samples. They surmise that block jackknife resampling MR
+enables causal inference while avoiding bias due to overlapping samples. 
+
+@sadreev2021navigating analyzed 2,514 traits from the UK Biobank and evaluated the impact of winner's curse on MR analysis. Winner's curse, they found, amplifies weak instrument bias without 
+inflating the false discovery rate. This finding led the authors to design a pseudoreplication process that reduces bias in MR studies. 
+
 
 
 
