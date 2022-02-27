@@ -834,7 +834,7 @@ To develop MR methods that are robust to correlated horizontal pleiotropy,
 accommodates both uni-directional and bi-directional effects between exposure and outcome. 
 @brown_welch-weighted_2021 specifies their model via Equations \@ref(eq:wwer). They denote 
 the two traits by $A$ and $B$, the SNP genotypes matrix by $X$, and the unobserved confounder by $U$. $Z_U$, $Z_A$ and $Z_B$ denote the indicator vectors of zeros and ones to indicate which . Note that the model is agnostic with regards to which is the 
-outcome and which the exposure, so we follow the authors' notation here.
+outcome and which the exposure, so we follow the authors' notation here. The symbol $\odot$ denotes the Hadamard elementwise product.
 
 In Equations \@ref(eq:wwer), 
 
