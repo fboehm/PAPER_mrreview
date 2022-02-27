@@ -526,6 +526,26 @@ asymptotic normality [@mccullagh_simple_1990]. Idiosyncratic pleiotropy is addre
 the adjusted profile score [@huber_robust_1964]. They then demonstrate the properties of their estimator by 
 analyzing simulated and real data [@zhao_statistical_2020].
 
+@bowden_improving_2019 
+
+
+@wang_causal_2021 developed a framework, GRAPPLE, for performing two-sample MR with weak and strong 
+instruments. Using GWAS summary statistics as inputs, GRAPPLE extends MR-RAPS and can detect presence of horizontally 
+pleiotropic pathways, infer the causal direction, and perform multivariable MR. Central to the 
+GRAPPLE framework is the observation that a horizontally pleiotropic pathway often gives rise to an 
+additional mode in the profile likelihood. GRAPPLE uses the presence of multiple profile likelihood 
+modes to diagnose horizontal pleiotropy with effects that are grouped by pathway. 
+GRAPPLE facilitates identification of SNP instruments that contribute to the 
+additional profile likelihood modes. A researcher using GRAPPLE may then recognize 
+a confounding factor for each mode. With additional GWAS summary data with traits 
+that reflect the confounding factors, GRAPPLE can fit multivariable MR models when
+the InSIDE assumption holds for the remaining horizontally pleiotropic effects [@wang_causal_2021].
+
+
+
+
+
+
 
 @foley_mr-clust_2021
 
