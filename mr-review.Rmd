@@ -510,7 +510,11 @@ a suite of sensitivity analysis tools that practitioners should consider.
 
 @burgess_robust_2020 introduced the contamination mixture method for robust and efficient MR
 analysis with hundreds of SNPs, some of which may be invalid instruments by violating one or 
-more of the three core MR assumptions.
+more of the three core MR assumptions. Working in the setting of two-sample MR with GWAS data, they begin by considering a collection of candidate SNP instruments, which may contain some invalid SNP instruments. For each candidate SNP instrument, they calculate the Wald ratio estimate of the causal effect. With the collection of Wald ratio estimates, @burgess_robust_2020 reason that the set of valid SNP instruments have Wald ratio estimates that arise from a normal distribution centered on the true causal parameter with variance equal to that of the Wald ratio estimator. The invalid instruments, however, are assumed to follow a normal distribution centered at zero with a variance greater than that of the Wald ratio estimator. They then work with profile log likelihood over a grid of causal parameter values to make inferences. 
+
+
+
+
 
 @zhao_statistical_2020 presented MR-RAPS, a method that leverages a robust adjusted 
 profile score to accomplish statistical inference in two-sample MR analyses with GWAS 
@@ -522,6 +526,15 @@ asymptotic normality [@mccullagh_simple_1990]. Idiosyncratic pleiotropy is addre
 the adjusted profile score [@huber_robust_1964]. They then demonstrate the properties of their estimator by 
 analyzing simulated and real data [@zhao_statistical_2020].
 
+
+@foley_mr-clust_2021
+
+@tchetgen_tchetgen_genius_2021 MR-GENIUS
+
+
+@fang2021evaluating
+
+@sadreev2021navigating
 
 
 
@@ -542,6 +555,8 @@ and a weighted allele score $z = \sum_{k = 1}^K w_kg_k$.
 cross-validation or jackknife approaches applied to the analysis data, the allele score 
 functions as a single instrumental variable and greatly diminishes the bias compared to that of the 
 two-stage least squares estimator [@burgess_review_2017;@angrist1999jackknife]. 
+
+
  
  
 
@@ -668,8 +683,7 @@ Because of this issue with the model likelihood, both MRMix and CAUSE use other,
 
 @hemani_orienting_2017
 
-@windmeijer_use_2019
-@kang_instrumental_2016
+
 
 # Correlated horizontal pleiotropy
 
