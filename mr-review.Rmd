@@ -556,19 +556,6 @@ to an estimator that is useful for quantifying heterogeneity and detecting outli
 
 
 
-@wang_causal_2021 developed a framework, GRAPPLE, for performing two-sample MR with weak and strong 
-instruments. Using GWAS summary statistics as inputs, GRAPPLE extends MR-RAPS and can detect presence of horizontally 
-pleiotropic pathways, infer the causal direction, and perform multivariable MR. Central to the 
-GRAPPLE framework is the observation that a horizontally pleiotropic pathway often gives rise to an 
-additional mode in the profile likelihood. GRAPPLE uses the presence of multiple profile likelihood 
-modes to diagnose horizontal pleiotropy with effects that are grouped by pathway. 
-GRAPPLE facilitates identification of SNP instruments that contribute to the 
-additional profile likelihood modes. A researcher using GRAPPLE may then recognize 
-a confounding factor for each mode. With additional GWAS summary data with traits 
-that reflect the confounding factors, GRAPPLE can fit multivariable MR models when
-the InSIDE assumption holds for the remaining horizontally pleiotropic effects [@wang_causal_2021].
-
-
 
 
 
@@ -817,24 +804,6 @@ respectively. @yuan_likelihood_2021 then constructs a Gibbs sampler to make like
 
 By encoding these assumptions in prior distributions, @yuan_likelihood_2021 enables the inferential procedures to accommodate the observed data in the context of the assumptions on SNPs. 
 
-\begin{eqnarray}
-U = X\beta_U \odot Z_U + \epsilon_U\nonumber \\
-A = U\nu + B\delta + X\beta_A \odot Z_A + \epsilon_A \nonumber \\
-B = U\eta + A\gamma + X\beta_B \odot Z_B + \epsilon_B 
-  (\#eq:wwer)
-\end{eqnarray}
-
-
-
-To develop MR methods that are robust to correlated horizontal pleiotropy, 
-@brown_welch-weighted_2021 present Welch-weighted Egger regression. Their flexible model 
-accommodates both uni-directional and bi-directional effects between exposure and outcome. 
-@brown_welch-weighted_2021 specifies their model via Equations \@ref(eq:wwer). They denote 
-the two traits by $A$ and $B$, the SNP genotypes matrix by $X$, and the unobserved confounder by $U$. $Z_U$, $Z_A$ and $Z_B$ denote the indicator vectors of zeros and ones to indicate which . Note that the model is agnostic with regards to which is the 
-outcome and which the exposure, so we follow the authors' notation here. The symbol $\odot$ denotes the Hadamard elementwise product.
-
-In Equations \@ref(eq:wwer), 
-
 
 
 
@@ -921,6 +890,38 @@ inflating the false discovery rate. This finding led the authors to design a pse
 ## Bi-directional causal inference with MR
 
 @darrous_simultaneous_2021
+@wang_causal_2021 developed a framework, GRAPPLE, for performing two-sample MR with weak and strong 
+instruments. Using GWAS summary statistics as inputs, GRAPPLE extends MR-RAPS and can detect presence of horizontally 
+pleiotropic pathways, infer the causal direction, and perform multivariable MR. Central to the 
+GRAPPLE framework is the observation that a horizontally pleiotropic pathway often gives rise to an 
+additional mode in the profile likelihood. GRAPPLE uses the presence of multiple profile likelihood 
+modes to diagnose horizontal pleiotropy with effects that are grouped by pathway. 
+GRAPPLE facilitates identification of SNP instruments that contribute to the 
+additional profile likelihood modes. A researcher using GRAPPLE may then recognize 
+a confounding factor for each mode. With additional GWAS summary data with traits 
+that reflect the confounding factors, GRAPPLE can fit multivariable MR models when
+the InSIDE assumption holds for the remaining horizontally pleiotropic effects [@wang_causal_2021].
+
+\begin{eqnarray}
+U = X\beta_U \odot Z_U + \epsilon_U\nonumber \\
+A = U\nu + B\delta + X\beta_A \odot Z_A + \epsilon_A \nonumber \\
+B = U\eta + A\gamma + X\beta_B \odot Z_B + \epsilon_B 
+  (\#eq:wwer)
+\end{eqnarray}
+
+
+
+To develop MR methods that are robust to correlated horizontal pleiotropy, 
+@brown_welch-weighted_2021 present Welch-weighted Egger regression. Their flexible model 
+accommodates both uni-directional and bi-directional effects between exposure and outcome. 
+@brown_welch-weighted_2021 specifies their model via Equations \@ref(eq:wwer). They denote 
+the two traits by $A$ and $B$, the SNP genotypes matrix by $X$, and the unobserved confounder by $U$. $Z_U$, $Z_A$ and $Z_B$ denote the indicator vectors of zeros and ones to indicate which . Note that the model is agnostic with regards to which is the 
+outcome and which the exposure, so we follow the authors' notation here. The symbol $\odot$ denotes the Hadamard elementwise product.
+
+In Equations \@ref(eq:wwer), 
+
+
+
 
 
 
