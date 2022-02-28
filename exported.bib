@@ -262,6 +262,24 @@ Conclusion G-estimation should become a standard procedure for the analysis of t
 	file = {Burgess et al. - 2017 - A review of instrumental variable estimators for M.pdf:/home/fred/Zotero/storage/S8NDU2IS/Burgess et al. - 2017 - A review of instrumental variable estimators for M.pdf:application/pdf;Burgess et al. - 2017 - A review of instrumental variable estimators for M.pdf:/home/fred/Zotero/storage/TYRZ39Y5/Burgess et al. - 2017 - A review of instrumental variable estimators for M.pdf:application/pdf},
 }
 
+@article{zuber_selecting_2020,
+	title = {Selecting likely causal risk factors from high-throughput experiments using multivariable Mendelian randomization},
+	volume = {11},
+	issn = {2041-1723},
+	url = {http://www.nature.com/articles/s41467-019-13870-3},
+	doi = {10.1038/s41467-019-13870-3},
+	abstract = {Abstract
+            Modern high-throughput experiments provide a rich resource to investigate causal determinants of disease risk. Mendelian randomization ({MR}) is the use of genetic variants as instrumental variables to infer the causal effect of a specific risk factor on an outcome. Multivariable {MR} is an extension of the standard {MR} framework to consider multiple potential risk factors in a single model. However, current implementations of multivariable {MR} use standard linear regression and hence perform poorly with many risk factors. Here, we propose a two-sample multivariable {MR} approach based on Bayesian model averaging ({MR}-{BMA}) that scales to high-throughput experiments. In a realistic simulation study, we show that {MR}-{BMA} can detect true causal risk factors even when the candidate risk factors are highly correlated. We illustrate {MR}-{BMA} by analysing publicly-available summarized data on metabolites to prioritise likely causal biomarkers for age-related macular degeneration.},
+	pages = {29},
+	number = {1},
+	journaltitle = {Nature Communications},
+	shortjournal = {Nat Commun},
+	author = {Zuber, Verena and Colijn, Johanna Maria and Klaver, Caroline and Burgess, Stephen},
+	urldate = {2022-02-24},
+	date = {2020-12},
+	langid = {english},
+	file = {Zuber et al. - 2020 - Selecting likely causal risk factors from high-thr.pdf:/home/fred/Zotero/storage/8U6IWYT5/Zuber et al. - 2020 - Selecting likely causal risk factors from high-thr.pdf:application/pdf},
+}
 @article{berzuini_bayesian_2020,
 	title = {A Bayesian approach to Mendelian randomization with multiple pleiotropic variants},
 	volume = {21},
@@ -1564,6 +1582,24 @@ Conclusions In a Mendelian randomization study with a binary disease outcome the
 	file = {Zhao et al. - 2019 - Bayesian weighted Mendelian randomization for caus.pdf:/home/fred/Zotero/storage/QCWTQN75/Zhao et al. - 2019 - Bayesian weighted Mendelian randomization for caus.pdf:application/pdf},
 }
 
+@article{darrous_simultaneous_2021,
+	title = {Simultaneous estimation of bi-directional causal effects and heritable confounding from {GWAS} summary statistics},
+	volume = {12},
+	issn = {2041-1723},
+	url = {https://www.nature.com/articles/s41467-021-26970-w},
+	doi = {10.1038/s41467-021-26970-w},
+	abstract = {Abstract
+            Mendelian Randomisation ({MR}) is an increasingly popular approach that estimates the causal effect of risk factors on complex human traits. While it has seen several extensions that relax its basic assumptions, most suffer from two major limitations; their under-exploitation of genome-wide markers, and sensitivity to the presence of a heritable confounder of the exposure-outcome relationship. To overcome these limitations, we propose a Latent Heritable Confounder {MR} ({LHC}-{MR}) method applicable to association summary statistics, which estimates bi-directional causal effects, direct heritabilities, and confounder effects while accounting for sample overlap. We demonstrate that {LHC}-{MR} outperforms several existing {MR} methods in a wide range of simulation settings and apply it to summary statistics of 13 complex traits. Besides several concordant results with other {MR} methods, {LHC}-{MR} unravels new mechanisms (how disease diagnosis might lead to improved lifestyle) and reveals new causal effects (e.g. {HDL} cholesterol being protective against high systolic blood pressure), hidden from standard {MR} methods due to a heritable confounder of opposite effect direction.},
+	pages = {7274},
+	number = {1},
+	journaltitle = {Nature Communications},
+	shortjournal = {Nat Commun},
+	author = {Darrous, Liza and Mounier, Ninon and Kutalik, Zoltán},
+	urldate = {2022-02-28},
+	date = {2021-12},
+	langid = {english},
+	file = {Darrous et al. - 2021 - Simultaneous estimation of bi-directional causal e.pdf:/home/fred/Zotero/storage/WNHVG3IQ/Darrous et al. - 2021 - Simultaneous estimation of bi-directional causal e.pdf:application/pdf},
+}
 @article{small_war_2008,
 	title = {War and Wages: The Strength of Instrumental Variables and Their Sensitivity to Unobserved Biases},
 	volume = {103},
@@ -1793,6 +1829,94 @@ Conclusions Weak instrument bias is of practical importance for the design and a
   year={1993},
   publisher={Oxford New York}
 }
+
+
+@report{mounier_bias_2021,
+	title = {Bias correction for inverse variance weighting Mendelian randomization},
+	url = {http://biorxiv.org/lookup/doi/10.1101/2021.03.26.437168},
+	abstract = {Abstract
+          
+            Background
+            Inverse-variance weighted two-sample Mendelian randomization ({IVW}-{MR}) is the most widely used approach that utilizes genome-wide association studies ({GWAS}) summary statistics to infer the existence and the strength of the causal effect between an exposure and an outcome. Estimates from this approach can be subject to different biases due to the use of weak instruments and winner’s curse, which can change as a function of the overlap between the exposure and outcome samples.
+          
+          
+            Methods
+            
+              We developed a method (
+              {MRlap}
+              ) that simultaneously considers weak instrument bias and winner’s curse, while accounting for potential sample overlap. Assuming spike-and-slab genomic architecture and leveraging {LD}-score regression and other techniques, we could analytically derive, reliably estimate, and hence correct for the bias of {IVW}-{MR} using association summary statistics only.
+            
+          
+          
+            Results
+            We tested our approach using simulated data for a wide range of realistic settings. In all the explored scenarios, our correction reduced the bias, in some situations by as much as 30 folds. When applied to real data on obesity-related exposures, we observed significant differences between {IVW}-based and corrected effects, both for non-overlapping and fully overlapping samples. Additionally, our results are consistent with the fact that the strength of the biases will decrease as the sample size increases. Finally, we also showed that the overall bias is also dependent on the genetic architecture of the exposure, and traits with low heritability and/or high polygenicity are more strongly affected.
+          
+          
+            Conclusions
+            Our method not only reduces bias in causal effect estimation but also enables the use of much larger {GWAS} sample sizes, by allowing for potentially overlapping samples.},
+	institution = {Genetics},
+	type = {preprint},
+	author = {Mounier, Ninon and Kutalik, Zoltán},
+	urldate = {2022-02-28},
+	date = {2021-03-28},
+	langid = {english},
+	doi = {10.1101/2021.03.26.437168},
+	file = {Mounier and Kutalik - 2021 - Bias correction for inverse variance weighting Men.pdf:/home/fred/Zotero/storage/4BX5T7BT/Mounier and Kutalik - 2021 - Bias correction for inverse variance weighting Men.pdf:application/pdf},
+}
+
+@article{hartwig_two-sample_2016,
+	title = {Two-sample Mendelian randomization: avoiding the downsides of a powerful, widely applicable but potentially fallible technique},
+	volume = {45},
+	issn = {0300-5771, 1464-3685},
+	url = {https://academic.oup.com/ije/article/45/6/1717/3072174},
+	doi = {10.1093/ije/dyx028},
+	shorttitle = {Two-sample Mendelian randomization},
+	pages = {1717--1726},
+	number = {6},
+	journaltitle = {International Journal of Epidemiology},
+	author = {Hartwig, Fernando Pires and Davies, Neil Martin and Hemani, Gibran and Davey Smith, George},
+	urldate = {2022-02-28},
+	date = {2016-12-01},
+	langid = {english},
+	file = {Hartwig et al. - 2016 - Two-sample Mendelian randomization avoiding the d.pdf:/home/fred/Zotero/storage/7E9HJFU9/Hartwig et al. - 2016 - Two-sample Mendelian randomization avoiding the d.pdf:application/pdf},
+}
+
+@article{lawlor_commentary_2016,
+	title = {Commentary: Two-sample Mendelian randomization: opportunities and challenges},
+	volume = {45},
+	issn = {0300-5771, 1464-3685},
+	url = {https://academic.oup.com/ije/article-lookup/doi/10.1093/ije/dyw127},
+	doi = {10.1093/ije/dyw127},
+	shorttitle = {Commentary},
+	pages = {908--915},
+	number = {3},
+	journaltitle = {International Journal of Epidemiology},
+	shortjournal = {Int. J. Epidemiol.},
+	author = {Lawlor, Debbie A},
+	urldate = {2022-02-28},
+	date = {2016-06},
+	langid = {english},
+	file = {Lawlor - 2016 - Commentary Two-sample Mendelian randomization op.pdf:/home/fred/Zotero/storage/JJZEIJDH/Lawlor - 2016 - Commentary Two-sample Mendelian randomization op.pdf:application/pdf},
+}
+
+@article{burgess_bias_2016,
+	title = {Bias due to participant overlap in two‐sample Mendelian randomization},
+	volume = {40},
+	issn = {0741-0395, 1098-2272},
+	url = {https://onlinelibrary.wiley.com/doi/10.1002/gepi.21998},
+	doi = {10.1002/gepi.21998},
+	abstract = {Mendelian randomization analyses are often performed using summarized data. The causal estimate from a one-sample analysis (in which data are taken from a single data source) with weak instrumental variables is biased in the direction of the observational association between the risk factor and outcome, whereas the estimate from a two-sample analysis (in which data on the risk factor and outcome are taken from non-overlapping datasets) is less biased and any bias is in the direction of the null. When using genetic consortia that have partially overlapping sets of participants, the direction and extent of bias are uncertain. In this paper, we perform simulation studies to investigate the magnitude of bias and Type 1 error rate inﬂation arising from sample overlap. We consider both a continuous outcome and a case-control setting with a binary outcome. For a continuous outcome, bias due to sample overlap is a linear function of the proportion of overlap between the samples. So, in the case of a null causal eﬀect, if the relative bias of the one-sample instrumental variable estimate is 10\% (corresponding to an F parameter of 10), then the relative bias with 50\% sample overlap is 5\%, and with 30\% sample overlap is 3\%. In a case-control setting, if risk factor measurements are only included for the control participants, unbiased estimates are obtained even in a one-sample setting. However, if risk factor data on both control and case participants are used, then bias is similar with a binary outcome as with a continuous outcome. Consortia releasing publicly available data on the associations of genetic variants with continuous risk factors should provide estimates that exclude case participants from case-control samples.},
+	pages = {597--608},
+	number = {7},
+	journaltitle = {Genetic Epidemiology},
+	shortjournal = {Genet. Epidemiol.},
+	author = {Burgess, Stephen and Davies, Neil M. and Thompson, Simon G.},
+	urldate = {2022-02-28},
+	date = {2016-11},
+	langid = {english},
+	file = {Burgess et al. - 2016 - Bias due to participant overlap in two‐sample Mend.pdf:/home/fred/Zotero/storage/YYIEVDI5/Burgess et al. - 2016 - Bias due to participant overlap in two‐sample Mend.pdf:application/pdf},
+}
+
 
 @article{burgess_bias_2011,
 	title = {Bias in causal estimates from Mendelian randomization studies with weak instruments},
