@@ -1,5 +1,5 @@
 ---
-title: "Mendelian randomization for causal inference in Genome-wide association studies"
+title: "Mendelian randomization for causal inference in genome-wide association studies"
 author: "Frederick J. Boehm & Xiang Zhou"
 date: "`r lubridate::now()`"
 bibliography: exported.bib
@@ -211,7 +211,7 @@ causal effect of the exposure X on the outcome Y by using a single SNP instrumen
 
 In Equation \@ref(eq:wald), $\hat \beta_{YZ}$ and $\hat \beta_{XZ}$ are the slope 
 estimates from the regressions of the outcome and exposure, respectively, on the 
-SNP instrument. Since the Wald method requires only the regression coefficients, it can be used with summary data. However, the Wald method doesn't accommodate multiple SNP instruments, which limits its use in the GWAS setting.
+SNP instrument. Since the Wald method requires only the regression coefficients, it can be used with summary data. However, the Wald method doesn't accommodate multiple SNP instruments, which limits its direct use in the GWAS setting.
 
 
 ### Two-stage methods
@@ -345,7 +345,7 @@ covariance between $Z$ and $\mathbb{E}(Y(0)| X = x, Z = z)$ (Equations \@ref(eq:
   (\#eq:smm1)
 \end{equation}
 
-Note that $k$ indexes SNP instruments and ranges from 1 to $K$ in Equation \@ref(eq:smm1). 
+Note that $k$ indexes SNP instruments and ranges from $1$ to $K$ in Equation \@ref(eq:smm1). 
 
 
 
@@ -395,7 +395,7 @@ Specifically, @burgess_mendelian_2013 combined causal effect ratio estimates fro
   (\#eq:ivw)
 \end{equation}
 
-In efforts to detect the presence of horizontal pleiotropy in two-sample MR studies with GWAS summary data, @greco_m_detecting_2015 developed the between-instrument heterogeneity Q test. In a meta-analysis of MR Wald ratio estimates, one per SNP instrument, they calculate Q in Equation \@ref(eq:q).
+In efforts to detect the presence of horizontal pleiotropy in two-sample MR studies with GWAS summary data, @greco_m_detecting_2015 developed the between-instrument heterogeneity $Q$ test. In a meta-analysis of MR Wald ratio estimates, one per SNP instrument, they calculate $Q$ in Equation \@ref(eq:q).
 
 \begin{equation}
 Q = \sum_{k = 1}^K w_k(\hat\beta^{(k)}_{XY} - \mu_F)^2
@@ -404,13 +404,13 @@ Q = \sum_{k = 1}^K w_k(\hat\beta^{(k)}_{XY} - \mu_F)^2
 
 In Equation \@ref(eq:q), $w_k$ is the inverse variance of the Wald estimator, and $\mu_F = \frac{\sum_{k = 1}^K w_k \hat\beta^{(k)}_{XY}}{\sum_{k = 1}^K w_k}$.
 
-While the Q test tends to be conservative in small sample sizes, its power increases with increasing 
+While the $Q$ test tends to be conservative in small sample sizes, its power increases with increasing 
 sample size and increasing degree of pleiotropy [@greco_m_detecting_2015]. 
 
 @bowden_mendelian_2015 adapted Egger regression, originally developed 
 to detect bias in meta-analyses, to detect bias from horizontal 
 pleiotropy in two-sample MR studies with GWAS summary data 
-[@egger1997bias]. The slope coefficient estimates the causal effect. 
+[@egger1997bias]. The slope coefficient estimates the causal effect of the exposure on the outcome. 
 Under the assumption that the SNP-exposure relationship is independent 
 of the SNP's pleiotropic effects, Egger's test offers a valid test of 
 the null causal hypothesis and consistently estimates the causal 
