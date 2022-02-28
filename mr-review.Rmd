@@ -37,12 +37,6 @@ enhancing our understanding of the biology of health and disease. Mendelian rand
 genetic markers, typically single nucleotide polymorphisms (SNPs), serve as instruments, or proxies, for 
 inferring causal effects of an exposure variable on an outcome variable [@wright1928tariff;@wright1921correlation;@wright1923theory;@stock2003retrospectives;@katan1986apolipoprotein;@katan2004commentary;@didelez2007mendelian]. 
 
-
-They are termed 
-"two-sample" MR studies because the exposure variable and the outcome variable are measured on 
-two non-overlapping cohorts of subjects [@pierce_efficient_2013]. Importantly, the SNP instruments are measured in both sets of subjects.
-
-
 Genome-wide association studies (GWAS) present unique opportunities for 
 discovery of causal relationships via MR. A GWAS
 interrogates millions of single nucleotide polymorphisms (SNPs) to infer which affect the trait [@the_wellcome_trust_case_control_consortium_genome-wide_2007;@klein_complement_2005].
@@ -72,10 +66,12 @@ ggplot2::ggsave("figures/mr-gwas-counts.png")
 
 
 Methods for and uses of MR have appeared at a rapid and accelerating pace since the 
-publication of the early GWAS (Figure \@ref(fig:article-counts)). Many studies use the "two-sample" MR design, in which one cohort of subjects has measurements for the exposure, while a second cohort has measurements for a second trait [@pierce_efficient_2013]. Importantly, the SNP instruments are measured in both sets of subjects.
+publication of the early GWAS (Figure \@ref(fig:article-counts)). Many studies use the "two-sample" MR 
+design, in which one cohort of subjects has measurements for the exposure, while a second cohort has 
+measurements for a second trait [@pierce_efficient_2013]. Importantly, the SNP instruments are measured in 
+both sets of subjects.
 
-Inverse variance 
-weighted MR [@burgess_mendelian_2013], MR-Egger [@bowden_mendelian_2015], weighted 
+Inverse variance weighted MR [@burgess_mendelian_2013], MR-Egger [@bowden_mendelian_2015], weighted 
 median estimation [@bowden_consistent_2016], Bayesian weighted MR 
 [@zhao_bayesian_2019], robust adjusted profile score [@zhao_statistical_2020], MRMix 
 [@qi_mendelian_2019], CAUSE [@morrison_mendelian_2020], and MRAID 
@@ -97,7 +93,8 @@ causal SNP. Second, because many traits are polygenic or omnigenic, multiple
 causal SNPs may be in high LD together. LD clumping is likely to omit one or more
 of the causal SNPs, which can diminish statistical power in MR analysis.
 
-Horizontal pleiotropy occurs when a SNP instrument affects the outcome through at least one pathway that bypasses the exposure variable [@verbanck_detection_2018]. It constitutes a violation of 
+Horizontal pleiotropy occurs when a SNP instrument affects the outcome through at least one pathway that 
+bypasses the exposure variable [@verbanck_detection_2018]. It constitutes a violation of 
 the standard MR assumptions and can lead to biased 
 causal effect estimates and diminished statistical power. We discuss approaches to 
 modeling and accounting for horizontal pleiotropy below.
