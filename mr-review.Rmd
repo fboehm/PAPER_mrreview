@@ -505,7 +505,7 @@ formulate an estimator with high breakdown point and high efficiency. The second
 method, with penalized weights, is much like the penalized median estimator, from above, 
 except that the second argument in the minimum function is $100q_j$, instead of the $20q_j$ 
 above. Finally the LASSO-based method fashions an estimator by applying a penalty to the 
-objective function from MR-Egger to get Equation \@ref(eq:lasso) as the needed objective function.
+objective function from MR-Egger to get Equation \@ref(eq:lasso) as the objective function.
 
 \begin{equation}
 \sum_j [Var(\hat\beta_j)]^{-1}(\hat\beta_{Yj} - \theta_{0j} - \theta_1 \hat\beta_{1j})^2 + \lambda \sum_j |\theta_{0j}|
@@ -551,7 +551,13 @@ modified weights, in addition to studying weights derived from first order and
 second order approximations to the variance. Their modified weights lead 
 to an estimator that is useful for quantifying heterogeneity and detecting outliers.
 
-
+@cho_exploiting_2020 developed the MR-TRYX framework for exploiting horizontal pleiotropy
+to identify alternative causal pathways. They did this by positing that, for a 
+collection of putative SNP instruments, any heterogeneity in the Wald ratio estimates
+may be due to horizontal pleiotropy. Once they identify a SNP with outlying 
+ratio estimates, they search GWAS results by querying the MR-Base database to identify complex traits (in other studies) that 
+associate with the outlying SNP [@hemani_mr-base_2018]. They follow up promising trait associations to 
+account for their observations with multiple causal pathways. 
 
 
 
