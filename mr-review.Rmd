@@ -750,8 +750,34 @@ instruments) and permits correlated SNP instruments, unlike many frequentist met
 proceeds by Markov chain monte carlo sampling. They also elaborate their model for 
 a univariate exposure into that for a bivariate exposure to analyze the causal effects of body mass index and serum phenylalanine levels on blood pressure.  
 
+@cheng_mr-ldp_2020 sought a probabilistic model that accounts for both linkage disequilibrium among SNP 
+instruments and horizontal pleiotropy. They termed their method MR-LDP. Using an approach from @zhu_bayesian_2017, @cheng_mr-ldp_2020 derived 
+an approximate likelihood for their regression models of the exposure and outcome on the SNP instruments. 
+Incorporation of a random effect into their models accounted for the variance in causal effect estimates due 
+to horizontal pleiotropy. They situate inference within an empirical Bayesian framework and present a 
+parameter-expanded variational Bayes expectation-maximization algorithm for estimation [@liu1998parameter]. 
+By jointly modeling the distribution of GWAS summary statistics and causal effects, @cheng_mr-ldp_2020 
+efficiently accommodates multiple SNP instruments in linkage disequilibrium. One limitation of MR-LDP  
+is its reliance on the InSIDE assumption and resulting inability to accommodate correlated horizontal pleiotropy. 
+
+@zhu_iterative_2021 present IMRP, a method for causal effect estimation and horizontal pleiotropy detection. 
+They describe a test to distinguish vertical pleiotropy from horizontal pleiotropy. By combining this test 
+with two-sample MR analysis of GWAS summary statistics, they develop an iterative procedure for estimating 
+the causal effect of exposure on outcome and test for presence of horizontal pleiotropy in the SNP 
+instruments. The iterative procedure alternates between 1) updating the estimate of the causal effect and 2) 
+testing for horizontal pleiotropy with the included SNP instruments. At each test for horizontal pleiotropy, 
+some SNP instruments may be discarded if they demonstrate evidence of horizontal pleiotropic effects. The 
+procedure ends when there remain only SNP instruments that don't exhibit horizontal pleiotropy. In the authors' 
+simulations and data analysis sections, their new method performs about as well as GSMR, IVW, and MR-PRESSO in the 
+settings with and without balanced pleiotropy and with and without satisfaction of the InSIDE assumption [@zhu_iterative_2021]. Finally, the authors note that IMRP is three orders of magnitude faster than simulations-based MR-PRESSO. 
 
 
+@grant_efficient_2020 build on research from @lin2015regularization to present a method that 
+applies a $\ell_1$ penalty to coefficients of covariates in two-sample MR with GWAS summary 
+statistics. Importantly, their method doesn't penalize the SNP-exposure association. Instead, 
+it shrinks towards zero those coefficients for covariates that demonstrate little pleiotropy. In so doing, 
+they extend work from @burgess_multivariable_2015 and @burgess_re_2015 to get a causal effect estimator that needs no valid SNP instruments and robust to measured vertical pleiotropy and more statistically efficient
+than previous MR methods. 
 
 
 
