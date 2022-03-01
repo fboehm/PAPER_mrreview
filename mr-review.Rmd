@@ -800,7 +800,33 @@ effects on the outcome. The find that their MRCIP provides valid causal inferenc
 SNP instruments (*i.e.*, when all SNP instruments are invalid) and when the InSIDE assumption is violated 
 [@xu_mrcip_2021]. Their PRW-EM algorithm adds a reweighting step to the traditional expectation maximization algorithm to estimate the causal effect parameter in MR analysis [@dempster1977maximum]. Finally, they compare  MRCIP to other MR methods with both simulated and real data sets. @xu_mrcip_2021, like the developers of MR-RAPS, assume that the horizontal pleiotropy is balanced, *i.e.*, that the mean horizontal pleiotropic effect is zero. One direction for future study is to augment MRCIP to permit unbalanced horizontal pleiotropy.
 
+@iong_latent_2020 build on other research using mixture models in the two-sample MR setting with GWAS summary 
+statistics. Like MR-Clust, MR-PATH, as the method from @iong_latent_2020 is called, works with the Wald ratio 
+estimates from multiple SNP instruments. Coining the term "mechanistic heterogeneity" to refer to the 
+distribution of Wald ratio estimates due to SNP involvement in distinct causal pathways, @iong_latent_2020 
+specify a $J$-component normal mixture model. They use an expectation maximization algorithm to fit the model 
+parameters (the component weights and the parameters for each of the $J$ normal distributions) and suggest a 
+Bayesian information criterion-based approach to choosing $J$ [@schwarz1978estimating]. 
 
+@wang_weakinstrument_2021 propose causal effect test statistics that are robust under weak instrument asymptotics 
+[@staiger1994instrumental]. Specifically, they extend three econometric methods to two-sample MR with GWAS 
+summary statistics [@anderson1949estimation;@kleibergen_pivotal_2002;@moreira_conditional_2003] and study the 
+theoretical properties and the performance in applications. @wang_weakinstrument_2021 extend their methods to 
+demonstrate conditions under which their estimators are equivalent to those in works from @zhao_statistical_2020, @windmeijer_use_2019, and @bowden_improving_2019.
+
+
+@spiller_detecting_2018 and @spiller_interaction-based_2020 present a method, MR-GxE, that exploits gene by 
+environment interactions to detect and to adjust for bias due to horizontal pleiotropy. They leverage the insight 
+that a SNP instrument-covariate interaction that induces differences in SNP instrument-exposure associations 
+@spiller_interaction-based_2020 treat a SNP-covariate interaction as an instrumental variable, and, by so doing, they impose assumptions on that interaction. Together, these assumptions require that MR-GxE assume that horizontal pleiotropy effects are constant across the study cohort. The authors devise a three-step inferential procedure for two-sample MR with GWAS summary statistics:
+
+1. Estimate the SNP-exposure and SNP-outcome associations at a range of covariate values  
+1. Regress the SNP-outcome estimated associations on the SNP-exposure estimated associations  
+1. Treat the resulting slope as the causal effect estimate and the intercept as the mean horizontal pleiotropy effect.
+
+@spiller_interaction-based_2020 point out that MR-GxE can be used as a sensitivity analysis tool to choose a set 
+of valid SNP instruments from a collection of SNPs in settings where there may be a violation of the constant 
+pleiotropy assumption.
 
 
 
