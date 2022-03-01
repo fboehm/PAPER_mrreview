@@ -730,7 +730,16 @@ types of horizontal pleiotropy. Modeling both types of horizontal pleiotropy is 
 challenging because the MR model likelihood often involves an integral that can't be solved analytically. 
 Because of this issue with the model likelihood, both MRMix and CAUSE use other, non-likelihood-based methods for inference.
 
-@hemani_orienting_2017
+@hemani_orienting_2017, working in the setting of two-sample MR with summary GWAS data, recognized that
+measurement error in outcome and exposure can give misleading results with the inferred 
+causal arrow in the wrong direction. To work around this issue, they extended 
+MR with a method that infers the causal direction between two traits. Specifically, @hemani_orienting_2017 
+adapt Steiger's Z test for a difference in correlations [@steiger1980tests] to assess which of the two 
+traits in an analysis has the stronger correlation with the SNP instrument. That 
+with the stronger correlation is treated as the exposure. @hemani_orienting_2017 
+applied their test in a study of DNA methylation and gene expression, where either 
+direction of causality is plausible, and found 
+that many methylation traits cause changes in gene expression.
 
 
 
