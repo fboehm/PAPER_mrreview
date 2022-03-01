@@ -741,6 +741,18 @@ applied their test in a study of DNA methylation and gene expression, where eith
 direction of causality is plausible, and found 
 that many methylation traits cause changes in gene expression.
 
+@berzuini_bayesian_2020 proposed a Bayesian approach to MR where SNP instruments
+are permitted to exhibit pleiotropic effects on the outcome. Working in the setting of 
+one-sample MR with individual-level data, they construct their 
+model with a shrinkage prior, so that many SNP instruments have no horizontal pleiotropic effects. Their 
+method relaxes the exclusion restriction assumption to permit horizontal pleiotropy (for some SNP 
+instruments) and permits correlated SNP instruments, unlike many frequentist methods. Posterior inference 
+proceeds by Markov chain monte carlo sampling. They also elaborate their model for 
+a univariate exposure into that for a bivariate exposure to analyze the causal effects of body mass index and serum phenylalanine levels on blood pressure.  
+
+
+
+
 
 
 # Correlated horizontal pleiotropy
