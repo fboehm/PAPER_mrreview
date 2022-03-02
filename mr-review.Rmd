@@ -864,7 +864,29 @@ the GWAS setting. Importantly, the authors note that the estimands for multivari
 differ; multivariable MR estimates the direct causal effects of each exposure on the outcome, 
 while MR estimates the total causal effect of an exposure on the outcome. 
 
-@van_der_graaf_mendelian_2020
+MR-link, reported by @van_der_graaf_mendelian_2020, aims to account for unobserved pleiotropy and 
+linkage disequilibrium by using individual-level data on the outcome variable and summary statistics for the exposure. MR-link uses a three-step procedure to estimate causal effects. 
+
+1. Use GCTA-COJO to obtain SNP instruments [@genetic_investigation_of_anthropometric_traits_giant_consortium_conditional_2012]  
+1. Prune all SNPs in linkage disequilibrium with the SNP instruments to obtain a set of "tag" SNPs 
+with correlations less than 0.95  
+1. Solve for the causal effect estimate with ridge regression of the outcome on the matrix resulting from concatenation of the SNP instrument genotypes matrix and the tag SNPs genotypes matrix. 
+
+Note that in step 3, ridge regression is preferred to ordinary least squares due to the limited 
+statistical power of ordinary least squares in this setting. Presumably, this is due to collinearity in 
+the matrix of tag SNP genotypes.
+
+
+@jiang_hierarchical_2021, building on research from @newcombe2016jam, present a two-stage hierarchical Bayesian 
+model that aims to unify MR and transcriptome-wide association studies frameworks. 
+
+Genetic instrumental variable regression uses GWAS summary statistics to construct polygenic scores for 
+the outcome of interest [@diprete_genetic_2018]. In constructing polygenic scores from subsets of a GWAS 
+cohort, @diprete_genetic_2018 aim to reduce bias due to horizontal pleiotropy. 
+
+
+
+
 
 # Correlated horizontal pleiotropy
 
