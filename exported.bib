@@ -9,6 +9,25 @@
   publisher={Wiley Online Library}
 }
 
+@article{bucur_inferring_2020,
+	title = {Inferring the direction of a causal link and estimating its effect via a Bayesian Mendelian randomization approach},
+	volume = {29},
+	issn = {0962-2802, 1477-0334},
+	url = {http://journals.sagepub.com/doi/10.1177/0962280219851817},
+	doi = {10.1177/0962280219851817},
+	abstract = {The use of genetic variants as instrumental variables – an approach known as Mendelian randomization – is a popular epidemiological method for estimating the causal effect of an exposure (phenotype, biomarker, risk factor) on a disease or health-related outcome from observational data. Instrumental variables must satisfy strong, often untestable assumptions, which means that finding good genetic instruments among a large list of potential candidates is challenging. This difficulty is compounded by the fact that many genetic variants influence more than one phenotype through different causal pathways, a phenomenon called horizontal pleiotropy. This leads to errors not only in estimating the magnitude of the causal effect but also in inferring the direction of the putative causal link. In this paper, we propose a Bayesian approach called {BAYESMR} that is a generalization of the Mendelian randomization technique in which we allow for pleiotropic effects and, crucially, for the possibility of reverse causation. The output of the method is a posterior distribution over the target causal effect, which provides an immediate and easily interpretable measure of the uncertainty in the estimation. More importantly, we use Bayesian model averaging to determine how much more likely the inferred direction is relative to the reverse direction.},
+	pages = {1081--1111},
+	number = {4},
+	journaltitle = {Statistical Methods in Medical Research},
+	shortjournal = {Stat Methods Med Res},
+	author = {Bucur, Ioan Gabriel and Claassen, Tom and Heskes, Tom},
+	urldate = {2022-03-02},
+	date = {2020-04},
+	langid = {english},
+	file = {Bucur et al. - 2020 - Inferring the direction of a causal link and estim.pdf:/home/fred/Zotero/storage/Z8SXMN44/Bucur et al. - 2020 - Inferring the direction of a causal link and estim.pdf:application/pdf},
+}
+
+
 @article{steiger1980tests,
   title={Tests for comparing elements of a correlation matrix.},
   author={Steiger, James H},
@@ -210,6 +229,90 @@ Conclusion G-estimation should become a standard procedure for the analysis of t
 	langid = {english},
 	file = {Greenland et al. - 2008 - Estimating effects from randomized trials with dis.pdf:/home/fred/Zotero/storage/BRPE6W2N/Greenland et al. - 2008 - Estimating effects from randomized trials with dis.pdf:application/pdf},
 }
+
+@article{skilling2006nested,
+  title={Nested sampling for general Bayesian computation},
+  author={Skilling, John},
+  journal={Bayesian analysis},
+  volume={1},
+  number={4},
+  pages={833--859},
+  year={2006},
+  publisher={International Society for Bayesian Analysis}
+}
+
+@report{hemani_automating_2017,
+	title = {Automating Mendelian randomization through machine learning to construct a putative causal map of the human phenome},
+	url = {http://biorxiv.org/lookup/doi/10.1101/173682},
+	abstract = {A major application for genome-wide association studies ({GWAS}) has been the emerging ﬁeld of causal inference using Mendelian randomization ({MR}), where the causal eﬀect between a pair of traits can be estimated using only summary level data. {MR} depends on {SNPs} exhibiting vertical pleiotropy, where the {SNP} inﬂuences an outcome phenotype only through an exposure phenotype. Issues arise when this assumption is violated due to {SNPs} exhibiting horizontal pleiotropy. We demonstrate that across a range of pleiotropy models, instrument selection will be increasingly liable to selecting invalid instruments as {GWAS} sample sizes continue to grow. Methods have been developed in an attempt to protect {MR} from diﬀerent patterns of horizontal pleiotropy, and here we have designed a mixture-of-experts machine learning framework ({MR}-{MoE} 1.0) that predicts the most appropriate model to use for any speciﬁc causal analysis, improving on both power and false discovery rates. Using the approach, we systematically estimated the causal eﬀects amongst 2407 phenotypes. Almost 90\% of causal estimates indicated some level of horizontal pleiotropy. The causal estimates are organised into a publicly available graph database (http://eve.mrbase.org), and we use it here to highlight the numerous challenges that remain in automated causal inference.},
+	institution = {Epidemiology},
+	type = {preprint},
+	author = {Hemani, Gibran and Bowden, Jack and Haycock, Philip and Zheng, Jie and Davis, Oliver and Flach, Peter and Gaunt, Tom and Smith, George Davey},
+	urldate = {2022-03-02},
+	date = {2017-08-10},
+	langid = {english},
+	doi = {10.1101/173682},
+	file = {Hemani et al. - 2017 - Automating Mendelian randomization through machine.pdf:/home/fred/Zotero/storage/I9CZNG4Q/Hemani et al. - 2017 - Automating Mendelian randomization through machine.pdf:application/pdf},
+}
+@article{handley2015polychord1,
+  title={POLYCHORD: next-generation nested sampling},
+  author={Handley, WJ and Hobson, MP and Lasenby, AN},
+  journal={Monthly Notices of the Royal Astronomical Society},
+  volume={453},
+  number={4},
+  pages={4384--4398},
+  year={2015},
+  publisher={Oxford University Press}
+}
+@article{handley2015polychord,
+  title={PolyChord: nested sampling for cosmology},
+  author={Handley, WJ and Hobson, MP and Lasenby, AN},
+  journal={Monthly Notices of the Royal Astronomical Society: Letters},
+  volume={450},
+  number={1},
+  pages={L61--L65},
+  year={2015},
+  publisher={Oxford University Press}
+}
+
+
+
+
+
+@InProceedings{pmlr-v54-bucur17a,
+  title = 	 {{Robust Causal Estimation in the Large-Sample Limit without Strict Faithfulness}},
+  author = 	 {Bucur, Ioan Gabriel and Claassen, Tom and Heskes, Tom},
+  booktitle = 	 {Proceedings of the 20th International Conference on Artificial Intelligence and Statistics},
+  pages = 	 {1523--1531},
+  year = 	 {2017},
+  editor = 	 {Singh, Aarti and Zhu, Jerry},
+  volume = 	 {54},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {20--22 Apr},
+  publisher =    {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v54/bucur17a/bucur17a.pdf},
+  url = 	 {https://proceedings.mlr.press/v54/bucur17a.html},
+  abstract = 	 {Causal effect estimation from observational data is an important and much studied research topic. The instrumental variable (IV) and local causal discovery (LCD) patterns are canonical examples of settings where a closed-form expression exists for the causal effect of one variable on another, given the presence of a third variable. Both rely on faithfulness to infer that the latter only influences the target effect via the cause variable. In reality, it is likely that this assumption only holds approximately and that there will be at least some form of weak interaction. This brings about the paradoxical situation that, in the large-sample limit, no predictions are made, as detecting the weak edge invalidates the setting.  We introduce an alternative approach by replacing strict faithfulness with a prior that reflects the existence of many ’weak’ (irrelevant) and ’strong’ interactions. We obtain a posterior distribution over the target causal effect estimator which shows that, in many cases, we can still make good estimates. We demonstrate the approach in an application on a simple linear-Gaussian setting, using the MultiNest sampling algorithm, and compare it with established techniques to show our method is robust even when strict faithfulness is violated.}
+}
+
+
+@article{swerdlow_selecting_2016,
+	title = {Selecting instruments for Mendelian randomization in the wake of genome-wide association studies},
+	volume = {45},
+	issn = {0300-5771, 1464-3685},
+	url = {https://academic.oup.com/ije/article-lookup/doi/10.1093/ije/dyw088},
+	doi = {10.1093/ije/dyw088},
+	pages = {1600--1616},
+	number = {5},
+	journaltitle = {International Journal of Epidemiology},
+	shortjournal = {Int. J. Epidemiol.},
+	author = {Swerdlow, Daniel I and Kuchenbaecker, Karoline B and Shah, Sonia and Sofat, Reecha and Holmes, Michael V and White, Jon and Mindell, Jennifer S and Kivimaki, Mika and Brunner, Eric J and Whittaker, John C and Casas, Juan P and Hingorani, Aroon D},
+	urldate = {2022-03-02},
+	date = {2016-10},
+	langid = {english},
+	file = {Swerdlow et al. - 2016 - Selecting instruments for Mendelian randomization .pdf:/home/fred/Zotero/storage/ZJM8YZPZ/Swerdlow et al. - 2016 - Selecting instruments for Mendelian randomization .pdf:application/pdf},
+}
+
 
 @article{robins_new_1986,
 	title = {A new approach to causal inference in mortality studies with a sustained exposure period—application to control of the healthy worker survivor effect},

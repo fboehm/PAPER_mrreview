@@ -31,6 +31,8 @@ in parallel with development of Mendelian randomization methods. We argue that t
 
 # Introduction
 
+
+
 Great interest has developed in inferring causal relationships between complex 
 traits, *i.e.*, traits that seemingly are not inherited in a Mendelian fashion, in observational human genetics studies. Discovery of such relationships is crucial to 
 enhancing our understanding of the biology of health and disease. Mendelian randomization (MR) studies are a form of instrumental variable analysis in which
@@ -38,7 +40,7 @@ genetic markers, typically single nucleotide polymorphisms (SNPs), serve as inst
 inferring causal effects of an exposure variable on an outcome variable [@wright1928tariff;@wright1921correlation;@wright1923theory;@stock2003retrospectives;@katan1986apolipoprotein;@katan2004commentary;@didelez2007mendelian]. 
 
 Genome-wide association studies (GWAS) present unique opportunities for 
-discovery of causal relationships via MR. A GWAS
+discovery of causal relationships via MR [@swerdlow_selecting_2016]. A GWAS
 interrogates millions of single nucleotide polymorphisms (SNPs) to infer which affect the trait [@the_wellcome_trust_case_control_consortium_genome-wide_2007;@klein_complement_2005].
 In the nearly 17 years since publication of early studies, researchers have reported 
 thousands of novel SNP-trait associations from GWAS [@klein_complement_2005;@welter_nhgri_2014;@visscher_10_2017;@visscher_five_2012]. Ever larger sample sizes in GWAS have enhanced statistical power to detect associations and refined our understanding of 
@@ -699,7 +701,7 @@ setting [@egger_bias_1997;@bowden_mendelian_2015;@burgess_interpreting_2017;@bow
 
 
 
-
+@hemani_automating_2017
 
 
 # Horizontal pleiotropy
@@ -829,6 +831,18 @@ of valid SNP instruments from a collection of SNPs in settings where there may b
 pleiotropy assumption.
 
 
+@bucur_inferring_2020 developed BayesMR, a Bayesian framework for two-sample MR with individual-level data and discuss an approximation for use with  
+GWAS summary statistics. Unlike many MR methods, BayesMR both aims to control for 
+horizontal pleiotropy and to quantitatively assess the possibility of reverse 
+causation, where the putative exposure is actually caused by the putative outcome. 
+For $J$ independent SNP instruments, @bucur_inferring_2020 permit each SNP instrument to 
+have both a direct effect on the exposure and a horizontally pleiotropic direct effect 
+on the outcome. Instrument effects and horizontally pleiotropic effects are assumed 
+independent. Note that this is the Bayesian analog of the InSIDE assumption. 
+After specifying the model, they present a nested sampling scheme [@skilling2006nested;@handley2015polychord1;@handley2015polychord] that simultaneously 
+computes the model evidence for both causal directions (*i.e.*, exposure causes 
+outcome and outcome causes exposure) and acquires samples from the posterior 
+distribution for Bayesian statistical inferences. 
 
 
 
