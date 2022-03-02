@@ -1049,7 +1049,10 @@ inflating the false discovery rate. This finding led the authors to design a pse
 
 ## Bi-directional causal inference with MR
 
-@darrous_simultaneous_2021
+@darrous_simultaneous_2021 
+
+
+
 @wang_causal_2021 developed a framework, GRAPPLE, for performing two-sample MR with weak and strong 
 instruments. Using GWAS summary statistics as inputs, GRAPPLE extends MR-RAPS and can detect presence of horizontally 
 pleiotropic pathways, infer the causal direction, and perform multivariable MR. Central to the 
