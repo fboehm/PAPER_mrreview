@@ -844,7 +844,27 @@ computes the model evidence for both causal directions (*i.e.*, exposure causes
 outcome and outcome causes exposure) and acquires samples from the posterior 
 distribution for Bayesian statistical inferences. 
 
+@schmidt_mendelian_2018 present BMRE, a Bayesian implementation of 
+MR Egger. They apply weakly informative priors to the horizontal pleiotropy effect 
+estimator in efforts to increase statistical power to detect a nonzero 
+slope, i.e., the coefficient of the SNP instrument. They develop their method for two-sample MR with individual-level 
+data. Simulations demonstrate that BMRE outperforms the MR Egger method while maintaining type I error rates in the examined scenarios. The authors emphasize a potential role for BMRE in 
+MR sensitivity analysis. 
 
+@howey_bayesian_2020 use anchored Bayesian networks to 
+
+@sanderson_examination_2019 found that multivariable MR, where multiple exposures jointly 
+cause an outcome, consistently estimates the effect of the exposures on the outcome. They 
+examined multivariable MR with both individual-level data and GWAS summary statistics. 
+@sanderson_examination_2019 also develop a generalized version of Cochran's Q test for 
+quantifying SNP instrument strength and validity. However, this test requires knowledge of 
+the covariances between the effects of the SNP instruments on the exposures. While these 
+covariances could be estimated from individual-level data, such data are often unavailable in 
+the GWAS setting. Importantly, the authors note that the estimands for multivariable MR nad MR 
+differ; multivariable MR estimates the direct causal effects of each exposure on the outcome, 
+while MR estimates the total causal effect of an exposure on the outcome. 
+
+@van_der_graaf_mendelian_2020
 
 # Correlated horizontal pleiotropy
 
