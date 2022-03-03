@@ -365,12 +365,117 @@ studies improves power compared to using independent SNPs only [@liu2021multi;@g
 
 
 
+# Assumption violations and Sensitivity Analysis
+
+It is worthwhile to consider ways in which the standard MR assumptions may be violated and strategies for identifying such violations.
+Let's first consider the exclusion restriction assumption (assumption 2 above). It states that the genetic marker 
+must affect the outcome only through the exposure. The causal diagram in Figure \@ref(fig:dag1) illustrates 
+a scenario that violates this assumption when the variable X is used as the exposure [@vanderweele_methodological_2014]. Bias in causal effect estimation would result. However, 
+if variable W is measured and treated as the exposure, then an unbiased estimate of causal effect is 
+possible, since W captures the two pathways, W -> Y and W -> X -> Y, through which the genetic marker G 
+affects the outcome Y [@vanderweele_methodological_2014;@textor2011dagitty;@textor2016robust].
+
+```{r, dag1, fig.cap = "Scenario where the genetic variant G affects an intermediate variable W on the pathway to the exposure X. Because W affects Y through a pathway that doesn't involve exposure X, this scenario violates the exclusion restriction assumption."}
+
+library(dagitty)
+library(ggplot2)
+
+
+d1 <- dagitty('dag {
+bb="0,0,1,1"
+G [pos="0,0"]
+W [pos="0.5,0"]
+X [exposure, pos="1.0,0"]
+Y [outcome, pos="1.5,0"]
+G -> W
+W -> X
+W -> Y [pos="1,1"]
+X -> Y
+}')
+
+plot(d1)
+
+```
+
+```{r, dag2, fig.cap = "Scenario where the genetic variant G affects exposure X, which affects Y. Unobserved confounder U affects both X and Y."}
+d1 <- dagitty('dag {
+bb="0,0,1,1"
+G [pos="0.0,0.0"]
+U [pos="0.75,0.5"]
+X [exposure, pos="0.5,0.0"]
+Y [outcome, pos="1.0,0.0"]
+G -> X
+U -> X
+U -> Y
+X -> Y
+}'
+)
+plot(d1)
+
+```
+
+
+
+Recognition of the many ways that the MR assumptions may be violated has inspired methods advances that 
+enable assumption relaxations and has motivated use of sensitivity analysis to quantify the impact of 
+possible assumption violations. 
+
+
+
+Sensitivity analysis is recommended and widely used in MR studies because of the inability to verify 
+the three MR assumptions with observational data. The goal of a sensitivity analysis is to gain insight 
+into how the results might differ if the assumptions be violated.
+Because not all confounding 
+variables are known or measured, assumptions 2 and 3 are not fully verifiable 
+in MR studies. Recognition of this fact has inspired the development of 
+sensitivity analysis tools. While we can't assess whether a SNP instrument is 
+associated with every confounder of the exposure-outcome association, it is 
+possible to examine the associations of the SNP instrument with the measured 
+covariates. While absence of such associations doesn't guarantee satisfaction 
+of the assumption, presence of SNP-covariate associations must be investigated
+carefully, as they may constitute assumption violations [@burgess_sensitivity_2017]. 
+
+@burgess_sensitivity_2017 considered a collection of sensitivity analysis methods when 
+working with GWAS summary statistics. @burgess_sensitivity_2017 presented methods for both assessing the
+MR assumptions, to the extent possible, and performing robust analyses. For example, 
+they used measured covariates to assess for possible associations with the SNP 
+instruments. While they can't rule out the possibility of unmeasured confounding, they can study the possibility of measured covariates serving as confounders. 
+
+To illustrate their approach, @burgess_sensitivity_2017 shared a case study in which they examined the causal effect of 
+C-reactive protein (CRP) levels on coronary artery disease risk with four genetic 
+variants in the CRP gene region and 17 other genetic variants that affect coronary 
+artery disease risk. They used measured covariates to probe for SNP-covariate 
+associations, and followed it up with scatter plots and Cochran's Q test on the causal 
+estimates to inquire about whether the 
+SNP instruments all identify the same causal parameter [@greco_m_detecting_2015;@small_sensitivity_2007;@higgins_measuring_2003]. 
+Additionally, @burgess_sensitivity_2017 suggested using a funnel plot, like those in the 
+meta-analysis literature, to visualize possible evidence of directional pleiotropy, where the average pleiotropic effects of the SNP instruments is nonzero [@sterne_recommendations_2011]. Additionally, Egger regression can be useful in this 
+setting [@egger_bias_1997;@bowden_mendelian_2015;@burgess_interpreting_2017;@bowden_framework_2017].
+
+
+
 
 
 
 
 
 ## Statistical models and methods for MR with multiple instruments 
+
+One approach to integrating multiple SNP instruments into a MR framework is
+through calculation of allele scores [@burgess_use_2013]. @burgess_use_2013 
+calculate an unweighted score as the number of exposure-increasing alleles in 
+the subject's genotypes. They also calculate a weighted allele score by using 
+the exposure effects as weights. For example, a subject with $g_k$ copies of 
+exposure-increasing alleles for SNP $k$ has an unweighted allele score $z = \sum_{k = 1}^K g_{k}$ 
+and a weighted allele score $z = \sum_{k = 1}^K w_kg_k$. 
+
+@burgess_use_2013 found that when weights are obtained from external data or from 
+cross-validation or jackknife approaches applied to the analysis data, the allele score 
+functions as a single instrumental variable and greatly diminishes the bias compared to that of the 
+two-stage least squares estimator [@burgess_review_2017;@angrist1999jackknife]. 
+
+
+
 
 @smith_mendelian_2004 recognized that many genetic variants individually explain a 
 small proportion of the variation in a trait, and, thus, sufficient statistical 
@@ -592,113 +697,9 @@ of the exclusion restriction and to additive unmeasured confounding [@robins1994
 
 
 
-### MR with allele scores
-
-Another approach to integrating multiple SNP instruments into a MR framework is
-through calculation of allele scores [@burgess_use_2013]. @burgess_use_2013 
-calculate an unweighted score as the number of exposure-increasing alleles in 
-the subject's genotypes. They also calculate a weighted allele score by using 
-the exposure effects as weights. For example, a subject with $g_k$ copies of 
-exposure-increasing alleles for SNP $k$ has an unweighted allele score $z = \sum_{k = 1}^K g_{k}$ 
-and a weighted allele score $z = \sum_{k = 1}^K w_kg_k$. 
-
-@burgess_use_2013 found that when weights are obtained from external data or from 
-cross-validation or jackknife approaches applied to the analysis data, the allele score 
-functions as a single instrumental variable and greatly diminishes the bias compared to that of the 
-two-stage least squares estimator [@burgess_review_2017;@angrist1999jackknife]. 
-
 
  
  
-
-# Assumption violations
-
-It is worthwhile to consider ways in which the standard MR assumptions may be violated. 
-Let's first consider the exclusion restriction assumption (assumption 2 above). It states that the genetic marker 
-must affect the outcome only through the exposure. The causal diagram in Figure \@ref(fig:dag1) illustrates 
-a scenario that violates this assumption when the variable X is used as the exposure [@vanderweele_methodological_2014]. Bias in causal effect estimation would result. However, 
-if variable W is measured and treated as the exposure, then an unbiased estimate of causal effect is 
-possible, since W captures the two pathways, W -> Y and W -> X -> Y, through which the genetic marker G 
-affects the outcome Y [@vanderweele_methodological_2014;@textor2011dagitty;@textor2016robust].
-
-```{r, dag1, fig.cap = "Scenario where the genetic variant G affects an intermediate variable W on the pathway to the exposure X. Because W affects Y through a pathway that doesn't involve exposure X, this scenario violates the exclusion restriction assumption."}
-
-library(dagitty)
-library(ggplot2)
-
-
-d1 <- dagitty('dag {
-bb="0,0,1,1"
-G [pos="0,0"]
-W [pos="0.5,0"]
-X [exposure, pos="1.0,0"]
-Y [outcome, pos="1.5,0"]
-G -> W
-W -> X
-W -> Y [pos="1,1"]
-X -> Y
-}')
-
-plot(d1)
-
-```
-
-```{r, dag2, fig.cap = "Scenario where the genetic variant G affects exposure X, which affects Y. Unobserved confounder U affects both X and Y."}
-d1 <- dagitty('dag {
-bb="0,0,1,1"
-G [pos="0.0,0.0"]
-U [pos="0.75,0.5"]
-X [exposure, pos="0.5,0.0"]
-Y [outcome, pos="1.0,0.0"]
-G -> X
-U -> X
-U -> Y
-X -> Y
-}'
-)
-plot(d1)
-
-```
-
-
-
-Recognition of the many ways that the MR assumptions may be violated has inspired methods advances that 
-enable assumption relaxations and has motivated use of sensitivity analysis to quantify the impact of 
-possible assumption violations. 
-
-# Sensitivity analysis
-
-Sensitivity analysis is recommended and widely used in MR studies because of the inability to verify 
-the three MR assumptions with observational data. The goal of a sensitivity analysis is to gain insight 
-into how the results might differ if the assumptions be violated.
-Because not all confounding 
-variables are known or measured, assumptions 2 and 3 are not fully verifiable 
-in MR studies. Recognition of this fact has inspired the development of 
-sensitivity analysis tools. While we can't assess whether a SNP instrument is 
-associated with every confounder of the exposure-outcome association, it is 
-possible to examine the associations of the SNP instrument with the measured 
-covariates. While absence of such associations doesn't guarantee satisfaction 
-of the assumption, presence of SNP-covariate associations must be investigated
-carefully, as they may constitute assumption violations [@burgess_sensitivity_2017]. 
-
-@burgess_sensitivity_2017 considered a collection of sensitivity analysis methods when 
-working with GWAS summary statistics. @burgess_sensitivity_2017 presented methods for both assessing the
-MR assumptions, to the extent possible, and performing robust analyses. For example, 
-they used measured covariates to assess for possible associations with the SNP 
-instruments. While they can't rule out the possibility of unmeasured confounding, they can study the possibility of measured covariates serving as confounders. 
-
-To illustrate their approach, @burgess_sensitivity_2017 shared a case study in which they examined the causal effect of 
-C-reactive protein (CRP) levels on coronary artery disease risk with four genetic 
-variants in the CRP gene region and 17 other genetic variants that affect coronary 
-artery disease risk. They used measured covariates to probe for SNP-covariate 
-associations, and followed it up with scatter plots and Cochran's Q test on the causal 
-estimates to inquire about whether the 
-SNP instruments all identify the same causal parameter [@greco_m_detecting_2015;@small_sensitivity_2007;@higgins_measuring_2003]. 
-Additionally, @burgess_sensitivity_2017 suggested using a funnel plot, like those in the 
-meta-analysis literature, to visualize possible evidence of directional pleiotropy, where the average pleiotropic effects of the SNP instruments is nonzero [@sterne_recommendations_2011]. Additionally, Egger regression can be useful in this 
-setting [@egger_bias_1997;@bowden_mendelian_2015;@burgess_interpreting_2017;@bowden_framework_2017].
-
-
 
 
 @hemani_automating_2017
