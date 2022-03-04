@@ -6,6 +6,7 @@ bibliography: exported.bib
 csl: elsevier-with-titles.csl
 link-citations: yes
 linkcolor: blue
+always_allow_html: true
 output: 
   - bookdown::pdf_document2
   - bookdown::html_document2
@@ -884,8 +885,6 @@ model that aims to unify MR and transcriptome-wide association studies framework
 Genetic instrumental variable regression uses GWAS summary statistics to construct polygenic scores for 
 the outcome of interest [@diprete_genetic_2018]. In constructing polygenic scores from subsets of a GWAS 
 cohort, @diprete_genetic_2018 aim to reduce bias due to horizontal pleiotropy. 
-
-
 
 
 
