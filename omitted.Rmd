@@ -1,0 +1,15 @@
+---
+title: "Omitted lit"
+author: "Frederick Boehm"
+date: "3/3/2022"
+bibliography: exported.bib
+output: html_document
+---
+
+
+
+Genetic instrumental variable regression uses GWAS summary statistics to construct polygenic scores for 
+the outcome of interest [@diprete_genetic_2018]. 
+
+
+# references

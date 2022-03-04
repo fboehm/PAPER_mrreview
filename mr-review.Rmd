@@ -44,7 +44,7 @@ Genome-wide association studies (GWAS) present unique opportunities for
 discovery of causal relationships via MR [@swerdlow_selecting_2016]. A GWAS
 interrogates millions of single nucleotide polymorphisms (SNPs) to infer which affect the trait [@the_wellcome_trust_case_control_consortium_genome-wide_2007;@klein_complement_2005].
 In the nearly 17 years since publication of early studies, researchers have reported 
-thousands of novel SNP-trait associations from GWAS [@klein_complement_2005;@welter_nhgri_2014;@visscher_10_2017;@visscher_five_2012]. Ever larger sample sizes in GWAS have enhanced statistical power to detect associations and refined our understanding of 
+thousands of novel SNP-trait associations from GWAS [@klein_complement_2005;@welter_nhgri_2014;@visscher_10_2017;@visscher_five_2012]. Ever larger sample sizes in GWAS have enhanced statistical power to detect associations and have refined our understanding of 
 human health and disease.
 
 ```{r, article-counts, message = FALSE, fig.cap= "Upward trend in article counts by year for keyword searches: 1. mendelian randomization and 2. genome-wide association study."}
@@ -67,6 +67,13 @@ ggplot2::ggsave("figures/mr-gwas-counts.png")
 
 ```
 
+A number of excellent MR reviews have appeared in the literature [@burgess_review_2017;@richmond_concepts_2022;@sanderson_mendelian_2022]. Our review doesn't 
+aim to replace them, but seeks to complement their findings. 
+We present recent methods developments for an audience of statisticians and epidemiologists. We discuss in detail methods advances before briefly summarizing 
+applications and directions for future research. The value of MR analysis with 
+GWAS data will continue to grow in parallel with statistical methods advances. 
+
+
 
 Methods for and uses of MR have appeared at a rapid and accelerating pace since the 
 publication of the early GWAS (Figure \@ref(fig:article-counts)). Many studies use the "two-sample" MR 
@@ -74,40 +81,12 @@ design, in which one cohort of subjects has measurements for the exposure, while
 measurements for a second trait [@pierce_efficient_2013]. Importantly, the SNP instruments are measured in 
 both sets of subjects.
 
-Inverse variance weighted MR [@burgess_mendelian_2013], MR-Egger [@bowden_mendelian_2015], weighted 
-median estimation [@bowden_consistent_2016], Bayesian weighted MR 
-[@zhao_bayesian_2019], robust adjusted profile score [@zhao_statistical_2020], MRMix 
-[@qi_mendelian_2019], CAUSE [@morrison_mendelian_2020], and MRAID 
-[@yuan_likelihood_2021] are all recent methods developments. These methods differ in 
-their approaches to two challenges: 
-
-1. instrument selection (from among the available SNPs)  
-1. modeling and controlling for horizontal pleiotropy  
-
-Many MR methods use a set of pre-selected SNPs as instruments. Typically, these SNPs are selected to 
-be statistically independent. This restriction to 
-independent SNPs is needed for valid inference in methods like inverse variance weighting MR [@burgess_mendelian_2013]. The independent SNPs may be 
-selected through linkage disequilibrium (LD) clumping [@purcell2007plink]. 
-
-However, LD clumping for choosing instrument SNPs can be problematic for several 
-reasons. First, the chosen SNPs may not be causal for the outcome. This can 
-happen, for instance, by using a noncausal SNP that is in high LD with a 
-causal SNP. Second, because many traits are polygenic or omnigenic, multiple 
-causal SNPs may be in high LD together. LD clumping is likely to omit one or more
-of the causal SNPs, which can diminish statistical power in MR analysis.
-
-Horizontal pleiotropy occurs when a SNP instrument affects the outcome through at least one pathway that 
-bypasses the exposure variable [@verbanck_detection_2018]. It constitutes a violation of 
-the standard MR assumptions and can lead to biased 
-causal effect estimates and diminished statistical power. We discuss approaches to 
-modeling and accounting for horizontal pleiotropy below.
-
 
 Recent methods developments have enabled execution of two-sample MR studies with only 
 GWAS summary statistics [@burgess2015using]. These strategies are especially pertinent now that there is 
 an abundance of freely available GWAS summary data [@buniello2019nhgri]. The 
 ability to use published data has contributed to a rapid increase in the number of
-two-sample MR methods for GWAS summary statistics. 
+two-sample MR methods for GWAS summary statistics (Figure \@ref(fig:article-counts)). 
 
 
 
@@ -147,7 +126,7 @@ Three assumptions are central to MR. Satisfying them enables inference of
 causal effects in an observational MR study. In practice, careful evaluation of the assumptions is needed. 
 Because assumptions 2 and 3, which involve absence of certain types of confounding, can't be verified, 
 practitioners must be cautious when planning MR analyses. Sensitivity analysis is highly recommended as a 
-way to assess robustness of estimates in the presence of possible assumption violations.
+way to assess robustness of estimates in the presence of possible assumption violations [@vanderweele_methodological_2014].
 
 
 
@@ -199,8 +178,9 @@ several scenarios where this assumption may not hold [@davey_smith_mendelian_200
 ## Statistical models and methods for MR with one instrument
 
 
-Approaches to MR can be classified into four categories: ratio of coefficients method, two-stage methods, 
-likelihood-based methods, and semiparametric methods.
+Approaches to MR with one SNP instrument can be classified into four categories: ratio of coefficients method, two-stage methods, 
+likelihood-based methods, and semiparametric methods [@burgess_review_2017]. We discuss each of these before turning to methods 
+that 
 
 ### Ratio of coefficients method
 
@@ -257,7 +237,7 @@ likelihood-based MR methods.
 
 Likelihood-based MR methods, unlike two-stage methods, provide maximum likelihood 
 estimates with their many desirable properties [@fisher1925theory]. Limited information maximum likelihood from econometrics 
-is the earliest approach for likelihood-based inference in MR [@davidson1993estimation;@hansen1996finite]. 
+is the earliest approach for likelihood-based inference in MR [@davidson1993estimation;@hansen1996finite]. We consider it below before introducing a Bayesian method. 
 
 Limited information maximum likelihood with a single SNP instrument is modeled with two equations (Equations \@ref(eq:liml1) and \@ref(eq:liml2)), where the random errors follow a bivariate normal distribution [@burgess_review_2017]. 
 
@@ -350,22 +330,6 @@ covariance between $Z$ and $\mathbb{E}(Y(0)| X = x, Z = z)$ (Equations \@ref(eq:
 
 Note that $k$ indexes SNP instruments and ranges from $1$ to $K$ in Equation \@ref(eq:smm1). 
 
-
-
-# Mendelian Randomization with multiple SNP instruments
-
-Recognition of complex traits' diverse genetic architectures has fueled development of two-sample MR 
-methods with multiple SNP instruments [@hormozdiari_leveraging_2018;@watanabe_global_2019;@pierce_power_2011;@bowden_mendelian_2015]. 
-Choosing a subset of the available SNPs to serve as instruments is one issue that arises 
-in these studies. The solution to this task differs among published methods. Early methods chose a 
-set of independent SNPs [@verbanck_detection_2018;@zhu_causal_2018;@zeng_causal_2019-2;@zeng_causal_2019-1]. However, this approach can be problematic when there are multiple causal 
-SNPs in linkage disequilibrium with each other. In this setting, discarding some of the causal SNPs may only capture a small
-proportion of trait variance explained by the exposure and lead to a power loss in MR [@burgess_review_2017;@burgess_mendelian_2013;@burgess_combining_2016;@burgess_bias_2011]. In support of
-this is the finding that including multiple correlated SNPs in transcriptome-wide association
-studies improves power compared to using independent SNPs only [@liu2021multi;@gusev_integrative_2016;@yuan_testing_2020;@zeng_non-parametric_2017]. 
-
-
-
 # Assumption violations and Sensitivity Analysis
 
 It is worthwhile to consider ways in which the standard MR assumptions may be violated and strategies for identifying such violations.
@@ -455,6 +419,69 @@ setting [@egger_bias_1997;@bowden_mendelian_2015;@burgess_interpreting_2017;@bow
 
 
 
+# Mendelian Randomization with multiple SNP instruments
+
+Recognition of complex traits' diverse genetic architectures has fueled development of two-sample MR 
+methods with multiple SNP instruments [@hormozdiari_leveraging_2018;@watanabe_global_2019;@pierce_power_2011;@bowden_mendelian_2015]. 
+Choosing a subset of the available SNPs to serve as instruments is one issue that arises 
+in these studies. The solution to this task differs among published methods. Early methods chose a 
+set of independent SNPs [@verbanck_detection_2018;@zhu_causal_2018;@zeng_causal_2019-2;@zeng_causal_2019-1]. However, this approach can be problematic when there are multiple causal 
+SNPs in linkage disequilibrium with each other. In this setting, discarding some of the causal SNPs may only capture a small
+proportion of trait variance explained by the exposure and lead to a power loss in MR [@burgess_review_2017;@burgess_mendelian_2013;@burgess_combining_2016;@burgess_bias_2011]. In support of
+this is the finding that including multiple correlated SNPs in transcriptome-wide association
+studies improves power compared to using independent SNPs only [@liu2021multi;@gusev_integrative_2016;@yuan_testing_2020;@zeng_non-parametric_2017]. 
+
+Inverse variance weighted MR [@burgess_mendelian_2013], MR-Egger [@bowden_mendelian_2015], weighted 
+median estimation [@bowden_consistent_2016], Bayesian weighted MR 
+[@zhao_bayesian_2019], robust adjusted profile score [@zhao_statistical_2020], MRMix 
+[@qi_mendelian_2019], CAUSE [@morrison_mendelian_2020], and MRAID 
+[@yuan_likelihood_2021] are all recent methods developments. These methods differ in 
+their approaches to three considerations: 
+
+1. instrument selection (from among the available SNPs)  
+1. modeling and controlling for horizontal pleiotropy  
+1. statistical inference procedure  
+
+Many MR methods use a set of pre-selected SNPs as instruments. Typically, these SNPs are selected to 
+be statistically independent. This restriction to 
+independent SNPs is needed for valid inference in methods like inverse variance weighting MR [@burgess_mendelian_2013]. The independent SNPs may be 
+selected through linkage disequilibrium (LD) clumping [@purcell2007plink]. 
+
+However, LD clumping for choosing instrument SNPs can be problematic for several 
+reasons. First, the chosen SNPs may not be causal for the outcome. This can 
+happen, for instance, by using a noncausal SNP that is in high LD with a 
+causal SNP. Second, because many traits are polygenic or omnigenic, multiple 
+causal SNPs may be in high LD together. LD clumping is likely to omit one or more
+of the causal SNPs, which can diminish statistical power in MR analysis.
+
+Horizontal pleiotropy occurs when a SNP instrument affects the outcome through at least one pathway that 
+bypasses the exposure variable [@verbanck_detection_2018]. It constitutes a violation of 
+the standard MR assumptions and can lead to biased 
+causal effect estimates and diminished statistical power. We discuss approaches to 
+modeling and accounting for horizontal pleiotropy below.
+
+
+@smith_mendelian_2004 recognized that many genetic variants individually explain a 
+small proportion of the variation in a trait, and, thus, sufficient statistical 
+power would require sample sizes in the tens of thousands 
+[@schatzkin2009mendelian;@burgess_mendelian_2013]. @palmer_using_2012 partially 
+resolved this issue by proposing use of multiple SNP instruments in a single MR 
+analysis. @pierce_power_2011 reasoned that a single causal estimate derived from 
+a collection of causal SNPs would have greater precision than an estimate derived 
+from only one SNP [@burgess_mendelian_2013]. At the same time, sharing of GWAS 
+summary statistics was encouraged as a best practice [@nature2012asking]. 
+@harbord_severity_2013 recognized that one could calculate the Wald ratio estimate of 
+the causal effect from GWAS summary statistics, and @burgess_mendelian_2013 devised 
+a strategy for determining a single causal effect from summary statistics for a 
+collection of SNPs. 
+
+Below, we discuss a number of MR methods that use multiple 
+instruments. The overall trend appears to be in the direction of increasingly sophisticated 
+modeling of horizontal pleiotropy (and correlated horizontal pleiotropy) while
+attempting to maintain scalability and computational efficiency. 
+
+
+
 
 
 
@@ -476,21 +503,7 @@ functions as a single instrumental variable and greatly diminishes the bias comp
 two-stage least squares estimator [@burgess_review_2017;@angrist1999jackknife]. 
 
 
-
-
-@smith_mendelian_2004 recognized that many genetic variants individually explain a 
-small proportion of the variation in a trait, and, thus, sufficient statistical 
-power would require sample sizes in the tens of thousands 
-[@schatzkin2009mendelian;@burgess_mendelian_2013]. @palmer_using_2012 partially 
-resolved this issue by proposing use of multiple SNP instruments in a single MR 
-analysis. @pierce_power_2011 reasoned that a single causal estimate derived from 
-a collection of causal SNPs would have greater precision than an estimate derived 
-from only one SNP [@burgess_mendelian_2013]. At the same time, sharing of GWAS 
-summary statistics was encouraged as a best practice [@nature2012asking]. 
-@harbord_severity_2013 recognized that one could calculate the Wald ratio estimate of 
-the causal effect from GWAS summary statistics, and @burgess_mendelian_2013 devised 
-a strategy for determining a single causal effect from summary statistics for a 
-collection of SNPs. @burgess_mendelian_2013 termed their method "inverse variance 
+@burgess_mendelian_2013 termed their method "inverse variance 
 weighting" (IVW) because each causal SNP's effect is weighted by the inverse of the variance 
 of the ratio estimator, and the overall causal effect is the sum of the weighted SNP
 causal effects.
@@ -503,7 +516,9 @@ Specifically, @burgess_mendelian_2013 combined causal effect ratio estimates fro
   (\#eq:ivw)
 \end{equation}
 
-In efforts to detect the presence of horizontal pleiotropy in two-sample MR studies with GWAS summary data, @greco_m_detecting_2015 developed the between-instrument heterogeneity $Q$ test. In a meta-analysis of MR Wald ratio estimates, one per SNP instrument, they calculate $Q$ in Equation \@ref(eq:q).
+In efforts to detect the presence of horizontal pleiotropy in two-sample MR studies with GWAS summary 
+data, @greco_m_detecting_2015 developed the between-instrument heterogeneity $Q$ test. In a meta-analysis 
+of MR Wald ratio estimates, one per SNP instrument, they calculate $Q$ in Equation \@ref(eq:q).
 
 \begin{equation}
 Q = \sum_{k = 1}^K w_k(\hat\beta^{(k)}_{XY} - \mu_F)^2
@@ -882,9 +897,6 @@ the matrix of tag SNP genotypes.
 @jiang_hierarchical_2021, building on research from @newcombe2016jam, present a two-stage hierarchical Bayesian 
 model that aims to unify MR and transcriptome-wide association studies frameworks. 
 
-Genetic instrumental variable regression uses GWAS summary statistics to construct polygenic scores for 
-the outcome of interest [@diprete_genetic_2018]. In constructing polygenic scores from subsets of a GWAS 
-cohort, @diprete_genetic_2018 aim to reduce bias due to horizontal pleiotropy. 
 
 
 
