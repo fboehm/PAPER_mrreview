@@ -180,12 +180,13 @@ several scenarios where this assumption may not hold [@davey_smith_mendelian_200
 
 Approaches to MR with one SNP instrument can be classified into four categories: ratio of coefficients method, two-stage methods, 
 likelihood-based methods, and semiparametric methods [@burgess_review_2017]. We discuss each of these before turning to methods 
-that 
+that leverage multiple SNP instruments.
 
 ### Ratio of coefficients method
 
 The ratio of coefficients method, also known as the Wald method, estimates the 
-causal effect of the exposure X on the outcome Y by using a single SNP instrument [@wald_fitting_1940]. For a continuous outcome, the causal effect estimator, $\hat\gamma_{Wald}$ is defined in Equation \@ref(eq:wald).
+causal effect of the exposure X on the outcome Y by using a single SNP instrument [@wald_fitting_1940]. 
+For a continuous outcome, the causal effect estimator, $\hat\gamma_{Wald}$ is defined in Equation \@ref(eq:wald).
 
 \begin{equation}
   \hat\gamma_{Wald} = \frac{\hat\beta_{YZ}}{\hat\beta_{XZ}}
@@ -194,7 +195,9 @@ causal effect of the exposure X on the outcome Y by using a single SNP instrumen
 
 In Equation \@ref(eq:wald), $\hat \beta_{YZ}$ and $\hat \beta_{XZ}$ are the slope 
 estimates from the regressions of the outcome and exposure, respectively, on the 
-SNP instrument. Since the Wald method requires only the regression coefficients, it can be used with summary data. However, the Wald method doesn't accommodate multiple SNP instruments, which limits its direct use in the GWAS setting.
+SNP instrument. Since the Wald method requires only the regression coefficients, it can be used with 
+summary data. However, the Wald method doesn't accommodate multiple SNP instruments, which limits its 
+direct use in the GWAS setting.
 
 
 ### Two-stage methods
