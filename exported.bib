@@ -267,7 +267,7 @@ Conclusions: Depending on the prior distribution, the {BMRE} estimator has more 
 	title = {Automating Mendelian randomization through machine learning to construct a putative causal map of the human phenome},
 	url = {http://biorxiv.org/lookup/doi/10.1101/173682},
 	abstract = {A major application for genome-wide association studies ({GWAS}) has been the emerging ﬁeld of causal inference using Mendelian randomization ({MR}), where the causal eﬀect between a pair of traits can be estimated using only summary level data. {MR} depends on {SNPs} exhibiting vertical pleiotropy, where the {SNP} inﬂuences an outcome phenotype only through an exposure phenotype. Issues arise when this assumption is violated due to {SNPs} exhibiting horizontal pleiotropy. We demonstrate that across a range of pleiotropy models, instrument selection will be increasingly liable to selecting invalid instruments as {GWAS} sample sizes continue to grow. Methods have been developed in an attempt to protect {MR} from diﬀerent patterns of horizontal pleiotropy, and here we have designed a mixture-of-experts machine learning framework ({MR}-{MoE} 1.0) that predicts the most appropriate model to use for any speciﬁc causal analysis, improving on both power and false discovery rates. Using the approach, we systematically estimated the causal eﬀects amongst 2407 phenotypes. Almost 90\% of causal estimates indicated some level of horizontal pleiotropy. The causal estimates are organised into a publicly available graph database (http://eve.mrbase.org), and we use it here to highlight the numerous challenges that remain in automated causal inference.},
-	institution = {Epidemiology},
+
 	type = {preprint},
 	author = {Hemani, Gibran and Bowden, Jack and Haycock, Philip and Zheng, Jie and Davis, Oliver and Flach, Peter and Gaunt, Tom and Smith, George Davey},
 	urldate = {2022-03-02},
@@ -1493,6 +1493,18 @@ Conclusions: By utilizing instrument–covariate interactions in {MR} analyses i
   year={2011},
   publisher={Elsevier}
 }
+
+@article{richmond_concepts_2022,
+  title={Mendelian randomization: concepts and scope},
+  author={Richmond, Rebecca C and Smith, George Davey},
+  journal={Cold Spring Harbor perspectives in medicine},
+  volume={12},
+  number={1},
+  pages={a040501},
+  year={2022},
+  publisher={Cold Spring Harbor Laboratory Press}
+}
+
 @article{bowden_mendelian_2015,
 	title = {Mendelian randomization with invalid instruments: effect estimation and bias detection through Egger regression},
 	volume = {44},
@@ -2035,22 +2047,23 @@ Conclusions In a Mendelian randomization study with a binary disease outcome the
 	file = {Burgess et al. - 2017 - Sensitivity Analyses for Robust Causal Inference f.pdf:/home/fred/Zotero/storage/CGBWPLUQ/Burgess et al. - 2017 - Sensitivity Analyses for Robust Causal Inference f.pdf:application/pdf},
 }
 
-@report{yuan_likelihood_2021,
-	title = {Likelihood based Mendelian randomization analysis with automated instrument selection and horizontal pleiotropic modeling},
-	url = {http://medrxiv.org/lookup/doi/10.1101/2021.11.03.21265848},
+@article{yuan_likelihood_2021,
+	title = {Likelihood-based Mendelian randomization analysis with automated instrument selection and horizontal pleiotropic modeling},
+	url = {https://www.science.org/doi/10.1126/sciadv.abl5744},
+	volume = {8},
+	issue = {9},
+	pages = {1-15},
 	abstract = {Abstract
           
             Mendelian randomization ({MR}) is a common tool for identifying causal risk factors underlying diseases. Here, we present a method, {MRAID}, for effective {MR} analysis. {MRAID} borrows ideas from fine mapping analysis to model an initial set of candidate {SNPs} that are in potentially high linkage disequilibrium with each other and automatically selects among them the suitable instruments for causal inference. {MRAID} also explicitly models both uncorrelated and correlated horizontal pleiotropic effects that are widespread for complex trait analysis. {MRAID} achieves both tasks through a joint likelihood framework and relies on a scalable sampling-based algorithm to compute calibrated
             p
             -values. Comprehensive and realistic simulations show {MRAID} can provide calibrated type I error control, reduce false positives, while being more powerful than existing approaches. We illustrate the benefits of {MRAID} for an {MR} screening analysis across 645 trait pairs in {UK} Biobank, identifying multiple lifestyle causal risk factors of cardiovascular disease-related traits.},
-	institution = {Epidemiology},
-	type = {preprint},
 	author = {Yuan, Zhongshang and Liu, Lu and Guo, Ping and Yan, Ran and Xue, Fuzhong and Zhou, Xiang},
-	urldate = {2022-02-01},
-	date = {2021-11-04},
+	urldate = {2022-03-03},
+	date = {2022-03-02},
 	langid = {english},
-	doi = {10.1101/2021.11.03.21265848},
-	file = {Yuan et al. - 2021 - Likelihood based Mendelian randomization analysis .pdf:/home/fred/Zotero/storage/BMIVHSPY/Yuan et al. - 2021 - Likelihood based Mendelian randomization analysis .pdf:application/pdf;media-1.pdf:/home/fred/Zotero/storage/FHILPWVZ/media-1.pdf:application/pdf},
+	doi = {https://doi.org/10.1126/sciadv.abl5744},
+
 }
 
 

@@ -1,0 +1,59 @@
+---
+title: "Omitted lit"
+author: "Frederick Boehm"
+date: "3/3/2022"
+bibliography: exported.bib
+output: html_document
+---
+
+
+
+Genetic instrumental variable regression uses GWAS summary statistics to construct polygenic scores for 
+the outcome of interest [@diprete_genetic_2018]. 
+
+
+
+
+@hemani_automating_2017
+
+@howey_bayesian_2020 use anchored Bayesian networks to 
+
+@jiang_hierarchical_2021, building on research from @newcombe2016jam, present a two-stage hierarchical Bayesian 
+model that aims to unify MR and transcriptome-wide association studies frameworks. 
+
+@mounier_bias_2021
+@hartwig_two-sample_2016
+@lawlor_commentary_2016
+@burgess_bias_2016
+
+@darrous_simultaneous_2021 
+
+
+\begin{eqnarray}
+U = X\beta_U \odot Z_U + \epsilon_U\nonumber \\
+A = U\nu + B\delta + X\beta_A \odot Z_A + \epsilon_A \nonumber \\
+B = U\eta + A\gamma + X\beta_B \odot Z_B + \epsilon_B 
+  (\#eq:wwer)
+\end{eqnarray}
+
+
+
+To develop MR methods that are robust to correlated horizontal pleiotropy, 
+@brown_welch-weighted_2021 present Welch-weighted Egger regression. Their flexible model 
+accommodates both uni-directional and bi-directional effects between exposure and outcome. 
+@brown_welch-weighted_2021 specifies their model via Equations \@ref(eq:wwer). They denote 
+the two traits by $A$ and $B$, the SNP genotypes matrix by $X$, and the unobserved confounder by $U$. $Z_U$, $Z_A$ and $Z_B$ denote the indicator vectors of zeros and ones to designate which . Note that the model is agnostic with regards to which is the 
+outcome and which the exposure, so we follow the authors' notation here. The symbol $\odot$ denotes the Hadamard elementwise product.
+
+In Equations \@ref(eq:wwer), 
+
+
+## Multivariate exposures in MR analysis
+
+@grant_pleiotropy_2021: we introduce three methods which build on common approaches in the univariable setting: {MVMR}-Robust; {MVMR}-Median; and {MVMR}-Lasso
+
+
+
+
+
+# references
