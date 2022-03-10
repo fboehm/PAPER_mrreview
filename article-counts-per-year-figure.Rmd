@@ -42,7 +42,8 @@ dat %>%
   ggplot2::scale_fill_manual(labels = c("GWAS", "MR"), values=c('#999999','#E69F00')) + 
   ggplot2::ylab("Annual publication count") + 
   ggplot2::xlab("Year") + 
-  ggplot2::guides(fill = ggplot2::guide_legend("Search terms"))
+  ggplot2::guides(fill = ggplot2::guide_legend("Search terms")) +
+  ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 270, vjust = 0.5))
   
 ggplot2::ggsave("figures/mr-gwas-counts.png")
 ```
