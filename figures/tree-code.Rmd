@@ -2,14 +2,19 @@
 title: "Untitled"
 author: "Fred Boehm"
 date: "3/14/2022"
-output: word_document
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
-graph TD
+
+```{r}
+library(DiagrammeR)
+mermaid("
+%%{init: {'theme':'base', 'themeVariables': {'fontSize': '200px'}}}%%
+flowchart LR
     A[Number of SNPs] --> B[One SNP]
     B --> C1[Wald ratio]
     B --> C2[Two-stage least squares]
@@ -18,7 +23,7 @@ graph TD
     B --> C5[Generalized method of moments]
     B --> C6[Continuous updating estimator]
     B --> C7[G-estimation of structural mean model]
-    A --> C[More than one SNP]
+    A --> C[More than one SNP]   
     D[Independent SNPs?]
     D --> E[Yes]
     E --> E1[MR Egger]
@@ -28,18 +33,17 @@ graph TD
     D --> F[No]  
     C --> G[Individual-level data available?]
     G --> G1[Yes]
-    G --> G2
-    G2 --> D
+    G --> G2[No] --> D
     G1 --> H1[unweighted allele score]
     G1 --> H2[weighted allele score]
     G1 --> H3[sisVIVE]
     G1 --> H4[naive constrained IV]
     G1 --> H5[smoothed constrained IV]
     G1 --> H6[MR-GxE]
-    F --> I[Explicitly model horizontal pleiotropy]
+    F --> I[Explicitly model horizontal pleiotropy?]
     I --> I1[Yes]
     I --> I2[No]
-    I1 --> J2[Models correlated horizontal pleiotropy]
+    I1 --> J2[Models correlated horizontal pleiotropy?]
     J2 --> K1[Yes]
     J2 --> K3[No]
     K3 --> M[Univariate exposure?]
@@ -80,4 +84,6 @@ graph TD
     O2 --> L25[GRAPPLE]
     I2 --> J1[IVW with correlated SNPs]
 
+ ")
+```
 
