@@ -1,0 +1,83 @@
+---
+title: "Untitled"
+author: "Fred Boehm"
+date: "3/14/2022"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+graph TD
+    A[Number of SNPs] --> B[One SNP]
+    B --> C1[Wald ratio]
+    B --> C2[Two-stage least squares]
+    B --> C3[Limited information maximum likelihood]
+    B --> C4[LIML-Bayes]
+    B --> C5[Generalized method of moments]
+    B --> C6[Continuous updating estimator]
+    B --> C7[G-estimation of structural mean model]
+    A --> C[More than one SNP]
+    D[Independent SNPs?]
+    D --> E[Yes]
+    E --> E1[MR Egger]
+    E --> E2[IVW MR]
+    E --> E3[Weighted median estimator MR]
+    E --> E4[Bayesian weighted MR]
+    D --> F[No]  
+    C --> G[Individual-level data available?]
+    G --> G1[Yes]
+    G --> G2
+    G2 --> D
+    G1 --> H1[unweighted allele score]
+    G1 --> H2[weighted allele score]
+    G1 --> H3[sisVIVE]
+    G1 --> H4[naive constrained IV]
+    G1 --> H5[smoothed constrained IV]
+    G1 --> H6[MR-GxE]
+    F --> I[Explicitly model horizontal pleiotropy]
+    I --> I1[Yes]
+    I --> I2[No]
+    I1 --> J2[Models correlated horizontal pleiotropy]
+    J2 --> K1[Yes]
+    J2 --> K3[No]
+    K3 --> M[Univariate exposure?]
+    M --> M1[Yes]
+    M --> M2[No]
+    M2 --> L26[Multivariable MR]
+    M1 --> N[Infer causal direction?]
+    N --> O1[No]
+    N --> O2[Yes]  
+    O1 --> P[Infer multiple causal pathways?]
+    P --> K2[No]
+    P --> Q2[Yes] 
+    K1 --> L1[MRAID]
+    K1 --> L2[MRMix]
+    K1 --> L3[MRCAUSE]
+    O2 --> L4[Inferring causal direction with MR]
+    K2 --> L5[Weighted mode-based MR]
+    K2 --> L6[Unweighted mode-based MR]
+    K2 --> L7[Robust regression MR]
+    K2 --> L8[Penalized weights MR]
+    K2 --> L9[LASSO penalization MR]
+    K2 --> L10[Contamination mixture MR]
+    K2 --> L11[Modified weights MR]
+    K2 --> LL[MR RAPS]
+    Q2 --> L12[MR TRYX]
+    Q2 --> L13[MR CLUST]
+    Q2 --> L14[MR LDP]
+    K2 --> L15[IMRP]
+    K2 --> L16[l1 penalization of covariate coefficients]
+    K1 --> L17[MR CIP]
+    Q2 --> L18[MR PATH]
+    K2 --> L19[Weak instrument robust tests]
+    K2 --> L20[Bayes MR]
+    K2 --> L21[BMRE]
+    K2 --> L22[MR link]
+    K2 --> L23[Omnigenic MR]
+    K2 --> L24[Block jackknife resampling MR]
+    O2 --> L25[GRAPPLE]
+    I2 --> J1[IVW with correlated SNPs]
+
+
