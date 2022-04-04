@@ -1,0 +1,5 @@
+---
+output: pdf_document
+---
+
+Declarations of interest: none
