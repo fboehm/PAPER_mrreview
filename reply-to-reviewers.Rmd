@@ -1,0 +1,29 @@
+---
+title: "Reply to reviewers"
+author: "Fred Boehm"
+date: "4/4/2022"
+output: html_document
+---
+
+Editor and Reviewer comments:
+
+With pleasure I read this manuscript that compares methods for Mendelian randomization (MR). I think the authors did a lot of work in making such an extensive review. However, I do have some comments:
+
+-I think the current manuscript is somewhere in between guiding  people who are new to MR and giving a complete overview of all methods. I think adding a standard MR dag would be beneficial to the first type of reader. This could be part of Fig 3 perhaps.
+
+-On page 13, the authors write 'This can happen, for instance, by using a noncausal SNP that is in high LD with a causal SNP. Second, because many traits are polygenic or omnigenic, multiple causal SNPs may be
+in high LD together. LD clumping is likely to omit one or more of the causal SNPs, which candiminish statistical power in MR analysis.' (p13). I think this is not too much of a concern, as long as there is strong correlation between these SNPs, because the GWAS estimate of a single variant also takes into account it's LD structure with other SNPs. Hence, it is not really only the effect of that specific SNP that is measured and hence not much information should be lost due to clumping.
+
+-The current section 'Applications of MR in GWAS' seems quite random why these specific studies were chosen. To me as a reader I wonder why are these specific studies chosen.
+
+-I think the manuscript could give more guidance to readers on what methods should be used or not. This could easily extend Figure 4. Currently it is unclear how different these methods really are and when they will give different results.
+
+-I think the manuscript would improve if it would say something on future prospects (this is somewhat done in the section summary and outlook, but is currently a bit underwhelming). E.g. what are currently open challenges?
+
+Minor remarks:
+
+-Please beware that Mendelian randomization should be written with capital M (e.g. caption Figure 1).
+
+-mathematical symbols sometimes difficult to read (\hat{} command often overlap)
+
+-I find the graphical abstract unclear.
