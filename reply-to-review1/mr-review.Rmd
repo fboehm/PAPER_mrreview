@@ -362,7 +362,7 @@ respectively. @yuan_likelihood_2021 then constructs a Gibbs sampler to make like
 
 By encoding these assumptions in prior distributions, @yuan_likelihood_2021 enables the inferential procedures to accommodate the observed data in the context of the assumptions on SNPs.
 
-## Practice recommendations
+
 
 ## Binary, Count, and Time-to-event outcomes and exposures
 
@@ -371,13 +371,41 @@ Researchers have also leveraged other generalized linear models for analysis in 
 Recently, multiple teams of investigators have analyzed time-to-event traits in MR studies [@burgess_commentary_2015;@arvanitis_linear_2021;@tikkanen_body_2019;@he_causal_2018;@guo_body_2017]. @guo_body_2017, for example, studied post-diagnosis survival time in women with breast cancer. They treated survival as a time-to-event outcome, which enabled them to model it with a proportional hazards model [@cox_regression_1972] in two-stage MR with individual-level data. Similarly, @he_causal_2018, in a study of cardiovascular disease, applied proportional hazards regression when examining time to stroke as an outcome variable. In very recent work, @tchetgen_tchetgen_genius_2021 reported methods, MR GENIUS, that are robust to violations of the exclusion restriction assumption (under many assumed MR data generating processes). They considered binary, continuous, and time-to-event outcomes within their framework. We are unaware of MR studies that treat the exposure variable as a time-to-event, but it’s conceivable that future research will consider time-to-event traits as exposures in MR analyses.
 
 ## Recent Findings
+
 ### Omnigenic MR
+
 Recent research on the omnigenic hypothesis, which posits that every SNP’s effect on a trait is nonzero, has informed MR methods development [@boyle2017]. @wang_mendelian_nodate recognized the limitations of previous MR methods in the context of the omnigenic hypothesis. In response, @wang_mendelian_nodate developed a MR method that uses all genome-wide SNPs as instruments. Using GWAS summary statistics as inputs, their method relies on a composite likelihood framework for scalable computation and allows for horizontal pleiotropy. @wang_mendelian_nodate used extensive simulations, including those with model misspecifications, to characterize their method’s statistical power and robustness. Finally, they applied the new method to identify multiple complex traits that affect coronary artery disease and asthma. These causal relationships highlight the important roles of plasma lipids, blood pressure, and the immune system in CAD susceptibility and those of obesity and the immune system in asthma development.
+
 ### Sample overlap in biobanks
+
 The issue of overlapping samples in the two-sample MR with GWAS summary data has recently received attention in the published literature. @fang2021evaluating, working with data from the UK Biobank, found that SNP instruments derived from overlapping samples explained a higher proportion of the variance compared to those derived from non-overlapping samples. They argue that block jackknife resampling MR enables causal inference while avoiding bias due to overlapping samples. @sadreev2021navigating analyzed 2,514 traits from the UK Biobank and evaluated the impact of winner’s curse on MR analysis. Winner’s curse, they found, amplifies weak instrument bias without inflating the false discovery rate. This finding led the authors to design a pseudoreplication process that reduces bias in MR studies. @berzuini_bayesian_2020 proposed a Bayesian approach for one-sample MR analysis where SNP instruments are permitted to exhibit pleiotropic effects on the outcome. Working in the setting of one-sample MR with individual-level data, they construct their model with a shrinkage prior, so that many SNP instruments have no horizontal pleiotropic effects. Their method relaxes the exclusion restriction assumption to permit horizontal pleiotropy (for some SNP instruments) and permits correlated SNP instruments, unlike many frequentist methods. Posterior inference proceeds by Markov chain Monte Carlo sampling. They also elaborate their model for a univariate exposure into that for a bivariate exposure to analyze the causal effects of body mass index and serum phenylalanine levels on blood pressure.
 
 ### Bi-directional causal inference with MR to account for reverse causation
+
 Reverse causation occurs when the outcome at an early time point has a causal effect on the exposure variable. While reverse causation is often assumed to not occur in MR study designs, @burgess_are_2021 points out several scenarios where this assumption may not hold [@davey_smith_mendelian_2003]. In recognition of this observation, @wang_causal_2021 developed a framework, GRAPPLE, for performing two-sample MR with weak and strong instruments. Using GWAS summary statistics as inputs, GRAPPLE extends MR-RAPS and can detect presence of horizontally pleiotropic pathways, infer the causal direction, and perform multivariable MR. Central to the GRAPPLE framework is the observation that a horizontally pleiotropic pathway often gives rise to an additional mode in the profile likelihood. GRAPPLE uses the presence of multiple profile likelihood modes to diagnose horizontal pleiotropy with effects that are grouped by pathway. GRAPPLE facilitates identification of SNP instruments that contribute to the additional profile likelihood modes. A researcher using GRAPPLE may then recognize a confounding factor for each mode. With additional GWAS summary data with traits that reflect the confounding factors, GRAPPLE can fit multivariable MR models when the InSIDE assumption holds for the remaining horizontally pleiotropic effects [@wang_causal_2021].
+
+## Practice recommendations
+
+We now turn attention to the question of how to choose among the MR methods for a given analysis. We focus on the two-sample setting where only GWAS summary statistics are available. The large number of two-sample MR methods with summary statistics may challenge  a practitioner seeking to develop
+an analysis plan. Early considerations include: 
+
+1. assessing the plausibility of the MR assumptions  
+1. determining which questions to address with sensitivity analysis  
+1. assessing causal directionality between exposure and outcome variables  
+
+In some settings, a practitioner may address these questions by a careful study of the 
+relevant scientific literature. For example, there may be experimental studies that 
+suggest a causal direction for the relationship between exposure and outcome. 
+If both causal directions are plausible, then a bidirectional MR analysis may be needed. 
+If the bidirectional MR analysis (and supporting scientific evidence) is consistent with a single causal direction, then
+a practitioner may proceed with unidirectional MR methods. Given the pervasive nature of horizontal pleiotropy and its potential impact on MR, we recommend using one or more MR methods explicitly model horizontal pleiotropy. Recent methods, such as CAUSE and MRAID, go a step further by modeling correlated horizontal pleiotropy [@morrison_mendelian_2020;@yuan_likelihood_2021].
+
+Other MR methods can be used in sensitivity analysis to assess robustness of findings to 
+possible violations of MR assumptions.
+Additionally, methods like MR-clust have the potential to reveal additional relationships among genes that share a biological pathway [@foley_mr-clust_2021]. The STROBE-MR statement has additional practice recommendations [@skrivankova_strengthening_2021].
+
+
+
 
 ## Summary and Outlook
 
