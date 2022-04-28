@@ -150,11 +150,11 @@ covariance between $Z$ and $\mathbb{E}(Y(0)| X = x, Z = z)$ (Equations \@ref(eq:
 
 Note that $k$ indexes SNP instruments and ranges from $1$ to $K$ in Equation \@ref(eq:smm1). 
 
-# Assumption violations and Sensitivity Analysis
+# Assumption violations and sensitivity analysis
 
 It is worthwhile to consider ways in which the standard MR assumptions may be violated and strategies for identifying such violations.
 Let's first consider the exclusion restriction assumption (assumption 2 above). It states that the genetic marker 
-must affect the outcome only through the exposure. The causal diagram in Figure \@ref(fig:dag1) illustrates 
+must affect the outcome only through the exposure. The causal diagram in Figure 3B illustrates 
 a scenario that violates this assumption when the variable X is used as the exposure [@vanderweele_methodological_2014]. Bias in causal effect estimation would result. However, 
 if variable W is measured and treated as the exposure, then an unbiased estimate of causal effect is 
 possible, since W captures the two pathways, W -> Y and W -> X -> Y, through which the genetic marker G 
