@@ -1,7 +1,7 @@
 ---
-title: "Mendelian randomization with genome-wide association studies data"
+title: "Statistical methods for Mendelian randomization in genome-wide association studies: A review"
 author: "Frederick J. Boehm & Xiang Zhou"
-date: "`r lubridate::now()`"
+date: "`r lubridate::today()`"
 csl: ../elsevier-with-titles.csl
 link-citations: yes
 linkcolor: blue
@@ -159,7 +159,7 @@ The generalized method of moments equations, with a single SNP instrument, then,
 \end{eqnarray}
 
 
-The GMM estimate is the value of the vector $\beta$ that satisfies Equation \@ref(eq:gmm), where $f(x_i; \beta) = \mathbb{E}(Y|\text{do}(X = x))$. @palmer_instrumental_2011 developed numerical methods for obtaining estimates from Equations \@ref(eq:gmm).
+The GMM estimate is the value of the vector $\beta$ that satisfies Equation \@ref(eq:gmm), where $f(x_i; \beta) = \mathbb{E}(Y|\text{do}(X = x))$. @palmer_instrumental_2011 developed numerical methods for obtaining estimates from Equation \@ref(eq:gmm).
 
 Another semiparametric estimation method is G-estimation of a structural mean model [@burgess_review_2017;@robins_new_1986;@greenland_estimating_2008].
 We follow [@burgess_review_2017] by defining the potential outcome $Y(x)$ as the outcome value that we would have observed had we set the exposure value $X$ to $x$. For example, $Y(0)$ denotes the observed outcome had 
@@ -236,10 +236,10 @@ While the above MR methods all use independent SNP instruments, using independen
 
 ## Assumption violations and Sensitivity Analysis
 
-It is worthwhile to consider ways in which the standard MR assumptions may be violated and strategies for identifying such violations. Let’s first consider the exclusion restriction assumption (assumption 2 above). It states that the SNP instrument must affect the outcome only through the exposure. The causal diagram in Figure 3B illustrates a scenario that violates this assumption [@vanderweele_methodological_2014]. Bias in causal effect estimation would result. However, if the intermediate is measured and treated as the exposure, then an unbiased estimate of causal effect is possible, since the intermediate captures the two pathways, intermediate -> outcome and intermediate -> exposure -> outcome, through which the SNP instrument affects the outcome Y [@vanderweele_methodological_2014]. 
+It is worthwhile to consider ways in which the standard MR assumptions may be violated and strategies for identifying such violations. Let’s first consider the exclusion restriction assumption (assumption 2 above). It states that the SNP instrument must affect the outcome only through the exposure (Figure 3B). The causal diagram in Figure 3A illustrates a scenario that violates this assumption [@vanderweele_methodological_2014]. Bias in causal effect estimation would result. However, if the intermediate is measured and treated as the exposure, then an unbiased estimate of causal effect is possible, since the intermediate captures the two pathways, intermediate -> outcome and intermediate -> exposure -> outcome, through which the SNP instrument affects the outcome Y [@vanderweele_methodological_2014]. 
 
-```{r, dags, fig.cap = "Causal diagrams for MR. A. Scenario where the genetic variant affects an exposure, which in turn affects an outcome. B. Scenario where the genetic variant affects an intermediate variable on the pathway to the exposure. Because the intermediate affects the outcome through a pathway that doesn’t involve exposure, this scenario violates the exclusion restriction assumption. C. Correlated horizontal pleiotropy occurs when the genetic variant affects the exposure, which in turn affects the outcome, and the genetic variant affects the unobserved confounder, which in turn affects the exposure and the outcome independently."}
-knitr::include_graphics("../figures/all_dags-two.png")
+```{r, dags, fig.cap = "Causal diagrams for MR. A. Scenario where the genetic variant affects an intermediate variable on the pathway to the exposure. Because the intermediate affects the outcome through a pathway that doesn’t involve exposure, this scenario violates the exclusion restriction assumption. B. Scenario where the genetic variant affects an exposure, which in turn affects an outcome, possibly in the presence of unmeasured confounding. C. Correlated horizontal pleiotropy occurs when the genetic variant affects the exposure, which in turn affects the outcome, and the genetic variant affects the unobserved confounder, which in turn affects the exposure and the outcome independently."}
+knitr::include_graphics("../figures/all_dags.png")
 ```
 
 
@@ -443,14 +443,14 @@ a practitioner may proceed with unidirectional MR methods. Given the pervasive n
 
 Other MR methods can be used in sensitivity analysis to assess robustness of findings to 
 possible violations of MR assumptions.
-Additionally, methods like MR-clust have the potential to reveal additional relationships among genes that share a biological pathway [@foley_mr-clust_2021]. The STROBE-MR statement has additional practice recommendations [@skrivankova_strengthening_2021].
+Methods like MR-clust have the potential to reveal additional relationships among genes that share a biological pathway [@foley_mr-clust_2021]. The STROBE-MR statement has additional practice recommendations [@skrivankova_strengthening_2021].
 
 
 
 
 ## Summary and Outlook
 
-Open research questions remain in the MR field. We have highlighted above three recent findings: omnigenic MR, sample overlap in biobanks, and bidirectional causal inference. While we discussed initial findings in these three areas, many opportunities for methods enhancements remain. For example, as biobank sizes grow in number of subjects and number of measured traits, there is increasing demand for MR methods that scale efficiently with large sample sizes. Development of methods for two-sample MR with overlapping samples opens opportunities to study rich biobank data, and we anticipate that this question - how to accommodate overlapping samples - will continue to be an active area of research. 
+Open research questions remain in the MR field. We have highlighted above three recent findings: omnigenic MR, methods for sample overlap in biobanks, and methods for bidirectional causal inference. While we discussed initial findings in these three areas, many opportunities for methods enhancements remain. For example, as biobank sizes grow in number of subjects and number of measured traits, there is increasing demand for MR methods that scale efficiently with large sample sizes. Development of methods for two-sample MR with overlapping samples opens opportunities to study rich biobank data, and we anticipate that this question - how to accommodate overlapping samples - will continue to be an active area of research. 
 
 In summary, we have presented a comprehensive review on 47 methods for MR analysis in GWAS (Figure 4).  The overall trend of the methodology development for MR analysis is in the direction of increasingly sophisticated modeling of horizontal pleiotropy including both independent and correlated horizontal pleiotropy while attempting to maintain scalability and computational efficiency in the presence of multiple correlated SNPs. We hope our detailed review would benefit both methodology developers and applied analysts to further advance the development of MR methods and aid in their applications towards large, biobank-scale datasets, thus offering the possibility of discovering even more causal relationships among complex traits [@bycroft_uk_2018].
 
